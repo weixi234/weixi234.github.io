@@ -127,17 +127,17 @@
 
 
 
-<meta name="description" content="—title: Ubuntu18配置CUDA跑模型date: 2018-10-15 16:48:55tags:  CUDA ubuntu18 深度学习categories: 深度学习   #前言# #1、更换源#step1：编辑/etc/apt/sources.list文件  sudo gedit /ect/apt/sources.list  step2：更新">
+<meta name="description" content="—title: Ubuntu18配置CUDA跑模型date: 2018-10-15 16:48:55tags:  CUDA ubuntu18 深度学习categories: 深度学习   #前言 #1、更换源step1：编辑/etc/apt/sources.list文件  sudo gedit /ect/apt/sources.list  step2：更新  s">
 <meta property="og:type" content="article">
 <meta property="og:title" content="未 晞">
 <meta property="og:url" content="http://yoursite.com/2018/10/15/Ubuntu18配置CUDA跑模型/index.html">
 <meta property="og:site_name" content="未 晞">
-<meta property="og:description" content="—title: Ubuntu18配置CUDA跑模型date: 2018-10-15 16:48:55tags:  CUDA ubuntu18 深度学习categories: 深度学习   #前言# #1、更换源#step1：编辑/etc/apt/sources.list文件  sudo gedit /ect/apt/sources.list  step2：更新">
+<meta property="og:description" content="—title: Ubuntu18配置CUDA跑模型date: 2018-10-15 16:48:55tags:  CUDA ubuntu18 深度学习categories: 深度学习   #前言 #1、更换源step1：编辑/etc/apt/sources.list文件  sudo gedit /ect/apt/sources.list  step2：更新  s">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-15T14:52:58.153Z">
+<meta property="og:updated_time" content="2018-10-15T15:07:10.210Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="未 晞">
-<meta name="twitter:description" content="—title: Ubuntu18配置CUDA跑模型date: 2018-10-15 16:48:55tags:  CUDA ubuntu18 深度学习categories: 深度学习   #前言# #1、更换源#step1：编辑/etc/apt/sources.list文件  sudo gedit /ect/apt/sources.list  step2：更新">
+<meta name="twitter:description" content="—title: Ubuntu18配置CUDA跑模型date: 2018-10-15 16:48:55tags:  CUDA ubuntu18 深度学习categories: 深度学习   #前言 #1、更换源step1：编辑/etc/apt/sources.list文件  sudo gedit /ect/apt/sources.list  step2：更新  s">
 
 
 
@@ -387,7 +387,7 @@
       
 
       
-        <p>﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿—<br>title: Ubuntu18配置CUDA跑模型<br>date: 2018-10-15 16:48:55<br>tags:</p>
+        <p>﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿—<br>title: Ubuntu18配置CUDA跑模型<br>date: 2018-10-15 16:48:55<br>tags:</p>
 <ul>
 <li>CUDA</li>
 <li>ubuntu18</li>
@@ -395,8 +395,8 @@
 <li>深度学习</li>
 </ul>
 <hr>
-<p>#前言#</p>
-<p>#1、更换源#<br>step1：编辑/etc/apt/sources.list文件</p>
+<p>#前言</p>
+<p>#1、更换源<br>step1：编辑/etc/apt/sources.list文件</p>
 <blockquote>
 <p>sudo gedit /ect/apt/sources.list</p>
 </blockquote>
@@ -407,7 +407,7 @@
 <blockquote>
 <p>sudo apt-get upgrade</p>
 </blockquote>
-<p>#2、安装nvidia显卡驱动#<br>显卡驱动可参考<a href="https://linuxconfig.org/how-to-inatall-the-nvidia-drivers-on-ubuntu-18-04-bionic-beaver-linux#h8-manual-install-using-the-official-nvidia-com-driver" target="_blank" rel="noopener">如何安装NVIDIA显卡驱动</a></p>
+<p>#2、安装nvidia显卡驱动<br>显卡驱动可参考<a href="https://linuxconfig.org/how-to-inatall-the-nvidia-drivers-on-ubuntu-18-04-bionic-beaver-linux#h8-manual-install-using-the-official-nvidia-com-driver" target="_blank" rel="noopener">如何安装NVIDIA显卡驱动</a></p>
 <p>step1：查看显卡设备和驱动</p>
 <blockquote>
 <p>ubuntu-drivers devices</p>
@@ -430,7 +430,7 @@
 <p>CUDA Toolkit获取<a href="https://developer.nvidia.com/cuda-toolkit-archive" target="_blank" rel="noopener">CUDA Toolkit Archive</a></p>
 <p>CUDA Archive获取<a href="https://developer.nvidia.com/rdp/cudnn-archive" target="_blank" rel="noopener">CUDA cuDNN Archive</a></p>
 <p>注意CUDA cuDNN与CUDA Toolkit 之间的对应关系</p>
-<p>#4、安装CUDA Toolkit#<br>参照对应版本的说明文档即可</p>
+<p>#4、安装CUDA Toolkit<br>参照对应版本的说明文档即可</p>
 <blockquote>
 <p>sudo sh cuda_10.0.130_410.48_linux.run</p>
 </blockquote>
@@ -467,7 +467,7 @@
 <p>sudo ./bandwidthTest</p>
 </blockquote>
 <p>Pass表示通过</p>
-<p>#5、安装cuDNN#<br><strong>应该看官方说明文档，我偷懒了</strong><br>解压cudnn压缩包，执行或参考下面命令</p>
+<p>#5、安装cuDNN<br><strong>应该看官方说明文档，我偷懒了</strong><br>解压cudnn压缩包，执行或参考下面命令</p>
 <blockquote>
 <p>sudo cp cuda/include/cudnn.h  /usr/local/include<br>sudo cp cuda/lib64/libcudnn<em> /usr/local/cuda/lib64<br>sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn</em></p>
 </blockquote>
