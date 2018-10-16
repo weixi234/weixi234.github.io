@@ -336,7 +336,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/10/15/Ubuntu18配置CUDA跑模型/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/2018/10/15/Ubuntu18配置CUDA跑模型/" itemprop="url">Ubuntu18配置CUDA跑模型</a></h1>
         
 
         <div class="post-meta">
@@ -358,6 +358,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/深度学习/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -388,16 +410,7 @@
       
         
           
-          ﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿—title: Ubuntu18配置CUDA跑模型date: 2018-10-15 16:48:55tags:
-
-CUDA
-ubuntu18
-深度学习categories:
-深度学习
-
-
-#前言
-#1、更换源step1：编辑/etc/apt/sources.list文件
+          前言1、更换源step1：编辑/etc/apt/sources.list文件
 
 sudo gedit /ect/apt/sources.list
 
@@ -408,10 +421,20 @@ sudo apt-get update
 
 sudo apt-get upgrade
 
-#2、安装nvidia显卡驱动显卡驱动可参考如何安装NVIDIA显卡驱动
+2、安装nvidia显卡驱动显卡驱动可参考如何安装NVIDIA显卡驱动
 step1：查看显卡设备和驱动
 
-ubu
+ubuntu-drivers devices
+
+step2：自动安装合适的显卡驱动
+
+sudo ubuntu-drivers sutoinstall
+
+衡量nvidia显卡驱动安装是否成功1、终端中确认
+
+nvidia-smi
+
+2、设置
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1021,7 +1044,25 @@ More in
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
             
 
           </nav>

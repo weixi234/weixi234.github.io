@@ -116,7 +116,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="CUDA,ubuntu18,深度学习," />
 
 
 
@@ -127,17 +127,18 @@
 
 
 
-<meta name="description" content="—title: Ubuntu18配置CUDA跑模型date: 2018-10-15 16:48:55tags:  CUDA ubuntu18 深度学习categories: 深度学习   #前言 #1、更换源step1：编辑/etc/apt/sources.list文件  sudo gedit /ect/apt/sources.list  step2：更新  s">
+<meta name="description" content="前言1、更换源step1：编辑/etc/apt/sources.list文件  sudo gedit /ect/apt/sources.list  step2：更新  sudo apt-get update   sudo apt-get upgrade  2、安装nvidia显卡驱动显卡驱动可参考如何安装NVIDIA显卡驱动 step1：查看显卡设备和驱动  ubuntu-drivers devi">
+<meta name="keywords" content="CUDA,ubuntu18,深度学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="未 晞">
+<meta property="og:title" content="Ubuntu18配置CUDA跑模型">
 <meta property="og:url" content="http://yoursite.com/2018/10/15/Ubuntu18配置CUDA跑模型/index.html">
 <meta property="og:site_name" content="未 晞">
-<meta property="og:description" content="—title: Ubuntu18配置CUDA跑模型date: 2018-10-15 16:48:55tags:  CUDA ubuntu18 深度学习categories: 深度学习   #前言 #1、更换源step1：编辑/etc/apt/sources.list文件  sudo gedit /ect/apt/sources.list  step2：更新  s">
+<meta property="og:description" content="前言1、更换源step1：编辑/etc/apt/sources.list文件  sudo gedit /ect/apt/sources.list  step2：更新  sudo apt-get update   sudo apt-get upgrade  2、安装nvidia显卡驱动显卡驱动可参考如何安装NVIDIA显卡驱动 step1：查看显卡设备和驱动  ubuntu-drivers devi">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-15T15:07:10.210Z">
+<meta property="og:updated_time" content="2018-10-16T01:06:15.526Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="未 晞">
-<meta name="twitter:description" content="—title: Ubuntu18配置CUDA跑模型date: 2018-10-15 16:48:55tags:  CUDA ubuntu18 深度学习categories: 深度学习   #前言 #1、更换源step1：编辑/etc/apt/sources.list文件  sudo gedit /ect/apt/sources.list  step2：更新  s">
+<meta name="twitter:title" content="Ubuntu18配置CUDA跑模型">
+<meta name="twitter:description" content="前言1、更换源step1：编辑/etc/apt/sources.list文件  sudo gedit /ect/apt/sources.list  step2：更新  sudo apt-get update   sudo apt-get upgrade  2、安装nvidia显卡驱动显卡驱动可参考如何安装NVIDIA显卡驱动 step1：查看显卡设备和驱动  ubuntu-drivers devi">
 
 
 
@@ -173,7 +174,7 @@
 
 
 
-  <title> | 未 晞</title>
+  <title>Ubuntu18配置CUDA跑模型 | 未 晞</title>
   
 
 
@@ -337,7 +338,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">Ubuntu18配置CUDA跑模型</h1>
         
 
         <div class="post-meta">
@@ -359,6 +360,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/深度学习/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -387,16 +410,7 @@
       
 
       
-        <p>﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿—<br>title: Ubuntu18配置CUDA跑模型<br>date: 2018-10-15 16:48:55<br>tags:</p>
-<ul>
-<li>CUDA</li>
-<li>ubuntu18</li>
-<li>深度学习<br>categories:</li>
-<li>深度学习</li>
-</ul>
-<hr>
-<p>#前言</p>
-<p>#1、更换源<br>step1：编辑/etc/apt/sources.list文件</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h1 id="1、更换源"><a href="#1、更换源" class="headerlink" title="1、更换源"></a>1、更换源</h1><p>step1：编辑/etc/apt/sources.list文件</p>
 <blockquote>
 <p>sudo gedit /ect/apt/sources.list</p>
 </blockquote>
@@ -407,7 +421,7 @@
 <blockquote>
 <p>sudo apt-get upgrade</p>
 </blockquote>
-<p>#2、安装nvidia显卡驱动<br>显卡驱动可参考<a href="https://linuxconfig.org/how-to-inatall-the-nvidia-drivers-on-ubuntu-18-04-bionic-beaver-linux#h8-manual-install-using-the-official-nvidia-com-driver" target="_blank" rel="noopener">如何安装NVIDIA显卡驱动</a></p>
+<h1 id="2、安装nvidia显卡驱动"><a href="#2、安装nvidia显卡驱动" class="headerlink" title="2、安装nvidia显卡驱动"></a>2、安装nvidia显卡驱动</h1><p>显卡驱动可参考<a href="https://linuxconfig.org/how-to-inatall-the-nvidia-drivers-on-ubuntu-18-04-bionic-beaver-linux#h8-manual-install-using-the-official-nvidia-com-driver" target="_blank" rel="noopener">如何安装NVIDIA显卡驱动</a></p>
 <p>step1：查看显卡设备和驱动</p>
 <blockquote>
 <p>ubuntu-drivers devices</p>
@@ -422,7 +436,7 @@
 </blockquote>
 <p>2、设置-&gt;详细信息-&gt;About<br>3、软件中搜索‘nvidia setting’-&gt;Prime profiles</p>
 <p><strong>我觉得这里应该有硬件环境和对应的版本选择分析</strong></p>
-<p>#3、CUDA官网查询对应版本及相关信息<br>英伟达官方文档<a href="https://developer.nvidia.com/cuda-toolkit-archive" target="_blank" rel="noopener">CUDA Toolkit Archive</a>对应工具版本后面的Online Documentation中的安装指南推荐看看，网上的中文教程应该就是按照这个来的。</p>
+<h1 id="3、CUDA官网查询对应版本及相关信息"><a href="#3、CUDA官网查询对应版本及相关信息" class="headerlink" title="3、CUDA官网查询对应版本及相关信息"></a>3、CUDA官网查询对应版本及相关信息</h1><p>英伟达官方文档<a href="https://developer.nvidia.com/cuda-toolkit-archive" target="_blank" rel="noopener">CUDA Toolkit Archive</a>对应工具版本后面的Online Documentation中的安装指南推荐看看，网上的中文教程应该就是按照这个来的。</p>
 <p>查询自己计算机的显卡硬件支持？（我没找到）<br>我就用CUDA9.0吧，ubuntu18好像要用CUDA10，我也不知道要怎么选😭</p>
 <p>CUDA Toolkit 包括：NVCC编译器、CUDA函数头文件及库文件，及一些辅助库</p>
 <p>CUDA Toolkit SDK 提供CUDA分析接口函数（帮助用户分析CUDA程序）</p>
@@ -430,12 +444,12 @@
 <p>CUDA Toolkit获取<a href="https://developer.nvidia.com/cuda-toolkit-archive" target="_blank" rel="noopener">CUDA Toolkit Archive</a></p>
 <p>CUDA Archive获取<a href="https://developer.nvidia.com/rdp/cudnn-archive" target="_blank" rel="noopener">CUDA cuDNN Archive</a></p>
 <p>注意CUDA cuDNN与CUDA Toolkit 之间的对应关系</p>
-<p>#4、安装CUDA Toolkit<br>参照对应版本的说明文档即可</p>
+<h1 id="4、安装CUDA-Toolkit"><a href="#4、安装CUDA-Toolkit" class="headerlink" title="4、安装CUDA Toolkit"></a>4、安装CUDA Toolkit</h1><p>参照对应版本的说明文档即可</p>
 <blockquote>
 <p>sudo sh cuda_10.0.130_410.48_linux.run</p>
 </blockquote>
 <p>注意：出现 更多  点q  accept  驱动不装 其余yes</p>
-<p><em>配置环境</em></p>
+<p>  <em>配置环境</em></p>
 <blockquote>
 <p>sudo gedit ~/.barshrc</p>
 </blockquote>
@@ -445,7 +459,8 @@
 </blockquote>
 <p><strong>阅读安装完的summary也可知道</strong></p>
 <p><strong>重启</strong></p>
-<p><em>检查cuda是否安装成功</em><br>1、检测路径~/dev下有无存在名为nvidia*的多个文件，若无安装出错</p>
+<p>  <em>检查cuda是否安装成功</em></p>
+<p>1、检测路径~/dev下有无存在名为nvidia*的多个文件，若无安装出错</p>
 <blockquote>
 <p>ls ~/dev | grep nvidia*</p>
 </blockquote>
@@ -467,7 +482,8 @@
 <p>sudo ./bandwidthTest</p>
 </blockquote>
 <p>Pass表示通过</p>
-<p>#5、安装cuDNN<br><strong>应该看官方说明文档，我偷懒了</strong><br>解压cudnn压缩包，执行或参考下面命令</p>
+<h1 id="5、安装cuDNN"><a href="#5、安装cuDNN" class="headerlink" title="5、安装cuDNN"></a>5、安装cuDNN</h1><p><strong>应该看官方说明文档，我偷懒了</strong></p>
+<p>解压cudnn压缩包，执行或参考下面命令</p>
 <blockquote>
 <p>sudo cp cuda/include/cudnn.h  /usr/local/include<br>sudo cp cuda/lib64/libcudnn<em> /usr/local/cuda/lib64<br>sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn</em></p>
 </blockquote>
@@ -514,6 +530,16 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CUDA/" rel="tag"># CUDA</a>
+          
+            <a href="/tags/ubuntu18/" rel="tag"># ubuntu18</a>
+          
+            <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
+          
+        </div>
       
 
       
@@ -591,8 +617,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -618,7 +653,25 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
             
 
           </nav>
@@ -654,6 +707,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1、更换源"><span class="nav-number">2.</span> <span class="nav-text">1、更换源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2、安装nvidia显卡驱动"><span class="nav-number">3.</span> <span class="nav-text">2、安装nvidia显卡驱动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3、CUDA官网查询对应版本及相关信息"><span class="nav-number">4.</span> <span class="nav-text">3、CUDA官网查询对应版本及相关信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4、安装CUDA-Toolkit"><span class="nav-number">5.</span> <span class="nav-text">4、安装CUDA Toolkit</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5、安装cuDNN"><span class="nav-number">6.</span> <span class="nav-text">5、安装cuDNN</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
