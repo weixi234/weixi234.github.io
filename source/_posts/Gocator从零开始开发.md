@@ -11,7 +11,7 @@ categories:
 
 # 前言
     实验室有个Gocator-2350A-3B-00老师让用起来
-
+![GoCator](Gocator从零开始开发/Gocator事物图.png)
 # 入门
 1、官网查型号，找说明书和开发手册
 
@@ -43,55 +43,3 @@ categories:
 >**7、多线程回调--->4.5.2参看GoMultiSensor_Multi-datathread**
 
 >**SDK开发文档在GO_SDK-doc->GoSdk->Gocator_2x00下**
-
-# 参看例程
-配置环境就不用说了，缺什么就添什么，还算简单。
-## GoMultiSensor_BasicSetup
-### GoSdk_Construct
-```
-#include <GoSdk/GoSdk.h>
-#include <kApi/kApi.h>
-#define SENSOR_COUNT 2 
-
-kStatus status;
-DataContext *callbackContext;
-kAssembly api;
-unsigned int i;
-GoSystem system;
-GoSensor sensor[SENSOR_COUNT];
-```
-```
-// construct Gocator API Library
-if ((status = GoSdk_Construct(&api)) != kOK)
-{
-	printf("Error: GoSdk_Construct:%d\n", status);
-	return;
-}
-```
-解释：
-
-This function should be called prior to calling any other Gocator SDK functions. 
- * When the library is no longer needed, call kObject_Destroy on the assembly object
- * that is returned by this function.
- * 
- * This function can safely be called multiple times.  In order to ensure 
- * final cleanup, kObject_Destroy must be invoked a corresponding number of times.
-
-```
-// construct GoSystem object
-if ((status = GoSystem_Construct(&system, kNULL)) != kOK)
-{
-	printf("Error: GoSystem_Construct:%d\n", status);
-	return;
-}
-```
-解释：
-* During construction, a GoSystem object uses Gocator Discovery Protocol to locate sensors.
-* The list of detected sensors can be accessed using the GoSystem_SensorCount and GoSystem_SensorAt
-* functions.
-
-
-
-
-
-
