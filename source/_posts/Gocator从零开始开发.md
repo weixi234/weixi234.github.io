@@ -11,7 +11,7 @@ categories:
 
 # 前言
     实验室有个Gocator-2350A-3B-00老师让用起来
-![GoCator](Gocator从零开始开发/Gocator事物图.png)
+![GoCator](Gocator事物图.png)
 # 入门
 1、官网查型号，找说明书和开发手册
 
