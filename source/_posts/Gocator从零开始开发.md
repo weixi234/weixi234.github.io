@@ -13,7 +13,7 @@ categories:
     实验室有个Gocator-2350A-3B-00老师让用起来
 ![GoCator](Gocator事物图.png)
 
-{% asset_img Gocator从零开始开发/Gocator事物图.png Gocator width=50% %}
+{% asset_img Gocator从零开始开发/Gocator事物图.png width=50% Gocator %}
 # 入门
 1、官网查型号，找说明书和开发手册
 
