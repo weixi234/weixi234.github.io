@@ -13,6 +13,6 @@ categories:
 
 小白入门看这个[通俗易懂的主成分分析（PCA）详解](https://blog.csdn.net/Murray_/article/details/79945148)
 
-
+看到篇pdf[主成分分析](staff.ustc.edu.cn/~zwp/teach/MVA/Lec11_slides.pdf)
 
 
