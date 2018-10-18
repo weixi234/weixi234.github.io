@@ -116,7 +116,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="标定,相机,二维图像," />
 
 
 
@@ -127,13 +127,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="未 晞">
-<meta property="og:url" content="http://yoursite.com/archives/2018/10/index.html">
+<meta name="description" content="前言张氏标定总结张氏标定Flexible camera calibration by viewing a plane from unknow orientations中文翻译参考 透镜畸变及校正模型 镜头畸变现象及其校正方法  可关注sylvester0510  slam 此处mark一下  matlab标定相机结果参数获取 最详细、最完整的相机标定讲解 小白可以先看这个知乎 张氏法相机标定 看看">
+<meta name="keywords" content="标定,相机,二维图像">
+<meta property="og:type" content="article">
+<meta property="og:title" content="张氏标定总结">
+<meta property="og:url" content="http://yoursite.com/2018/10/18/张氏标定总结/index.html">
 <meta property="og:site_name" content="未 晞">
+<meta property="og:description" content="前言张氏标定总结张氏标定Flexible camera calibration by viewing a plane from unknow orientations中文翻译参考 透镜畸变及校正模型 镜头畸变现象及其校正方法  可关注sylvester0510  slam 此处mark一下  matlab标定相机结果参数获取 最详细、最完整的相机标定讲解 小白可以先看这个知乎 张氏法相机标定 看看">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-10-18T13:25:39.888Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="未 晞">
+<meta name="twitter:title" content="张氏标定总结">
+<meta name="twitter:description" content="前言张氏标定总结张氏标定Flexible camera calibration by viewing a plane from unknow orientations中文翻译参考 透镜畸变及校正模型 镜头畸变现象及其校正方法  可关注sylvester0510  slam 此处mark一下  matlab标定相机结果参数获取 最详细、最完整的相机标定讲解 小白可以先看这个知乎 张氏法相机标定 看看">
 
 
 
@@ -163,13 +168,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2018/10/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/18/张氏标定总结/"/>
 
 
 
 
 
-  <title>归档 | 未 晞</title>
+  <title>张氏标定总结 | 未 晞</title>
   
 
 
@@ -198,7 +203,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -302,333 +307,219 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/18/张氏标定总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="未晞">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tuxiang.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="未 晞">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">张氏标定总结</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-18T20:40:00+08:00">
+                2018-10-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 9 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/二维图像/" itemprop="url" rel="index">
+                    <span itemprop="name">二维图像</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/10/18/PCA主成成分分析/" itemprop="url">
-              
-                <span itemprop="name">PCA主成分分析</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-18T21:27:08+08:00"
-              content="2018-10-18" >
-          10-18
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/10/18/张氏标定总结/" itemprop="url">
-              
-                <span itemprop="name">张氏标定总结</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-18T20:40:00+08:00"
-              content="2018-10-18" >
-          10-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/10/16/Gocator从零开始开发/" itemprop="url">
-              
-                <span itemprop="name">Gocator从零开始开发</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-16T15:57:50+08:00"
-              content="2018-10-16" >
-          10-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h1 id="张氏标定总结"><a href="#张氏标定总结" class="headerlink" title="张氏标定总结"></a>张氏标定总结</h1><p><a href="https://blog.csdn.net/heroacool/article/details/50286677" target="_blank" rel="noopener">张氏标定Flexible camera calibration by viewing a plane from unknow orientations中文翻译参考</a></p>
+<p><a href="https://blog.csdn.net/dcrmg/article/details/52950141" target="_blank" rel="noopener">透镜畸变及校正模型</a></p>
+<p><a href="https://blog.csdn.net/piaoxuezhong/article/details/75268535" target="_blank" rel="noopener">镜头畸变现象及其校正方法</a></p>
+<blockquote>
+<p>可关注sylvester0510  slam 此处mark一下</p>
+</blockquote>
+<p><a href="https://blog.csdn.net/felix86/article/details/38438259" target="_blank" rel="noopener">matlab标定相机结果参数获取</a></p>
+<p><a href="https://blog.csdn.net/a083614/article/details/78579163" target="_blank" rel="noopener">最详细、最完整的相机标定讲解</a></p>
+<p>小白可以先看这个<a href="https://zhuanlan.zhihu.com/p/24651968" target="_blank" rel="noopener">知乎 张氏法相机标定</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/29785583" target="_blank" rel="noopener">看看这篇文章 摄像机内外参矩阵和一些疑问</a></p>
+<p>深入<a href="https://blog.csdn.net/yang/dashi888/article/details/51356385" target="_blank" rel="noopener">内参外参畸变参数三种参数与相机的标定方法与相机坐标系的理解</a></p>
+<blockquote>
+<p>归一化平面 的理解 mark一下</p>
+</blockquote>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/10/16/Git常用指令/" itemprop="url">
-              
-                <span itemprop="name">Git常用指令</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-16T14:55:38+08:00"
-              content="2018-10-16" >
-          10-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/10/15/Ubuntu18配置CUDA跑模型/" itemprop="url">
-              
-                <span itemprop="name">Ubuntu18配置CUDA跑模型</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-15T16:48:55+08:00"
-              content="2018-10-15" >
-          10-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/10/15/测试in-surface/" itemprop="url">
-              
-                <span itemprop="name">测试in surface</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-15T14:55:59+08:00"
-              content="2018-10-15" >
-          10-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/10/15/hello-world/" itemprop="url">
-              
-                <span itemprop="name">Hello World</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-15T14:55:02+08:00"
-              content="2018-10-15" >
-          10-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/10/15/test02/" itemprop="url">
-              
-                <span itemprop="name">test02</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-15T14:21:10+08:00"
-              content="2018-10-15" >
-          10-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>支持我吧</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.bmp" alt="未晞 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.bmp" alt="未晞 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/标定/" rel="tag"># 标定</a>
+          
+            <a href="/tags/相机/" rel="tag"># 相机</a>
+          
+            <a href="/tags/二维图像/" rel="tag"># 二维图像</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/16/Gocator从零开始开发/" rel="next" title="Gocator从零开始开发">
+                <i class="fa fa-chevron-left"></i> Gocator从零开始开发
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/18/PCA主成成分分析/" rel="prev" title="PCA主成分分析">
+                PCA主成分分析 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -636,6 +527,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zOTkyMS8xNjQ0OA=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -658,8 +558,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -739,6 +648,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#张氏标定总结"><span class="nav-number">2.</span> <span class="nav-text">张氏标定总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -875,6 +800,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -903,6 +832,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
