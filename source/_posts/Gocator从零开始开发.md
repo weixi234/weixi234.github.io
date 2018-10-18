@@ -5,6 +5,7 @@ tags:
 - Gocator
 - 二次开发
 - MFC
+- 三维点云
 categories:
 - Gocator
 ---

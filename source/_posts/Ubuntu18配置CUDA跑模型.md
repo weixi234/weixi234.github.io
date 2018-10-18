@@ -5,6 +5,7 @@ tags:
 - CUDA
 - ubuntu18
 - 深度学习
+- LINUX
 categories:
 - 深度学习
 ---
