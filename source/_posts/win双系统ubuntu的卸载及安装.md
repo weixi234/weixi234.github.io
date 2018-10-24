@@ -31,5 +31,41 @@ step3：win+r，cmd，切换路劲至MbrFix64.exe存放文件夹，输入命令
 ## 删除Ubuntu分区
 计算机右键->管理->存储->磁盘管理  
 当然也可以用一些工具如DiskGenius（请先格式化再调整分区😭速度快一些😭）  
-根据自己的情况酌情处理数据吧。（数据无价，谨慎处理）  
+根据自己的情况酌情处理数据吧。（数据无价，谨慎处理)   
+# 安装Ubuntu双系统
+## 准备
+### 硬盘准备
+计算机右键->管理->存储->磁盘管理->右键->"删除卷"  
+在windows系统下删除分配给ubuntu的硬盘，在安装Ubuntu的时候方便区别其他盘  
+### 制作Ubuntu启动盘
+推荐大家看[ubuntu官方指导](https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-windows#1)
+官方推荐rufus工具，选择镜像···  
+可参考[博文双系统安装详细教程](https://blog.csdn.net/flyyufenfei/article/details/79187656)
+### 安装Ubuntu
+我是华硕笔记本F2进入BIOS->Boot->Hard Drive BBS Priorities(时间长了我总忘了这个)->Boot Option #1  
+
+安装过程中：  
+其他选项->**空闲**磁盘分区（我分配了100G）：  
+/boot   300M    逻辑分区    空间起始位置    Ext4  
+swap    8G      逻辑分区    空间起始位置    交换空间  
+/       40G     逻辑分区    空间起始位置    Ext4  
+/home   剩下    逻辑分区    空间起始位置    Ext4
+修改安装启动引导器的设备：/boot对应的分区  
+安装完场切记f2切换引导启动，拔出U盘  
+
+由于修改了默认启动引导位置，所以启动后并不会有Ubuntu启动引导  
+
+### 修改启动引导
+EasyBCD->添加新条目->操作系统选Linux/BSD->类型选GRUB 2->名称Ubuntu16->驱动器选自己选的/boot分区->添加条目  
+EasyBCD->编辑引导菜单->倒计时->保存设置
+
+
+
+
+
+
+
+
+
+
 
