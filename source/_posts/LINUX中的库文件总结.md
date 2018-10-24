@@ -5,8 +5,9 @@ tags:
 - LINUX
 - 库文件
 - 编译原理
-categories:
 - LINUX编程
+categories:
+- Ubuntu
 ---
 # 前言
 
