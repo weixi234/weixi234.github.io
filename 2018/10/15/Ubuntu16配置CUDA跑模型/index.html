@@ -136,7 +136,7 @@
 <meta property="og:description" content="前言很早之前就装好Ubuntu双系统，在上面学过视觉SLEAM十四讲、CLion、CMAKE语法，编写过openCV、PCL、caffeCPU版等等，后来重装了Ubuntu18，前几天用Ubuntu18配置GPU版CUDA打算跑跑深度学习，一直没配置好，现在删除了Ubuntu18重新装回Ubuntu16。   Ubuntu16.04无法直接安装deb包问题 sudo apt-get install">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2018/10/15/Ubuntu16配置CUDA跑模型/驱动版本与CUDA工具对应关系.png">
-<meta property="og:updated_time" content="2018-10-25T09:35:51.890Z">
+<meta property="og:updated_time" content="2018-10-25T05:42:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu16配置CUDA跑模型">
 <meta name="twitter:description" content="前言很早之前就装好Ubuntu双系统，在上面学过视觉SLEAM十四讲、CLion、CMAKE语法，编写过openCV、PCL、caffeCPU版等等，后来重装了Ubuntu18，前几天用Ubuntu18配置GPU版CUDA打算跑跑深度学习，一直没配置好，现在删除了Ubuntu18重新装回Ubuntu16。   Ubuntu16.04无法直接安装deb包问题 sudo apt-get install">
@@ -503,12 +503,23 @@
 <blockquote>
 <p>sudo ./bandwidthTest</p>
 </blockquote>
-<p>Pass表示通过</p>
-<h1 id="5、安装cuDNN"><a href="#5、安装cuDNN" class="headerlink" title="5、安装cuDNN"></a>5、安装cuDNN</h1><p><strong>应该看官方说明文档，我偷懒了</strong></p>
+<p>Pass表示通过 </p>
+<h1 id="安装cuDNN"><a href="#安装cuDNN" class="headerlink" title="安装cuDNN"></a>安装cuDNN</h1><p><strong>应该看官方说明文档，我偷懒了</strong><br>查询显卡计算能力<a href="https://deverloper.nvidia.com/cuda-gpus" target="_blank" rel="noopener">CUDA-GPU</a><br>安装方法应该是先查询自己电脑的计算能力，然后确定cudnn版本，然后确定对应的cuda版本  </p>
 <p>解压cudnn压缩包，执行或参考下面命令</p>
 <blockquote>
 <p>sudo cp cuda/include/cudnn.h  /usr/local/include<br>sudo cp cuda/lib64/libcudnn<em> /usr/local/cuda/lib64<br>sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn</em></p>
 </blockquote>
+<p><strong>验证cuDnn安装成功否</strong><br>cudnn官方说明文档(cuDNN Developer Guide)中指出cudnn加速要求计算能力在3.0以上，所以我的凉了~<br>官方文档(cuDnn inatall Guide)指出了deb方式下的验证方式，直接照着做就行，现我说明Ubuntu下的验证方式：<br>下载mnistCUDNN<a href="https://github.com/weixi234/cudnn_samples_v7" target="_blank" rel="noopener">cudnn_samples_v7</a>  </p>
+<blockquote>
+<p>make clean &amp;&amp; make<br>./mnistCUDNN  </p>
+</blockquote>
+<p><strong>移动cuDnn库文件后可能找不到libcudart.so.9.0</strong>  </p>
+<ul>
+<li>确认路径<a href="https://blog.csdn.net/u010454261/article/details/71268325" target="_blank" rel="noopener">错误参考1</a>  </li>
+<li>确认路径<a href="https://github.com/BVLC/caffe/issues/4944" target="_blank" rel="noopener">错误参考2</a>     </li>
+<li>确认路径<a href="https://github.com/KlausT/ccminer/issues/149" target="_blank" rel="noopener">错误参考3</a>  </li>
+<li>确认路径<a href="www.cs.virginia.edu/~mwb7w/cuda_support/libcudart.html">错误参考4</a></li>
+</ul>
 
       
     </div>
@@ -745,7 +756,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ubuntu16-04无法直接安装deb包问题"><span class="nav-number">2.</span> <span class="nav-text">Ubuntu16.04无法直接安装deb包问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ubuntu16-04无法获得锁问题"><span class="nav-number">3.</span> <span class="nav-text">Ubuntu16.04无法获得锁问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ubuntu换源"><span class="nav-number">4.</span> <span class="nav-text">ubuntu换源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装nvidia显卡驱动"><span class="nav-number">5.</span> <span class="nav-text">安装nvidia显卡驱动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nvidia驱动与CUDA-TOOKit工具对应关系"><span class="nav-number">6.</span> <span class="nav-text">nvidia驱动与CUDA TOOKit工具对应关系</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CUDA官网查询CUDA-Toolkit相关信息"><span class="nav-number">7.</span> <span class="nav-text">CUDA官网查询CUDA Toolkit相关信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装CUDA-Toolkit"><span class="nav-number">8.</span> <span class="nav-text">安装CUDA Toolkit</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5、安装cuDNN"><span class="nav-number">9.</span> <span class="nav-text">5、安装cuDNN</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ubuntu16-04无法直接安装deb包问题"><span class="nav-number">2.</span> <span class="nav-text">Ubuntu16.04无法直接安装deb包问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ubuntu16-04无法获得锁问题"><span class="nav-number">3.</span> <span class="nav-text">Ubuntu16.04无法获得锁问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ubuntu换源"><span class="nav-number">4.</span> <span class="nav-text">ubuntu换源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装nvidia显卡驱动"><span class="nav-number">5.</span> <span class="nav-text">安装nvidia显卡驱动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nvidia驱动与CUDA-TOOKit工具对应关系"><span class="nav-number">6.</span> <span class="nav-text">nvidia驱动与CUDA TOOKit工具对应关系</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CUDA官网查询CUDA-Toolkit相关信息"><span class="nav-number">7.</span> <span class="nav-text">CUDA官网查询CUDA Toolkit相关信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装CUDA-Toolkit"><span class="nav-number">8.</span> <span class="nav-text">安装CUDA Toolkit</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装cuDNN"><span class="nav-number">9.</span> <span class="nav-text">安装cuDNN</span></a></li></ol></div>
             
 
           </div>
