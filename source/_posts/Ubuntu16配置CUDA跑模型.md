@@ -1,7 +1,7 @@
 ﻿﻿---
 title: Ubuntu16配置CUDA跑模型
 date: 2018-10-15 16:48:55
-update: 2018-10-25 13:42:33
+updated: 2018-10-25 13:42:33
 tags:
 - CUDA
 - ubuntu18
@@ -120,18 +120,30 @@ export LD_LIBRARY_PATH=/usr/local/cuda-10.0/lib64$\{LD_LIBRARY_PATH:+:${LD_LIBRA
 Pass表示通过
 >sudo ./bandwidthTest
 
-Pass表示通过
+Pass表示通过 
 
-
-# 5、安装cuDNN
-
+# 安装cuDNN  
 **应该看官方说明文档，我偷懒了**
+查询显卡计算能力[CUDA-GPU](https://deverloper.nvidia.com/cuda-gpus)  
+安装方法应该是先查询自己电脑的计算能力，然后确定cudnn版本，然后确定对应的cuda版本  
 
 解压cudnn压缩包，执行或参考下面命令
 >sudo cp cuda/include/cudnn.h  /usr/local/include
 >sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
 >sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
 
+**验证cuDnn安装成功否**
+cudnn官方说明文档(cuDNN Developer Guide)中指出cudnn加速要求计算能力在3.0以上，所以我的凉了~  
+官方文档(cuDnn inatall Guide)指出了deb方式下的验证方式，直接照着做就行，现我说明Ubuntu下的验证方式：  
+下载mnistCUDNN[cudnn_samples_v7](https://github.com/weixi234/cudnn_samples_v7)  
+>make clean && make  
+./mnistCUDNN  
+
+**移动cuDnn库文件后可能找不到libcudart.so.9.0**  
+- 确认路径[错误参考1](https://blog.csdn.net/u010454261/article/details/71268325)  
+- 确认路径[错误参考2](https://github.com/BVLC/caffe/issues/4944)     
+- 确认路径[错误参考3](https://github.com/KlausT/ccminer/issues/149)  
+- 确认路径[错误参考4](www.cs.virginia.edu/~mwb7w/cuda_support/libcudart.html)
 
 
 
