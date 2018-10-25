@@ -1249,7 +1249,7 @@ git clean -df  //
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/15/Ubuntu18配置CUDA跑模型/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/15/Ubuntu16配置CUDA跑模型/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="未晞">
@@ -1268,7 +1268,7 @@ git clean -df  //
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/10/15/Ubuntu18配置CUDA跑模型/" itemprop="url">Ubuntu18配置CUDA跑模型</a></h1>
+                <a class="post-title-link" href="/2018/10/15/Ubuntu16配置CUDA跑模型/" itemprop="url">Ubuntu16配置CUDA跑模型</a></h1>
         
 
         <div class="post-meta">
@@ -1342,35 +1342,18 @@ git clean -df  //
       
         
           
-          前言1、更换源step1：编辑/etc/apt/sources.list文件
+          前言很早之前就装好Ubuntu双系统，在上面学过视觉SLEAM十四讲、CLion、CMAKE语法，编写过openCV、PCL、caffeCPU版等等，后来重装了Ubuntu18，前几天用Ubuntu18配置GPU版CUDA打算跑跑深度学习，一直没配置好，现在删除了Ubuntu18重新装回Ubuntu16。  
+Ubuntu16.04无法直接安装deb包问题
+sudo apt-get install gdebi
 
-sudo gedit /ect/apt/sources.list
+要安装的包右键-&gt;打开方式-&gt;gdebi-&gt;安装软件包  
+Ubuntu16.04无法获得锁问题方法一:（无效，但记录一下）
 
-step2：更新
-
-sudo apt-get update
-
-
-sudo apt-get upgrade
-
-2、安装nvidia显卡驱动显卡驱动可参考如何安装NVIDIA显卡驱动
-step1：查看显卡设备和驱动
-
-ubuntu-drivers devices
-
-step2：自动安装合适的显卡驱动
-
-sudo ubuntu-drivers sutoinstall
-
-衡量nvidia显卡驱动安装是否成功1、终端中确认
-
-nvidia-smi
-
-2、设置
+ps -e|grep aptsudo 
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/10/15/Ubuntu18配置CUDA跑模型/#more" rel="contents">
+            <a class="btn" href="/2018/10/15/Ubuntu16配置CUDA跑模型/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
