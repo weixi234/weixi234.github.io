@@ -116,7 +116,7 @@
 
 
 
-  <meta name="keywords" content="LINUX,CUDA,ubuntu18,深度学习," />
+  <meta name="keywords" content="CUDA,ubuntu18,深度学习,LINUX," />
 
 
 
@@ -128,7 +128,7 @@
 
 
 <meta name="description" content="前言很早之前就装好Ubuntu双系统，在上面学过视觉SLEAM十四讲、CLion、CMAKE语法，编写过openCV、PCL、caffeCPU版等等，后来重装了Ubuntu18，前几天用Ubuntu18配置GPU版CUDA打算跑跑深度学习，一直没配置好，现在删除了Ubuntu18重新装回Ubuntu16。   Ubuntu16.04无法直接安装deb包问题 sudo apt-get install">
-<meta name="keywords" content="LINUX,CUDA,ubuntu18,深度学习">
+<meta name="keywords" content="CUDA,ubuntu18,深度学习,LINUX">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu16配置CUDA跑模型">
 <meta property="og:url" content="http://yoursite.com/2018/10/15/Ubuntu16配置CUDA跑模型/index.html">
@@ -480,7 +480,7 @@
 <p>source /etc/profile//使修改立即生效</p>
 </blockquote>
 <p><strong>阅读安装完的summary也可知道</strong></p>
-<p><del><strong>重启</strong></del><br>~~&gt;sudo reboot ~~  </p>
+<p><del><strong>重启</strong></del><br><del>&gt;sudo reboot</del>  </p>
 <p><strong>检查cuda是否安装成功</strong></p>
 <p>1、检测路径~/dev下有无存在名为nvidia*的多个文件，若无安装出错</p>
 <blockquote>
@@ -520,6 +520,7 @@
 <li>确认路径<a href="https://github.com/KlausT/ccminer/issues/149" target="_blank" rel="noopener">错误参考3</a>  </li>
 <li>确认路径<a href="www.cs.virginia.edu/~mwb7w/cuda_support/libcudart.html">错误参考4</a></li>
 </ul>
+<p><strong>说明</strong>：<br>1、cuDnn加速只支持GPU计算能力在3.0以上的GPU加速（这一点cudnn官方文档中也有指出）；<br>2、cuDnn(CUDA Deep Neural Network library):是NVIDIA打造的针对深度神经网络的加速库，是一个用于深层神经网络的GPU加速库，如果你要用GPU训练模型，cuDNN不是必须的，但是一般会采用这个加速库。</p>
 
       
     </div>
@@ -566,13 +567,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/LINUX/" rel="tag"># LINUX</a>
-          
             <a href="/tags/CUDA/" rel="tag"># CUDA</a>
           
             <a href="/tags/ubuntu18/" rel="tag"># ubuntu18</a>
           
             <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
+          
+            <a href="/tags/LINUX/" rel="tag"># LINUX</a>
           
         </div>
       
@@ -685,7 +686,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -707,7 +708,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

@@ -116,7 +116,7 @@
 
 
 
-  <meta name="keywords" content="标定,相机,二维图像," />
+  <meta name="keywords" content="Ubuntu,OpenCV,GPU," />
 
 
 
@@ -127,18 +127,18 @@
 
 
 
-<meta name="description" content="前言张氏标定总结张氏标定Flexible camera calibration by viewing a plane from unknow orientations中文翻译参考 透镜畸变及校正模型 镜头畸变现象及其校正方法  可关注sylvester0510  slam 此处mark一下  matlab标定相机结果参数获取 最详细、最完整的相机标定讲解 小白可以先看这个知乎 张氏法相机标定 看看">
-<meta name="keywords" content="标定,相机,二维图像">
+<meta name="description" content="前言我之前编译配置过opencv很多遍，无论是win环境还是Linux环境。这次在配置好CUDA的Ubuntu环境下编译配置OpenCV3.4和contribute库，也顺便将之前的经验总结归纳。另说明一点，之前在Ubuntu下我一直是输入命令cmake，发现CMAKE-GUI在Ubuntu下也蛮好用。   环境准备搭建编译环境 sudo apt-get install build-essenti">
+<meta name="keywords" content="Ubuntu,OpenCV,GPU">
 <meta property="og:type" content="article">
-<meta property="og:title" content="张氏标定总结">
-<meta property="og:url" content="http://yoursite.com/2018/10/18/张氏标定总结/index.html">
+<meta property="og:title" content="ubuntu16配置opencvGPU&amp;CPU">
+<meta property="og:url" content="http://yoursite.com/2018/10/26/ubuntu配置opencvGPU-CPU/index.html">
 <meta property="og:site_name" content="未 晞">
-<meta property="og:description" content="前言张氏标定总结张氏标定Flexible camera calibration by viewing a plane from unknow orientations中文翻译参考 透镜畸变及校正模型 镜头畸变现象及其校正方法  可关注sylvester0510  slam 此处mark一下  matlab标定相机结果参数获取 最详细、最完整的相机标定讲解 小白可以先看这个知乎 张氏法相机标定 看看">
+<meta property="og:description" content="前言我之前编译配置过opencv很多遍，无论是win环境还是Linux环境。这次在配置好CUDA的Ubuntu环境下编译配置OpenCV3.4和contribute库，也顺便将之前的经验总结归纳。另说明一点，之前在Ubuntu下我一直是输入命令cmake，发现CMAKE-GUI在Ubuntu下也蛮好用。   环境准备搭建编译环境 sudo apt-get install build-essenti">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-18T13:25:39.888Z">
+<meta property="og:updated_time" content="2018-10-26T03:53:11.972Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="张氏标定总结">
-<meta name="twitter:description" content="前言张氏标定总结张氏标定Flexible camera calibration by viewing a plane from unknow orientations中文翻译参考 透镜畸变及校正模型 镜头畸变现象及其校正方法  可关注sylvester0510  slam 此处mark一下  matlab标定相机结果参数获取 最详细、最完整的相机标定讲解 小白可以先看这个知乎 张氏法相机标定 看看">
+<meta name="twitter:title" content="ubuntu16配置opencvGPU&amp;CPU">
+<meta name="twitter:description" content="前言我之前编译配置过opencv很多遍，无论是win环境还是Linux环境。这次在配置好CUDA的Ubuntu环境下编译配置OpenCV3.4和contribute库，也顺便将之前的经验总结归纳。另说明一点，之前在Ubuntu下我一直是输入命令cmake，发现CMAKE-GUI在Ubuntu下也蛮好用。   环境准备搭建编译环境 sudo apt-get install build-essenti">
 
 
 
@@ -168,13 +168,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/18/张氏标定总结/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/26/ubuntu配置opencvGPU-CPU/"/>
 
 
 
 
 
-  <title>张氏标定总结 | 未 晞</title>
+  <title>ubuntu16配置opencvGPU&CPU | 未 晞</title>
   
 
 
@@ -321,7 +321,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/18/张氏标定总结/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/26/ubuntu配置opencvGPU-CPU/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="未晞">
@@ -338,7 +338,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">张氏标定总结</h1>
+          <h1 class="post-title" itemprop="name headline">ubuntu16配置opencvGPU&CPU</h1>
         
 
         <div class="post-meta">
@@ -350,8 +350,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-18T20:40:00+08:00">
-                2018-10-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-26T09:55:43+08:00">
+                2018-10-26
               </time>
             
 
@@ -373,8 +373,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/二维图像/" itemprop="url" rel="index">
-                    <span itemprop="name">二维图像</span>
+                  <a href="/categories/深度学习/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习</span>
                   </a>
                 </span>
 
@@ -410,19 +410,56 @@
       
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h1 id="张氏标定总结"><a href="#张氏标定总结" class="headerlink" title="张氏标定总结"></a>张氏标定总结</h1><p><a href="https://blog.csdn.net/heroacool/article/details/50286677" target="_blank" rel="noopener">张氏标定Flexible camera calibration by viewing a plane from unknow orientations中文翻译参考</a></p>
-<p><a href="https://blog.csdn.net/dcrmg/article/details/52950141" target="_blank" rel="noopener">透镜畸变及校正模型</a></p>
-<p><a href="https://blog.csdn.net/piaoxuezhong/article/details/75268535" target="_blank" rel="noopener">镜头畸变现象及其校正方法</a></p>
-<blockquote>
-<p>可关注sylvester0510  slam 此处mark一下</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我之前编译配置过opencv很多遍，无论是win环境还是Linux环境。这次在配置好CUDA的Ubuntu环境下编译配置OpenCV3.4和contribute库，也顺便将之前的经验总结归纳。另说明一点，之前在Ubuntu下我一直是输入命令cmake，发现CMAKE-GUI在Ubuntu下也蛮好用。  </p>
+<h1 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h1><h2 id="搭建编译环境"><a href="#搭建编译环境" class="headerlink" title="搭建编译环境"></a>搭建编译环境</h2><blockquote>
+<p>sudo apt-get install build-essential  </p>
 </blockquote>
-<p><a href="https://blog.csdn.net/felix86/article/details/38438259" target="_blank" rel="noopener">matlab标定相机结果参数获取</a></p>
-<p><a href="https://blog.csdn.net/a083614/article/details/78579163" target="_blank" rel="noopener">最详细、最完整的相机标定讲解</a></p>
-<p>小白可以先看这个<a href="https://zhuanlan.zhihu.com/p/24651968" target="_blank" rel="noopener">知乎 张氏法相机标定</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/29785583" target="_blank" rel="noopener">看看这篇文章 摄像机内外参矩阵和一些疑问</a></p>
-<p>深入<a href="https://blog.csdn.net/yang/dashi888/article/details/51356385" target="_blank" rel="noopener">内参外参畸变参数三种参数与相机的标定方法与相机坐标系的理解</a></p>
+<h2 id="安装辅助工具"><a href="#安装辅助工具" class="headerlink" title="安装辅助工具"></a>安装辅助工具</h2><p>安装cmake git pkg-conflg等辅助工具  </p>
 <blockquote>
-<p>归一化平面 的理解 mark一下</p>
+<p>sudo apt-get install cmake git pkg-config libgtk2.0-dev libavcodec-dev libavformat-dev libswscale-dev  </p>
+</blockquote>
+<h2 id="安装关联库"><a href="#安装关联库" class="headerlink" title="安装关联库"></a>安装关联库</h2><blockquote>
+<p>sudo apt-get install python-dev python-opencv python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev  </p>
+</blockquote>
+<h1 id="编译OpenCV"><a href="#编译OpenCV" class="headerlink" title="编译OpenCV"></a>编译OpenCV</h1><h2 id="用命令方式"><a href="#用命令方式" class="headerlink" title="用命令方式"></a>用命令方式</h2><p>1、最好将Opencv3.4.zip移动到用户主目录下进行编译：  </p>
+<blockquote>
+<p>mv [opencv3.4源码存放路径] ~/opencv_3.0.0.zip<br>unzip opencv-3.0.0.zip<br>cd opencv-3.0.0<br>mkdir release<br>cd release<br>2、CMAKE编译<br>2.1 没有安装cuda可以不开cuda进行cmake<br>cmake ../opencv-3.4.1 -DWITH_GTK_2_X=ON -DCMAKE_INSTALL_PREFIX=/usr/local  //参考<br><strong>我之前用的是：</strong><br>cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local(安装路径，用于存放生成的lib与dll文件) ~/opencv-3.2.0(源路径)</p>
+</blockquote>
+<p>2.2 安装了cuda可以使用支持cuda加速命令进行cmake（可以直接复制）  </p>
+<blockquote>
+<p>cmake  ../opencv-3.4.1 -DWITH_GTK_2_X=ON -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_INSTALL_PREFIX=/usr/local -DWITH_TBB=ON -DBUILD_NEW_PYTHON_SUPPORT=ON -DWITH_V4L=ON -DINSTALL_C_EXAMPLES=ON -DINSTALL_PYTHON_EXAMPLES=ON -DBUILD_EXAMPLES=ON  -DWITH_OPENGL=ON -DENABLE_FAST_MATH=1 -DCUDA_FAST_MATH=1 -DWITH_CUBLAS=1 -DWITH_OPENMP=ON//待验证  </p>
+</blockquote>
+<h2 id="用CMAKE-GUI方式"><a href="#用CMAKE-GUI方式" class="headerlink" title="用CMAKE-GUI方式"></a>用CMAKE-GUI方式</h2><p><del>1、输入源码路劲</del><br><del>2、输出编译路径</del><br>3、勾选Grouped、Advanced-&gt;Configure<br><strong>安装好CUDA后 会检测到CUDA：CUDA detected:9.0</strong><br>可以检查一下WITH_CUDA选项，如果cmake检测到安装了CUDA则应该是自动勾上的。<br>4、编译选项：  </p>
+<blockquote>
+<p>OPENCV_EXTRA_MODULES_PATH -&gt; contribtue/modules<br>CMAEK_INSTALL_PREFIX -&gt;/usr/local<br>5、generate按钮<br>6、输出编译路径下：make -j4<br>7、sudo make install<br><strong>出现错误</strong><br>1、not used beacuse ‘OPENCV_TRAITS_ENABLE_DEPRECATED’ is defined<br>ENABLE_PRECOMPILED_HEADERS = OFF</p>
+</blockquote>
+<h2 id="配置OpenCV环境"><a href="#配置OpenCV环境" class="headerlink" title="配置OpenCV环境"></a>配置OpenCV环境</h2><p>1、在/etc/ld.so.conf/opencv.conf文件中加入一行：  </p>
+<blockquote>
+<p>/usr/local/lib  </p>
+</blockquote>
+<p>若无此路径则新建个：  </p>
+<blockquote>
+<p>sudo gedit /etc/ld.so.conf/opencv.conf  </p>
+</blockquote>
+<p>2、使上述修改生效  </p>
+<blockquote>
+<p>sudo ldconfig  </p>
+</blockquote>
+<p>3、在/etc/bash.bashrc中加入:  </p>
+<blockquote>
+<p>PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig<br>export PKG_CONFIG_PATH  </p>
+</blockquote>
+<p>4、修改使上述生效  </p>
+<blockquote>
+<p>source /etc/profile  </p>
+</blockquote>
+<h2 id="OpenCV编译验证"><a href="#OpenCV编译验证" class="headerlink" title="OpenCV编译验证"></a>OpenCV编译验证</h2><p>1、在opencv/samples\cpp\example_cmake中  </p>
+<blockquote>
+<p>cmake<br>make<br>运行  </p>
+</blockquote>
+<p>2、查看opencv版本  </p>
+<blockquote>
+<p>pkg-config –modversion opencv</p>
 </blockquote>
 
       
@@ -470,11 +507,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/标定/" rel="tag"># 标定</a>
+            <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
           
-            <a href="/tags/相机/" rel="tag"># 相机</a>
+            <a href="/tags/OpenCV/" rel="tag"># OpenCV</a>
           
-            <a href="/tags/二维图像/" rel="tag"># 二维图像</a>
+            <a href="/tags/GPU/" rel="tag"># GPU</a>
           
         </div>
       
@@ -487,8 +524,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/16/Gocator从零开始开发/" rel="next" title="Gocator从零开始开发">
-                <i class="fa fa-chevron-left"></i> Gocator从零开始开发
+              <a href="/2018/10/24/win双系统ubuntu的卸载及安装/" rel="next" title="win双系统ubuntu的卸载及安装">
+                <i class="fa fa-chevron-left"></i> win双系统ubuntu的卸载及安装
               </a>
             
           </div>
@@ -496,10 +533,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/18/PCA主成成分分析/" rel="prev" title="PCA主成分分析">
-                PCA主成分分析 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -658,7 +691,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#张氏标定总结"><span class="nav-number">2.</span> <span class="nav-text">张氏标定总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#环境准备"><span class="nav-number">2.</span> <span class="nav-text">环境准备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建编译环境"><span class="nav-number">2.1.</span> <span class="nav-text">搭建编译环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装辅助工具"><span class="nav-number">2.2.</span> <span class="nav-text">安装辅助工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装关联库"><span class="nav-number">2.3.</span> <span class="nav-text">安装关联库</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译OpenCV"><span class="nav-number">3.</span> <span class="nav-text">编译OpenCV</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#用命令方式"><span class="nav-number">3.1.</span> <span class="nav-text">用命令方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用CMAKE-GUI方式"><span class="nav-number">3.2.</span> <span class="nav-text">用CMAKE-GUI方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置OpenCV环境"><span class="nav-number">3.3.</span> <span class="nav-text">配置OpenCV环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OpenCV编译验证"><span class="nav-number">3.4.</span> <span class="nav-text">OpenCV编译验证</span></a></li></ol></li></ol></div>
             
 
           </div>
