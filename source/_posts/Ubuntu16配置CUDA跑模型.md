@@ -99,7 +99,7 @@ export LD_LIBRARY_PATH=/usr/local/cuda-10.0/lib64$\{LD_LIBRARY_PATH:+:${LD_LIBRA
 **阅读安装完的summary也可知道**
 
 ~~**重启**~~  
-~~>sudo reboot ~~  
+~~>sudo reboot~~  
 
 **检查cuda是否安装成功**
 
@@ -145,7 +145,9 @@ cudnn官方说明文档(cuDNN Developer Guide)中指出cudnn加速要求计算�
 - 确认路径[错误参考3](https://github.com/KlausT/ccminer/issues/149)  
 - 确认路径[错误参考4](www.cs.virginia.edu/~mwb7w/cuda_support/libcudart.html)
 
-
+**说明**：  
+1、cuDnn加速只支持GPU计算能力在3.0以上的GPU加速（这一点cudnn官方文档中也有指出）；  
+2、cuDnn(CUDA Deep Neural Network library):是NVIDIA打造的针对深度神经网络的加速库，是一个用于深层神经网络的GPU加速库，如果你要用GPU训练模型，cuDNN不是必须的，但是一般会采用这个加速库。
 
 
 
