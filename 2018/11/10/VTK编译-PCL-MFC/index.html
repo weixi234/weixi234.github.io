@@ -116,7 +116,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="MFC,VTK,PCL,CMAEK," />
 
 
 
@@ -127,17 +127,18 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="前言之前研究过PCL，PCL中用VTK显示。之前编译是因为我用的是  PCL-AllInOne-msvc2017，其中的第三方库VTK8.0没有QT控件QVTKWidgetPlugin；后来编译是因为老师用的是VS2013，想在VS2013中搭建PCL-MFC开发环境，用的是PCL1.8.0msvc2013-vtk7.0。现在这篇博文是根据我的映像回忆来记录的，可能会有些许错误，可以在下方留言，我">
+<meta name="keywords" content="MFC,VTK,PCL,CMAEK">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2018/10/15/hello-world/index.html">
+<meta property="og:title" content="VTK编译 PCL MFC">
+<meta property="og:url" content="http://yoursite.com/2018/11/10/VTK编译-PCL-MFC/index.html">
 <meta property="og:site_name" content="未 晞">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="前言之前研究过PCL，PCL中用VTK显示。之前编译是因为我用的是  PCL-AllInOne-msvc2017，其中的第三方库VTK8.0没有QT控件QVTKWidgetPlugin；后来编译是因为老师用的是VS2013，想在VS2013中搭建PCL-MFC开发环境，用的是PCL1.8.0msvc2013-vtk7.0。现在这篇博文是根据我的映像回忆来记录的，可能会有些许错误，可以在下方留言，我">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-15T06:55:02.879Z">
+<meta property="og:updated_time" content="2018-11-10T13:05:52.175Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="VTK编译 PCL MFC">
+<meta name="twitter:description" content="前言之前研究过PCL，PCL中用VTK显示。之前编译是因为我用的是  PCL-AllInOne-msvc2017，其中的第三方库VTK8.0没有QT控件QVTKWidgetPlugin；后来编译是因为老师用的是VS2013，想在VS2013中搭建PCL-MFC开发环境，用的是PCL1.8.0msvc2013-vtk7.0。现在这篇博文是根据我的映像回忆来记录的，可能会有些许错误，可以在下方留言，我">
 
 
 
@@ -167,13 +168,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/15/hello-world/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/10/VTK编译-PCL-MFC/"/>
 
 
 
 
 
-  <title>Hello World | 未 晞</title>
+  <title>VTK编译 PCL MFC | 未 晞</title>
   
 
 
@@ -320,7 +321,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/15/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/10/VTK编译-PCL-MFC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="未晞">
@@ -337,7 +338,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">VTK编译 PCL MFC</h1>
         
 
         <div class="post-meta">
@@ -349,8 +350,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-15T14:55:02+08:00">
-                2018-10-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-10T17:57:27+08:00">
+                2018-11-10
               </time>
             
 
@@ -359,6 +360,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/VTK/" itemprop="url" rel="index">
+                    <span itemprop="name">VTK</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -387,15 +410,59 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>之前研究过PCL，PCL中用VTK显示。之前编译是因为我用的是  PCL-AllInOne-msvc2017，其中的第三方库VTK8.0没有QT控件QVTKWidgetPlugin；后来编译是因为老师用的是VS2013，想在VS2013中搭建PCL-MFC开发环境，用的是PCL1.8.0msvc2013-vtk7.0。<br>现在这篇博文是根据我的映像回忆来记录的，可能会有些许错误，可以在下方留言，我稍后修改。<br>环境说明：<br>VTK7.0，VS2013，x32下编译debug和release两个版本。</p>
+<h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><p>1、VTK官网下载VTK7.0版本源码包zip，不过7.0版本较老，要仔细看一下官网信息找到历史版本。  </p>
+<blockquote>
+<p><a href="https://www.vtk.org/download/" target="_blank" rel="noopener">VTK下载页面</a><br><a href="https://gitlab.kitware.com/vtk/vtk" target="_blank" rel="noopener">VTK-Git源码库</a><br>2、下载CMAKE<br>3、下载Qt5  </p>
+</blockquote>
+<h1 id="CMAKE"><a href="#CMAKE" class="headerlink" title="CMAKE"></a>CMAKE</h1><p>1、打开cmake-gui<br>2、设置源码路径（源码vtk7.0包含CMakeLists.txt的路径）<br>3、设置构建路径（CMake会在该目录下生成solution（针对VS），打开vs就可以编译出结果）<br>4、勾选Cmake界面上的Grouped（对配置分组）和Advanced（显示高级配置）<br>5、点击Configure，CMake要求选择编译器，按需求选即可（Visual Studio 12 2013）（好像有多个选项，有个x64的，有amd，注意别选错了）<br>6、等待CMake把配置生成完毕后，对部分配置进行修改（所有红色显示的配置都是需要用户确认的配置或者有问题的配置）  </p>
+<blockquote>
+<p>BUILD_SHARED_LIBS      //勾选，构建动态库（lib和dll）<br>VTK_Group_Qt           //勾选，使用Qt<br>VTK_GUISupportQtOpenGL //勾  //<em>Module分类中自己看看，Qt相关的尽量全部勾选上</em><br><strong>CMAKE_INSTALL_PREFIX</strong>   //改为D:/VTK/7.0/msvc2013_x32<br>建议修改，此目录可以自行修改，当VTK编译完成后，安装时，会将VTK安装到指定的目录，强烈建议修改。<br><strong>INSTALL_BIN_DIR</strong>        //改为D:/VTK/7.0/msvc2013_x32/bin<br><strong>INSTALL_INC_DIR</strong>        //改为D:/VTK/7.0/msvc2013_x32/include<br><strong>INSTALL_LIB_DIR</strong>        //改为D:/VTK/7.0/msvc2013_x32/lib<br><strong>INSTALL_MAN_DIR</strong>        //改为D:/VTK/7.0/msvc2013_x32/share/man<br><strong>INSTALL_PKGCONFIG_DIR</strong>  //改为D:/VTK/7.0/msvc2013_x32/share/pkgconfig<br>VTK_QT_VERSION             //改为5<br><em>以下7项关于Qt的，如果Qt环境配置好了就会自动填好，不需修改，确认一下就可以了</em><br>QT_QMAKE_EXECUTABLE    //D:/Qt/5.5.1/5.5/msvc2013_32/bin/qmake.exe<br>QT5_DIR    //D:/Qt/5.5.1/5.5/msvc2013_32/lib/CMake/Qt5<br>QT5Core_DIR    //D:/Qt/5.5.1/5.5/msvc2013_32/lib/CMake/Qt5Core<br>QT5Gui_DIR    //D:/Qt/5.5.1/5.5/msvc2013_32/lib/CMake/Qt5Gui<br>Qt5Sql_DIR    //D:/Qt/5.5.1/5.5/msvc2013_32/lib/CMake/Qt5Sql<br>QT5UiPlugin_DIR    //D:/Qt/5.5.1/5.5/msvc2013_32/lib/CMake/Qt5UiPlugin<br>QT5Widgets_DIR    //D:/Qt/5.5.1/5.5/msvc2013_32/lib/CMake/QT5Widgets  <strong>7、点击Add Entry</strong><br>Name:CMAKE_DEBUG_POSTFIX<br>TYPE:STRING<br><strong>value:-gd</strong><br>Description:可以为空<br>这样做的目的是：让debug版本编译出二进制文件带有-gd，以便和release版本编译出的二进制文件相区分，强烈建议。<br><strong>8、根据上述debug后缀修改Qt控件生成cmake文件</strong><br>cmake生成完后，找到构建目录下的\GUISupport\Qt\Plugininstall.cmake文件。第五行<br>SET(VTK_INSTALL_QT_PLUGIN_FILE”QVTKWidgetPlugind.dll”)<br><em>修改为</em><br>IF(BUILD_TYPE MATCHES Debug)<br>  SET(VTK_INSTALL_QT_PLUGIN_FILE”QVTKWidgetPlugin-gd.dll”)<br>ELSE()<br>  SET(VTK_INSTALL_QT_PLUGIN_FILE”QVTKWidgetPlugin.dll”)<br>ENDIF()<br>保存。<br><strong>9、MFC相关勾选</strong><br>Module_vtkGUISupportMFC<br><strong>10、其他选项</strong><br>Module_vtkRenderingOpenGL //勾选<br><em>Module分类中自己看看，尽量全部勾选上，免得使用时缺少相关组件</em>    </p>
+</blockquote>
+<h1 id="VS编译"><a href="#VS编译" class="headerlink" title="VS编译"></a>VS编译</h1><p>1、用VS2013打开构建目录下的VTK.sln解决方案<br>2、确保ALL_BUILD未启动项，选择ALL_BUILD项目右键点击生成<br>3、右键INSTALL项目，选择仅生成INSTALL<br>4、切换成release版本，重复上述步骤<br><strong>建议，先安装Debug版，再安装Release版。后安装的版本会覆盖同名的文件</strong></p>
+<h1 id="编译结果简要说明"><a href="#编译结果简要说明" class="headerlink" title="编译结果简要说明"></a>编译结果简要说明</h1><ul>
+<li>bin文件夹<br>Debug/Release版本各有109个dll和2个exe<br>dll，Debug和Release版一一对应<br>exe，同名，但内容不同  </li>
+<li>lib文件夹<br>Debug/Release版本一一对应    </li>
+<li>include文件夹<br>Debug/Release版本相同  </li>
+</ul>
+<h1 id="编译过程中一些问题说明"><a href="#编译过程中一些问题说明" class="headerlink" title="编译过程中一些问题说明"></a>编译过程中一些问题说明</h1><p>1、字符集问题<br>错误：error MSB8031: Building an MFC project for a non-Unicode character set is deprecated<br>解决办法：<a href="https://msdn.microsoft.com/zh-cn/library/dn251007%28v=vs.120%29.aspx?f=255&amp;MSPPError=-2147217396" target="_blank" rel="noopener">MSDN网站来一波</a><br>2、VS2013编译错误vtkMFCWindow.cpp<br>错误：error C2661: ‘vtkOpenGLRenderWindow::GetPixelData’ : no overloaded function takes 5 arguments<br>函数是需要6个参数，但是呢只提供了5个。</p>
+<blockquote>
+<p>unsigned char *pixels =<br>this-&gt;pvtkWin32OpenGLRW-&gt;GetPixelData(0,0,size[0]-1,size[1]-1,0,&gt;0); </p>
+</blockquote>
+<p> 解决方案：<a href="https://gitlab.kitware.com/vtk/vtk/issues/17164" target="_blank" rel="noopener">官网提问来一波</a>    </p>
+<p> <em>当然这只是一小部分问题，有些我也遗忘了，后期再补充；编译过程中可能会遇到各问题，自己学着网上找找解决方案</em></p>
+<h1 id="MFC中用PCL-VTK显示"><a href="#MFC中用PCL-VTK显示" class="headerlink" title="MFC中用PCL-VTK显示"></a>MFC中用PCL-VTK显示</h1><p> <a href="https://www.cnblogs.com/zfluo/p/5131844.html" target="_blank" rel="noopener">参考博客</a>  </p>
+<iframe height="352" width="486" src="MFC-VTK.gif"><br></iframe>
+
+<p> <a href="https://blog.csdn.net/eric_e/article/details/79778651" target="_blank" rel="noopener">另外一个关于MFCVTK显示的博客–MFC中嵌入VTK显示点云数据</a>   </p>
+<h1 id="VTK的学习"><a href="#VTK的学习" class="headerlink" title="VTK的学习"></a>VTK的学习</h1><p>关于VTK的学习，我现在觉得有三个较好的途径：  </p>
+<ul>
+<li><a href="https://blog.csdn.net/www_doling_net/article/details/8763686" target="_blank" rel="noopener">东灵工作室系列教程我觉得较好</a>    </li>
+<li>VTK User’s Guide  </li>
+<li>The Visualization Toolkit An Object-Oriented Approach to 3D Graphics  </li>
+</ul>
+<h1 id="VTK的使用"><a href="#VTK的使用" class="headerlink" title="VTK的使用"></a>VTK的使用</h1><h2 id="VTK宏"><a href="#VTK宏" class="headerlink" title="VTK宏"></a>VTK宏</h2><blockquote>
+<p>#include “vtkAutoInit.h”<br><strong>vtk7.0是vtkRenderingOpenGL2，vtk8.0是vtkRenderingOpenGL</strong><br>VTK_MODULE_INIT(vtkRenderingOpenGL2);<br>VTK_MODULE_INIT(vtkInteractionStyle);<br>VTK_MODULE_INIT(vtkRenderingFreeType);  </p>
+</blockquote>
+<h2 id="VTK其他说明"><a href="#VTK其他说明" class="headerlink" title="VTK其他说明"></a>VTK其他说明</h2><ul>
+<li>VS2013中配置VTK7.0 debug模式不通过  </li>
+</ul>
+<p>连接错误2019 RenderingOpenGL_AutoInit_Construct(void)，而Release模式可以通过。<br>解决方法：项目-&gt;属性-&gt;配置属性-&gt;C/C++-&gt;预处理器中去掉#;_DEBUG#    </p>
+<ul>
+<li>PCL融合进MFC宏错误  </li>
+</ul>
+<p>错误说明：error C2589: “(”:“::”右边的非法标记<br>错误代码：  </p>
+<blockquote>
+<p>size.Width = std::max(size.Width, elementSize.Width);    </p>
+</blockquote>
+<p>错误原因：函数模板max与Visual C++中的全局的宏max冲突<br>解决方法：<br>方法一：<br>设置项目属性，在预定义处理器中添加定义NOMINMAX来禁止使用Visual C++的min/max宏定义。  </p>
+<blockquote>
+<p>项目属性—&gt;C/C++—&gt;预处理器—&gt;预处理器定义 (此处添加预定义编译开关   NOMINMAX）  </p>
+</blockquote>
+<p>但是visual C++中定义能自动匹配double和int，如果进行了上述设置，代码中手动将int型的数据乘以1.0来达到double的目的。<br>方法二：加上括号(将max括起来)，与Vsual C++的min/max宏定义区分开  </p>
+<blockquote>
+<p>size.Width = (std::max)(size.Width, elementSize.Width);   </p>
+</blockquote>
 
       
     </div>
@@ -440,6 +507,18 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/MFC/" rel="tag"># MFC</a>
+          
+            <a href="/tags/VTK/" rel="tag"># VTK</a>
+          
+            <a href="/tags/PCL/" rel="tag"># PCL</a>
+          
+            <a href="/tags/CMAEK/" rel="tag"># CMAEK</a>
+          
+        </div>
+      
 
       
       
@@ -449,8 +528,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/15/test02/" rel="next" title="test02">
-                <i class="fa fa-chevron-left"></i> test02
+              <a href="/2018/10/26/ubuntu配置opencvGPU-CPU/" rel="next" title="ubuntu16配置opencvGPU&CPU">
+                <i class="fa fa-chevron-left"></i> ubuntu16配置opencvGPU&CPU
               </a>
             
           </div>
@@ -458,10 +537,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/15/测试in-surface/" rel="prev" title="测试in surface">
-                测试in surface <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -549,7 +624,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -560,7 +635,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -571,7 +646,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -620,7 +695,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#准备"><span class="nav-number">2.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CMAKE"><span class="nav-number">3.</span> <span class="nav-text">CMAKE</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VS编译"><span class="nav-number">4.</span> <span class="nav-text">VS编译</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译结果简要说明"><span class="nav-number">5.</span> <span class="nav-text">编译结果简要说明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译过程中一些问题说明"><span class="nav-number">6.</span> <span class="nav-text">编译过程中一些问题说明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MFC中用PCL-VTK显示"><span class="nav-number">7.</span> <span class="nav-text">MFC中用PCL-VTK显示</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VTK的学习"><span class="nav-number">8.</span> <span class="nav-text">VTK的学习</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VTK的使用"><span class="nav-number">9.</span> <span class="nav-text">VTK的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#VTK宏"><span class="nav-number">9.1.</span> <span class="nav-text">VTK宏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VTK其他说明"><span class="nav-number">9.2.</span> <span class="nav-text">VTK其他说明</span></a></li></ol></li></ol></div>
             
 
           </div>
