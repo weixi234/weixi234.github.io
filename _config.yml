@@ -84,3 +84,11 @@ deploy:
   branch: master
 
 
+# Security
+##
+encrypt:
+    enable: true
+
+
+
+

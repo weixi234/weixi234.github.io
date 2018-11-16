@@ -56,9 +56,17 @@ categories:
 >git commit -m "XXX"  
 >git push origin src  
 
-## 其他使用 
-1、visible: hide 这里如果加上hide则该文章就不会在文章首页显示，如果留空则表示默认显示  
-2、categories:  
+## 新建博文字段 
+1、visible: hide 这里如果加上hide则该文章就不会在文章首页显示，如果留空则表示默认显示    
+2、categories:   
+3、hexo-blog-encrypt加密博文字段  
+>password: 是该博客加密使用的密码            
+>abstract: 是该博客的摘要，会显示在博客的列表页       
+>message: 这个是博客查看时，密码输入框上面的描述性文字       
+
+
+
+
 
 
 
