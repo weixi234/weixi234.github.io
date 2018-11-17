@@ -127,18 +127,18 @@
 
 
 
-<meta name="description" content="前言常用指令1、撤销本地修改  git checkout . //撤销所有已修改但未提交的文件的修改，但不包括新增的文件   git checkout [filename] //对指定文件  2、回退项目版本 对已经add/commit但未push的文件也适用  git reset –hard [commit-hashcode] //hashcode可以用git log查看  注：新增文件还没加到">
+<meta name="description" content="前言一年前就想用git进行代码和文档的管理，也一直想用git搭建自己的Blog，当时功力还不够，从入门到放弃了。中途断断续续的研究-放弃了几次，现在才算懂了些道道，能上手用了。开心~   常用指令撤销本地修改 git checkout . //撤销所有已修改但未提交的文件的修改，但不包括新增的文件   git checkout [filename] //对指定文件  回退项目版本对已经add/co">
 <meta name="keywords" content="GitHub">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git常用指令">
 <meta property="og:url" content="http://yoursite.com/2018/10/16/Git常用指令/index.html">
 <meta property="og:site_name" content="未 晞">
-<meta property="og:description" content="前言常用指令1、撤销本地修改  git checkout . //撤销所有已修改但未提交的文件的修改，但不包括新增的文件   git checkout [filename] //对指定文件  2、回退项目版本 对已经add/commit但未push的文件也适用  git reset –hard [commit-hashcode] //hashcode可以用git log查看  注：新增文件还没加到">
+<meta property="og:description" content="前言一年前就想用git进行代码和文档的管理，也一直想用git搭建自己的Blog，当时功力还不够，从入门到放弃了。中途断断续续的研究-放弃了几次，现在才算懂了些道道，能上手用了。开心~   常用指令撤销本地修改 git checkout . //撤销所有已修改但未提交的文件的修改，但不包括新增的文件   git checkout [filename] //对指定文件  回退项目版本对已经add/co">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-18T12:45:55.695Z">
+<meta property="og:updated_time" content="2018-11-17T15:12:03.068Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git常用指令">
-<meta name="twitter:description" content="前言常用指令1、撤销本地修改  git checkout . //撤销所有已修改但未提交的文件的修改，但不包括新增的文件   git checkout [filename] //对指定文件  2、回退项目版本 对已经add/commit但未push的文件也适用  git reset –hard [commit-hashcode] //hashcode可以用git log查看  注：新增文件还没加到">
+<meta name="twitter:description" content="前言一年前就想用git进行代码和文档的管理，也一直想用git搭建自己的Blog，当时功力还不够，从入门到放弃了。中途断断续续的研究-放弃了几次，现在才算懂了些道道，能上手用了。开心~   常用指令撤销本地修改 git checkout . //撤销所有已修改但未提交的文件的修改，但不包括新增的文件   git checkout [filename] //对指定文件  回退项目版本对已经add/co">
 
 
 
@@ -298,6 +298,7 @@
 
 
 
+
  </div>
     </header>
 
@@ -356,7 +357,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-17T23:12:03+08:00">
+                2018-11-17
+              </time>
             
           </span>
 
@@ -410,25 +423,22 @@
       
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h1 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h1><p>1、撤销本地修改</p>
-<blockquote>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>一年前就想用git进行代码和文档的管理，也一直想用git搭建自己的Blog，当时功力还不够，从入门到放弃了。中途断断续续的研究-放弃了几次，现在才算懂了些道道，能上手用了。开心~  </p>
+<h1 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h1><h2 id="撤销本地修改"><a href="#撤销本地修改" class="headerlink" title="撤销本地修改"></a>撤销本地修改</h2><blockquote>
 <p>git checkout . //撤销所有已修改但未提交的文件的修改，但不包括新增的文件</p>
 </blockquote>
 <blockquote>
 <p>git checkout [filename] //对指定文件</p>
 </blockquote>
-<p>2、回退项目版本</p>
-<p><em>对已经add/commit但未push的文件也适用</em></p>
+<h2 id="回退项目版本"><a href="#回退项目版本" class="headerlink" title="回退项目版本"></a>回退项目版本</h2><p><em>对已经add/commit但未push的文件也适用</em></p>
 <blockquote>
-<p>git reset –hard [commit-hashcode] //hashcode可以用git log查看</p>
+<p>git reset –hard [commit-hashcode] //hashcode可以用git log查看  </p>
 </blockquote>
 <p><strong>注：新增文件还没加到git的记录里面，及属于未tracked的状态，所以撤销修改和回退均对其不影响，可以手动清除 也可以用git clean</strong></p>
-<p>3、从工作目录中移除没有track的文件</p>
-<blockquote>
+<h2 id="从工作目录中移除没有track的文件"><a href="#从工作目录中移除没有track的文件" class="headerlink" title="从工作目录中移除没有track的文件"></a>从工作目录中移除没有track的文件</h2><blockquote>
 <p>git clean -df  //说明：git clean 从工作目录中移除没有被track的文件，通常始用的参数是-df：d表示同时移除目录，-f表示force，因为在git配置文件中，clean.requireForce=true,如果不加-f，clean将会拒绝执行</p>
 </blockquote>
-<p>4、取消已经暂存的文件，即撤销先前“git add”的操作</p>
-<blockquote>
+<h2 id="取消已经暂存的文件，即撤销先前“git-add”的操作"><a href="#取消已经暂存的文件，即撤销先前“git-add”的操作" class="headerlink" title="取消已经暂存的文件，即撤销先前“git add”的操作"></a>取消已经暂存的文件，即撤销先前“git add”的操作</h2><blockquote>
 <p>git reset HEAD^</p>
 </blockquote>
 <blockquote>
@@ -437,13 +447,34 @@
 <blockquote>
 <p>git reset hash  //回退到某个版本</p>
 </blockquote>
-<h1 id="Git冲突解决常用指令"><a href="#Git冲突解决常用指令" class="headerlink" title="Git冲突解决常用指令"></a>Git冲突解决常用指令</h1><p>1、强制推送本地替换服务器端</p>
-<blockquote>
+<h1 id="Git冲突解决常用指令"><a href="#Git冲突解决常用指令" class="headerlink" title="Git冲突解决常用指令"></a>Git冲突解决常用指令</h1><h2 id="强制推送本地替换服务器端"><a href="#强制推送本地替换服务器端" class="headerlink" title="强制推送本地替换服务器端"></a>强制推送本地替换服务器端</h2><blockquote>
 <p>git push -f</p>
 </blockquote>
-<p>2、服务器端完全覆盖本地工作版本</p>
-<blockquote>
+<h2 id="服务器端完全覆盖本地工作版本"><a href="#服务器端完全覆盖本地工作版本" class="headerlink" title="服务器端完全覆盖本地工作版本"></a>服务器端完全覆盖本地工作版本</h2><blockquote>
 <p>git fetch –all<br>git reset –hard origin/master<br>git pull</p>
+</blockquote>
+<h1 id="多终端同步Hexo命令"><a href="#多终端同步Hexo命令" class="headerlink" title="多终端同步Hexo命令"></a>多终端同步Hexo命令</h1><h2 id="日常使用"><a href="#日常使用" class="headerlink" title="日常使用"></a>日常使用</h2><p><strong>每个平台下都要切换到src分支下</strong>  </p>
+<ul>
+<li><strong>获取更新</strong><blockquote>
+<p>git pull  </p>
+</blockquote>
+</li>
+<li>开始写博文  <blockquote>
+<p>hexo new “XXX”</p>
+</blockquote>
+</li>
+<li>博文结束  <blockquote>
+<p>hexo clean<br>hexo g(generate)<br>hexo d(deploy)    </p>
+</blockquote>
+</li>
+<li>同步到master分支  <blockquote>
+<p>git add .<br>git commit -m “XXX”<br>git push origin src  </p>
+</blockquote>
+</li>
+</ul>
+<h2 id="新建博文字段"><a href="#新建博文字段" class="headerlink" title="新建博文字段"></a>新建博文字段</h2><p>1、visible: hide 这里如果加上hide则该文章就不会在文章首页显示，如果留空则表示默认显示<br>2、categories:<br>3、hexo-blog-encrypt加密博文字段  </p>
+<blockquote>
+<p>password: 是该博客加密使用的密码<br>abstract: 是该博客的摘要，会显示在博客的列表页<br>message: 这个是博客查看时，密码输入框上面的描述性文字       </p>
 </blockquote>
 
       
@@ -604,7 +635,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -615,7 +646,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -626,7 +657,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -643,6 +674,12 @@
                     <a href="https://github.com/weixi234" target="_blank" title="GitHub">
                       
                         <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/3598071457" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i></a>
                   </span>
                 
                   <span class="links-of-author-item">
@@ -675,7 +712,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常用指令"><span class="nav-number">2.</span> <span class="nav-text">常用指令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git冲突解决常用指令"><span class="nav-number">3.</span> <span class="nav-text">Git冲突解决常用指令</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常用指令"><span class="nav-number">2.</span> <span class="nav-text">常用指令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#撤销本地修改"><span class="nav-number">2.1.</span> <span class="nav-text">撤销本地修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回退项目版本"><span class="nav-number">2.2.</span> <span class="nav-text">回退项目版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从工作目录中移除没有track的文件"><span class="nav-number">2.3.</span> <span class="nav-text">从工作目录中移除没有track的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#取消已经暂存的文件，即撤销先前“git-add”的操作"><span class="nav-number">2.4.</span> <span class="nav-text">取消已经暂存的文件，即撤销先前“git add”的操作</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git冲突解决常用指令"><span class="nav-number">3.</span> <span class="nav-text">Git冲突解决常用指令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#强制推送本地替换服务器端"><span class="nav-number">3.1.</span> <span class="nav-text">强制推送本地替换服务器端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器端完全覆盖本地工作版本"><span class="nav-number">3.2.</span> <span class="nav-text">服务器端完全覆盖本地工作版本</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多终端同步Hexo命令"><span class="nav-number">4.</span> <span class="nav-text">多终端同步Hexo命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#日常使用"><span class="nav-number">4.1.</span> <span class="nav-text">日常使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新建博文字段"><span class="nav-number">4.2.</span> <span class="nav-text">新建博文字段</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -712,6 +749,7 @@
 
 
   <div class="footer-custom">白露未晞，看书学习到天明</div>
+
 
 
         
