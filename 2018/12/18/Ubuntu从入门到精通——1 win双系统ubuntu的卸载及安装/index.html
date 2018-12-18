@@ -116,7 +116,7 @@
 
 
 
-  <meta name="keywords" content="LINUX,库文件,编译原理,LINUX编程," />
+  <meta name="keywords" content="Ubuntu,双系统," />
 
 
 
@@ -127,18 +127,18 @@
 
 
 
-<meta name="description" content="前言gcc编译过程我这里就不用什么流程图语法了，发现markdown语法编辑器似乎不支持 hello.c–预处理器(cpp)[gcc -E]–&amp;gt;hello.i(c文件)–编译器(gcc)[gcc -S]–&amp;gt;hello.s(汇编文件)–汇编器(as)[gcc -C]–&amp;gt;hello.o(二进制文件)–连接器(ld)[gcc]–&amp;gt;a.out(可执行文件) 预处理器：cpp ===">
-<meta name="keywords" content="LINUX,库文件,编译原理,LINUX编程">
+<meta name="description" content="前言1我之前装过ubuntu18用过一段时间，但是我笔记本硬件显卡是630M（每次提到这个就想摔电脑😭）配置CUDA没成功，Ubuntu18资料暂时还少，也不想对g++降级，折腾的我也只能卸载ubuntu18安装Ubuntu16了。先说明：装好双系统后我电脑有两个引导，一个是Ubuntu那个紫色界面的引导，另一个是我安装win系统时遗留的引导。电脑上折腾过很多，每次都没记录下来，时间长了就容易忘">
+<meta name="keywords" content="Ubuntu,双系统">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LINUX中的库文件总结">
-<meta property="og:url" content="http://yoursite.com/2018/10/19/LINUX中的库文件总结/index.html">
+<meta property="og:title" content="Ubuntu从入门到精通——1 win双系统ubuntu的卸载及安装">
+<meta property="og:url" content="http://yoursite.com/2018/12/18/Ubuntu从入门到精通——1 win双系统ubuntu的卸载及安装/index.html">
 <meta property="og:site_name" content="未 晞">
-<meta property="og:description" content="前言gcc编译过程我这里就不用什么流程图语法了，发现markdown语法编辑器似乎不支持 hello.c–预处理器(cpp)[gcc -E]–&amp;gt;hello.i(c文件)–编译器(gcc)[gcc -S]–&amp;gt;hello.s(汇编文件)–汇编器(as)[gcc -C]–&amp;gt;hello.o(二进制文件)–连接器(ld)[gcc]–&amp;gt;a.out(可执行文件) 预处理器：cpp ===">
+<meta property="og:description" content="前言1我之前装过ubuntu18用过一段时间，但是我笔记本硬件显卡是630M（每次提到这个就想摔电脑😭）配置CUDA没成功，Ubuntu18资料暂时还少，也不想对g++降级，折腾的我也只能卸载ubuntu18安装Ubuntu16了。先说明：装好双系统后我电脑有两个引导，一个是Ubuntu那个紫色界面的引导，另一个是我安装win系统时遗留的引导。电脑上折腾过很多，每次都没记录下来，时间长了就容易忘">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-24T02:19:03.561Z">
+<meta property="og:updated_time" content="2018-12-18T13:29:19.125Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LINUX中的库文件总结">
-<meta name="twitter:description" content="前言gcc编译过程我这里就不用什么流程图语法了，发现markdown语法编辑器似乎不支持 hello.c–预处理器(cpp)[gcc -E]–&amp;gt;hello.i(c文件)–编译器(gcc)[gcc -S]–&amp;gt;hello.s(汇编文件)–汇编器(as)[gcc -C]–&amp;gt;hello.o(二进制文件)–连接器(ld)[gcc]–&amp;gt;a.out(可执行文件) 预处理器：cpp ===">
+<meta name="twitter:title" content="Ubuntu从入门到精通——1 win双系统ubuntu的卸载及安装">
+<meta name="twitter:description" content="前言1我之前装过ubuntu18用过一段时间，但是我笔记本硬件显卡是630M（每次提到这个就想摔电脑😭）配置CUDA没成功，Ubuntu18资料暂时还少，也不想对g++降级，折腾的我也只能卸载ubuntu18安装Ubuntu16了。先说明：装好双系统后我电脑有两个引导，一个是Ubuntu那个紫色界面的引导，另一个是我安装win系统时遗留的引导。电脑上折腾过很多，每次都没记录下来，时间长了就容易忘">
 
 
 
@@ -168,13 +168,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/19/LINUX中的库文件总结/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/12/18/Ubuntu从入门到精通——1 win双系统ubuntu的卸载及安装/"/>
 
 
 
 
 
-  <title>LINUX中的库文件总结 | 未 晞</title>
+  <title>Ubuntu从入门到精通——1 win双系统ubuntu的卸载及安装 | 未 晞</title>
   
 
 
@@ -322,7 +322,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/19/LINUX中的库文件总结/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/18/Ubuntu从入门到精通——1 win双系统ubuntu的卸载及安装/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="未晞">
@@ -339,7 +339,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LINUX中的库文件总结</h1>
+          <h1 class="post-title" itemprop="name headline">Ubuntu从入门到精通——1 win双系统ubuntu的卸载及安装</h1>
         
 
         <div class="post-meta">
@@ -351,8 +351,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-19T08:54:28+08:00">
-                2018-10-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-18T10:15:50+08:00">
+                2018-12-18
               </time>
             
 
@@ -367,8 +367,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-10-24T10:19:03+08:00">
-                2018-10-24
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-18T21:29:19+08:00">
+                2018-12-18
               </time>
             
           </span>
@@ -423,88 +423,44 @@
       
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h1 id="gcc编译过程"><a href="#gcc编译过程" class="headerlink" title="gcc编译过程"></a>gcc编译过程</h1><p><em>我这里就不用什么流程图语法了，发现markdown语法编辑器似乎不支持</em></p>
-<p><strong>hello.c</strong>–<em>预处理器(cpp)[gcc -E]</em>–&gt;<strong>hello.i(c文件)</strong>–<em>编译器(gcc)[gcc -S]</em>–&gt;<strong>hello.s(汇编文件)</strong>–<em>汇编器(as)[gcc -C]</em>–&gt;<strong>hello.o(二进制文件)</strong>–<em>连接器(ld)[gcc]</em>–&gt;<strong>a.out(可执行文件)</strong></p>
-<p><em>预处理器：cpp ===&gt;头文件展开，宏替换，注释去掉   gcc -E hello.c -o hello.i  
-</em>编译器：gcc ===&gt;C文件变成汇编文件 gcc -S hello.i -o hello.s<br><em>汇编器：as ===&gt;汇编文件变成二进制文件 gcc -c hello.s -o hello.o  
-</em>链接器：ld ===&gt;将函数库中相应的代码组合到目标文件中 gcc hello.o -o hello<br>例：</p>
+        <h1 id="前言1"><a href="#前言1" class="headerlink" title="前言1"></a>前言1</h1><p>我之前装过ubuntu18用过一段时间，但是我笔记本硬件显卡是630M（每次提到这个就想摔电脑😭）配置CUDA没成功，Ubuntu18资料暂时还少，也不想对g++降级，折腾的我也只能卸载ubuntu18安装Ubuntu16了。<br>先说明：装好双系统后我电脑有两个引导，一个是Ubuntu那个紫色界面的引导，另一个是我安装win系统时遗留的引导。<br>电脑上折腾过很多，每次都没记录下来，时间长了就容易忘，现在我开始用GitHub慢慢记录整理了。<br>欢迎加群808760743和我一起学习一起交流吧。</p>
+<h1 id="前言2"><a href="#前言2" class="headerlink" title="前言2"></a>前言2</h1><p>现在我自己配置了台GTX1070Ti，i5-8500的迷你台式机，现在我又重新开始配置了😭之前是win7+ubuntu16，现在我的台式是win10+Ubuntu18，发现有些许差别，主要在于启动引导部分。我现在也想把我之前写的几篇Ubuntu配置博文综合到这篇文章了，这样，当我再有新机的时候，照着这个博文做就行了。修改此博文名，成为一个系列。(20181218)</p>
+<h1 id="卸载Ubuntu18"><a href="#卸载Ubuntu18" class="headerlink" title="卸载Ubuntu18"></a>卸载Ubuntu18</h1><h2 id="删除Ubuntu引导"><a href="#删除Ubuntu引导" class="headerlink" title="删除Ubuntu引导"></a>删除Ubuntu引导</h2><p>首先感谢这篇博文<a href="https://blog.csdn.net/Meditator_hkx/article/details/52626077?utm_source=blogxgwz0" target="_blank" rel="noopener">Ubuntu/Win10双系统安全删除Ubuntu的方法</a>简介易懂。<br>step1：下载MbrFix.exe，解压<br>需要注意的是，若电脑是32位系统用MbrFix.exe,64位系统用MbrFix64.exe.<br>step2：(我是64位win7)右键MbrFix64.exe，属性-&gt;兼容性-&gt;勾选以管理员身份运行<br>step3：win+r，cmd，切换路劲至MbrFix64.exe存放文件夹，输入命令</p>
 <blockquote>
-<p>gcc example.c -I ./include -o app -D DEBUG -O3 -Wall -g  </p>
+<p>MbrFix /drive 0 fixmbr<br>系统响应you are about to Fix MBR,are you sure后输入  Y</p>
 </blockquote>
-<p>-I 指定头文件路劲<br>-o 指定生成文件名字<br>-D 编译时指定宏<br>-O 是否优化（冗余）程序（最高3，0不优化）<br>-Wall 在程序编译的时候输出警告信息<br>-g 程序中生成gdb调试信息（gdb调试时必须添加此）  </p>
-<h1 id="静态库的制作和使用"><a href="#静态库的制作和使用" class="headerlink" title="静态库的制作和使用"></a>静态库的制作和使用</h1><p>1、命名规则</p>
+<p>至此就成功了，可以重启试试。<br>若出现Function failed Error 5 访问拒绝，则是没勾选管理员身份运行。 </p>
+<p>至于安装win7过程中遗留下来的引导，直接用EasyBCD 2.3就可以了。<br>编辑引导菜单-&gt;选中未命名 删除-&gt;跳过启动菜单-&gt;保存设置-&gt;重启即可<br>判断系统启动方式<a href="http://www.cnblogs.com/xia-Autumn/p/6294055.html" target="_blank" rel="noopener">windows、ubuntu双系统正确卸载ubuntu系统</a></p>
+<h2 id="删除Ubuntu分区"><a href="#删除Ubuntu分区" class="headerlink" title="删除Ubuntu分区"></a>删除Ubuntu分区</h2><p>计算机右键-&gt;管理-&gt;存储-&gt;磁盘管理<br>当然也可以用一些工具如DiskGenius（请先格式化再调整分区😭速度快一些😭）<br>根据自己的情况酌情处理数据吧。（数据无价，谨慎处理)   </p>
+<h1 id="安装Ubuntu双系统"><a href="#安装Ubuntu双系统" class="headerlink" title="安装Ubuntu双系统"></a>安装Ubuntu双系统</h1><h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><h3 id="硬盘准备"><a href="#硬盘准备" class="headerlink" title="硬盘准备"></a>硬盘准备</h3><p>计算机右键-&gt;管理-&gt;存储-&gt;磁盘管理-&gt;右键-&gt;”删除卷”<br>在windows系统下删除分配给ubuntu的硬盘，在安装Ubuntu的时候方便区别其他盘  </p>
+<h3 id="制作Ubuntu启动盘"><a href="#制作Ubuntu启动盘" class="headerlink" title="制作Ubuntu启动盘"></a>制作Ubuntu启动盘</h3><p>推荐大家看<a href="https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-windows#1" target="_blank" rel="noopener">ubuntu官方指导</a><br>官方推荐rufus工具，选择镜像···<br>可参考<a href="https://blog.csdn.net/flyyufenfei/article/details/79187656" target="_blank" rel="noopener">博文双系统安装详细教程</a></p>
+<h3 id="安装Ubuntu"><a href="#安装Ubuntu" class="headerlink" title="安装Ubuntu"></a>安装Ubuntu</h3><p>1、我是华硕笔记本F2进入BIOS-&gt;Boot-&gt;Hard Drive BBS Priorities(时间长了我总忘了这个)-&gt;Boot Option #1       </p>
+<p>2、微星B360M主板，开机按住F11-&gt;选择U盘启动<br>进入BIOS：开机按Delete-&gt;启动选项是左右拖动图标完场的   </p>
 <blockquote>
-<p>lib + 库名字 + .a   </p>
+<p>（原先win7+Ubuntu）安装过程中：<br>其他选项-&gt;<strong>空闲</strong>磁盘分区（我分配了100G）：<br>/boot   300M    逻辑分区    空间起始位置    Ext4<br>swap    8G      逻辑分区    空间起始位置    交换空间<br>/       40G     逻辑分区    空间起始位置    Ext4<br>/home   剩下    逻辑分区    空间起始位置    Ext4</p>
 </blockquote>
-<p>2、制作步骤<br>step1：生成对应的.o文件 –.c—-&gt;.o   参数-c<br>step2: 将生成的静态.o文件打包（ar rcs + 静态库的名字（libMytest.a） + 生成的所有.o）<br>例：</p>
+<p><strong>修改安装启动引导器的设备：/boot对应的分区</strong> </p>
+<p>安装完场切记f2切换引导启动，拔出U盘  </p>
+<p>由于修改了默认启动引导位置，所以启动后并不会有Ubuntu启动引导  </p>
 <blockquote>
-<p><em>gcc </em>.c -c -I../include<br><em>ar rcs libMyCalc.a </em>.o<br>mv ../lib   </p>
+<p><strong>当前win10+ubuntu18安装问题及解决：</strong>   1、<strong>提示：Ubuntu安装提示“无法将grub-efi-amd64-signed软件包安装到/target”</strong><br>win10支持UEFI安装，但是现存（Win7）系统非UEFI引导,主要是这个UEFI引导问题，具体我也不知道UEFI是什么😵这个后期如果有机会还要再研究。<br><strong>我当前的做法是选择非UEFIU盘启动项启动的。</strong><br>2、我当前的做法是从非UEFI启动盘启动安装的-&gt;然后使用EasyBCD从win10中添加引导。<br><strong>疑惑</strong>:①网上有些说如果电脑boot支持UEFI一定用UEFI安装，win8之后都支持UEFI，那为什么我安装时会出错😵<br>②我的挂载点选的同之前一样是/boot，同学说win10选的是Windows boot manager,我也不知道选啥🤔···  </p>
 </blockquote>
-<p>step3: 发布和使用静态库  </p>
-<ul>
-<li>发布静态库  /lib</li>
-<li>头文件  /include  </li>
-</ul>
-<p>step4: 使用</p>
+<p>3、现在我进入Ubuntu的流程是：<br>开机-&gt;BIOS自检-&gt;win10引导选择系统项-选择Ubuntu-&gt;BIOS自检-&gt;ubuntu引导选择系统项（GRUB）-&gt;选择Ubuntu-&gt;进入Ubuntu系统<br>我表示有些奇怪🧐    </p>
+<h3 id="修改启动引导"><a href="#修改启动引导" class="headerlink" title="修改启动引导"></a>修改启动引导</h3><p>EasyBCD-&gt;添加新条目-&gt;操作系统选Linux/BSD-&gt;类型选GRUB 2-&gt;名称Ubuntu16-&gt;驱动器选自己选的/boot分区-&gt;添加条目<br>EasyBCD-&gt;编辑引导菜单-&gt;倒计时-&gt;保存设置</p>
+<h1 id="ubuntu初步配置"><a href="#ubuntu初步配置" class="headerlink" title="ubuntu初步配置"></a>ubuntu初步配置</h1><h2 id="ubuntu换源"><a href="#ubuntu换源" class="headerlink" title="ubuntu换源"></a>ubuntu换源</h2><p>step1：编辑/etc/apt/sources.list文件  </p>
 <blockquote>
-<p>方法一：gcc maintest.c lib/libMyCalc.a -o sum -I include<br>方法二：gcc maintest.c -I include -L lib -l MyCalc -o myapp</p>
+<p>sudo gedit /ect/apt/sources.list<br>//源地址：  <a href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/</a>  </p>
 </blockquote>
-<p>-L 指定库的路劲<br>-l  指定库的名字</p>
-<p><strong>静态库的优缺点</strong></p>
-<p>1、发布程序时，不需提供对应的库，因为已经将对应的库二进制打包到程序中<br>2、加载库速度快<br>3、库打包到程序中去，导致程序很大<br>4、库发生了改变，需要重新编译程序  </p>
-<p>查看库里面的东西：  </p>
+<p>step2：更新</p>
 <blockquote>
-<p>nm libMyCalc.a<br>    add.o:<br>        0000000000 T add<br>    div.o:<br>        0000000000 T div</p>
+<p>sudo apt-get update<br>sudo apt-get upgrade  </p>
 </blockquote>
-<p>例：&gt;nm myapp //也可以查看可执行文件<br><strong>T表示add 代码存放在代码区</strong></p>
-<h1 id="共享库（动态库）"><a href="#共享库（动态库）" class="headerlink" title="共享库（动态库）"></a>共享库（动态库）</h1><p>1、命名规则</p>
+<h2 id="win下远程操作Ubuntu方式"><a href="#win下远程操作Ubuntu方式" class="headerlink" title="win下远程操作Ubuntu方式"></a>win下远程操作Ubuntu方式</h2><p>1、通过TeamView方式（有网就行）<br>注意：<br>①Ubuntu版本的TeamView14不支持远程传送文件<br>②新安装的Ubuntu18要经过上述更换源和软件更新后才能安装TeamView成功，否则会安装失败<br>2、Ubuntu和Window系统之间进行文件互传（同一局域网下）<br>step1：现在Ubuntu下共享文件夹，在某一文件夹右键-&gt;配置文件共享属性<br>如：下载文件夹-&gt;右键-&gt;本地网络共享-&gt;共享此目录-&gt;(共享名和注释可选填)-&gt;勾上允许其他人来创建和删除这个文件夹里的文件-&gt;勾上允许匿名登录（对于没有账号的用户）<br>step2：在win文件管理器地址栏输入对应Ubuntu系统的IP地址回车即可看到共享的文件夹。<br>如：\192.168.1.129<br>参考链接：<a href="https://zhuanlan.zhihu.com/p/39522612" target="_blank" rel="noopener">Ubuntu和Windows之间进行远程访问和文件互传</a>   </p>
+<h2 id="更改文件夹及其子文件权限"><a href="#更改文件夹及其子文件权限" class="headerlink" title="更改文件夹及其子文件权限"></a>更改文件夹及其子文件权限</h2><p>打开终端进入需要修改的目录</p>
 <blockquote>
-<p>lib + 名字 + .so  </p>
+<p>sudo su<br>chmod 777 文件夹名 -R<br>chmod 777 文件名  </p>
 </blockquote>
-<p>2、制作步骤<br>step1:生成与位置无关的.o  </p>
-<blockquote>
-<p>gcc -fPIC -c *.c -I ../include</p>
-</blockquote>
-<p>step2:将.o打包成共享库（动态库）</p>
-<blockquote>
-<p>gcc -shared libMyCalc.so *.o -I include</p>
-</blockquote>
-<p>step3:发布.so和.include文件<br>step4：使用</p>
-<blockquote>
-<p>gcc maintest.c lib/libMyCalc.so -o app -I include<br>gcc maintest.c -I include -L ./lib -l MyCalc -o myapp<br>//-L 指定库路劲<br>//-l 指定库名字</p>
-</blockquote>
-<p><strong>ldd查看可执行文件执行时所依赖的所有动态库</strong></p>
-<blockquote>
-<p>ldd myapp  </p>
-</blockquote>
-<p>可执行程序(./a.out)&lt;—动态连接器，会自动调用所需要的动态库—动态库(libmytest.so)<br>动态连接器是按照环境变量去找动态连接库  </p>
-<blockquote>
-<p>echo $PATH  //打印环境变量<br>系统加载的时候从系统库(/lib)中加载</p>
-</blockquote>
-<p> <strong>LINUX中动态库的位置：</strong><br>1、/lib（更目录下lib目录）<br>所以，可以将用户库.so放到系统库目录下  (ldd myapp 可查看）<br>2、除系统库外提供了一个环境变量让用户配置LD_LIBRARY_PATH,系统会先搜索这个环境变量里的库，再去搜索系统默认库</p>
-<blockquote>
-<p>echo $LD_LIBRARY_PATH</p>
-</blockquote>
-<blockquote>
-<p>export(导入) LD_LIBRARY_PATH=./lib(将自己库路劲赋给环境变量)</p>
-</blockquote>
-<p><strong>注：这是临时设置，终端关闭重启就没了，主要用于开发过程中临时测试</strong><br>3、当前用户的.bashrc文件，相对上面是长久生效方法<br>将下面添加在.brashrc文件最后,<strong>重启终端生效</strong></p>
-<blockquote>
-<p>export(导入) LD_LIBRARY_PATH=./lib(将自己库路劲赋给环境变量)</p>
-</blockquote>
-<p><strong>4、重要方法</strong><br>step1：需要找到动态库连接器的配置文件(/etc下的ld.so.conf文件)</p>
-<blockquote>
-<p>/etc/ld.so.conf  </p>
-</blockquote>
-<p>step2：将自己的动态库的路径写道配置文件中  </p>
-<blockquote>
-<p>/home/…/lib  //注意要写绝对路径</p>
-</blockquote>
-<p>step3：更新动态连接器配置文件使其生效</p>
-<blockquote>
-<p>sudo ldconfig -v(输出信息)</p>
-</blockquote>
-<p><strong>动态库优缺点</strong><br>1、执行程序体积小<br>2、动态库更新了，不需要重新编译程序，函数接口不变<br>3、发布时需将动态库提供给用户<br>4、动态库没有加载到应用程序中，加载速度较慢</p>
+<h2 id="科学上网"><a href="#科学上网" class="headerlink" title="科学上网"></a>科学上网</h2><p>1、我用的是Shadowsocks-Qt5.AppImage<br>2、导入gui-config.json配置文件<br>3、启动Shadowsocks-Qt5.AppImage并连接<br><strong>4、Ubuntu系统设置-&gt;网络-&gt;网络代理-&gt;手动-&gt;Socks主机-&gt;127.0.0.1-&gt;1080(忽略主机不动，http代理端口置为0)</strong><br><strong>chrome上需要设置上述代理，否则不能科学上网</strong></p>
 
       
     </div>
@@ -551,13 +507,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/LINUX/" rel="tag"># LINUX</a>
+            <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
           
-            <a href="/tags/库文件/" rel="tag"># 库文件</a>
-          
-            <a href="/tags/编译原理/" rel="tag"># 编译原理</a>
-          
-            <a href="/tags/LINUX编程/" rel="tag"># LINUX编程</a>
+            <a href="/tags/双系统/" rel="tag"># 双系统</a>
           
         </div>
       
@@ -570,8 +522,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/18/PCA主成成分分析/" rel="next" title="PCA主成分分析">
-                <i class="fa fa-chevron-left"></i> PCA主成分分析
+              <a href="/2018/11/22/我的简历/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -579,10 +531,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/26/ubuntu配置opencvGPU-CPU/" rel="prev" title="ubuntu16配置opencvGPU&CPU">
-                ubuntu16配置opencvGPU&CPU <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -747,7 +695,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#gcc编译过程"><span class="nav-number">2.</span> <span class="nav-text">gcc编译过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#静态库的制作和使用"><span class="nav-number">3.</span> <span class="nav-text">静态库的制作和使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#共享库（动态库）"><span class="nav-number">4.</span> <span class="nav-text">共享库（动态库）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言1"><span class="nav-number">1.</span> <span class="nav-text">前言1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#前言2"><span class="nav-number">2.</span> <span class="nav-text">前言2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#卸载Ubuntu18"><span class="nav-number">3.</span> <span class="nav-text">卸载Ubuntu18</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#删除Ubuntu引导"><span class="nav-number">3.1.</span> <span class="nav-text">删除Ubuntu引导</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除Ubuntu分区"><span class="nav-number">3.2.</span> <span class="nav-text">删除Ubuntu分区</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装Ubuntu双系统"><span class="nav-number">4.</span> <span class="nav-text">安装Ubuntu双系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备"><span class="nav-number">4.1.</span> <span class="nav-text">准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#硬盘准备"><span class="nav-number">4.1.1.</span> <span class="nav-text">硬盘准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#制作Ubuntu启动盘"><span class="nav-number">4.1.2.</span> <span class="nav-text">制作Ubuntu启动盘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Ubuntu"><span class="nav-number">4.1.3.</span> <span class="nav-text">安装Ubuntu</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改启动引导"><span class="nav-number">4.1.4.</span> <span class="nav-text">修改启动引导</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ubuntu初步配置"><span class="nav-number">5.</span> <span class="nav-text">ubuntu初步配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ubuntu换源"><span class="nav-number">5.1.</span> <span class="nav-text">ubuntu换源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#win下远程操作Ubuntu方式"><span class="nav-number">5.2.</span> <span class="nav-text">win下远程操作Ubuntu方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更改文件夹及其子文件权限"><span class="nav-number">5.3.</span> <span class="nav-text">更改文件夹及其子文件权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#科学上网"><span class="nav-number">5.4.</span> <span class="nav-text">科学上网</span></a></li></ol></li></ol></div>
             
 
           </div>

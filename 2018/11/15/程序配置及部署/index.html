@@ -116,7 +116,7 @@
 
 
 
-  <meta name="keywords" content="程序部署," />
+  <meta name="keywords" content="程序开发,环境配置,程序部署," />
 
 
 
@@ -127,18 +127,18 @@
 
 
 
-<meta name="description" content="前言开发完的程序移植到新电脑，为图简单总是直接将包含exe的Release文件夹拷贝过去，时长出现“应用程序无法正常启动（0xc000007b）”错误。不知所措。   Tips1、vs2013安装目录\VC\redist下的dll是正统的MFCdll是面向分发的。2、正确的部署途径还是应该参见MSDN部署本机桌面应用程序 (Visual C++)   未解决1、使用dependency确定依赖DL">
-<meta name="keywords" content="程序部署">
+<meta name="description" content="前言开发完的程序移植到新电脑，为图简单总是直接将包含exe的Release文件夹拷贝过去，时长出现“应用程序无法正常启动（0xc000007b）”错误。不知所措。   部署Tips1、vs2013安装目录\VC\redist下的dll是正统的MFCdll是面向分发的。2、正确的部署途径还是应该参见MSDN部署本机桌面应用程序 (Visual C++)   VS环境变量及dll引用我之前一直是将dl">
+<meta name="keywords" content="程序开发,环境配置,程序部署">
 <meta property="og:type" content="article">
-<meta property="og:title" content="程序部署">
-<meta property="og:url" content="http://yoursite.com/2018/11/15/程序部署/index.html">
+<meta property="og:title" content="程序配置及部署">
+<meta property="og:url" content="http://yoursite.com/2018/11/15/程序配置及部署/index.html">
 <meta property="og:site_name" content="未 晞">
-<meta property="og:description" content="前言开发完的程序移植到新电脑，为图简单总是直接将包含exe的Release文件夹拷贝过去，时长出现“应用程序无法正常启动（0xc000007b）”错误。不知所措。   Tips1、vs2013安装目录\VC\redist下的dll是正统的MFCdll是面向分发的。2、正确的部署途径还是应该参见MSDN部署本机桌面应用程序 (Visual C++)   未解决1、使用dependency确定依赖DL">
+<meta property="og:description" content="前言开发完的程序移植到新电脑，为图简单总是直接将包含exe的Release文件夹拷贝过去，时长出现“应用程序无法正常启动（0xc000007b）”错误。不知所措。   部署Tips1、vs2013安装目录\VC\redist下的dll是正统的MFCdll是面向分发的。2、正确的部署途径还是应该参见MSDN部署本机桌面应用程序 (Visual C++)   VS环境变量及dll引用我之前一直是将dl">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-16T02:24:23.112Z">
+<meta property="og:updated_time" content="2018-11-22T14:50:00.061Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="程序部署">
-<meta name="twitter:description" content="前言开发完的程序移植到新电脑，为图简单总是直接将包含exe的Release文件夹拷贝过去，时长出现“应用程序无法正常启动（0xc000007b）”错误。不知所措。   Tips1、vs2013安装目录\VC\redist下的dll是正统的MFCdll是面向分发的。2、正确的部署途径还是应该参见MSDN部署本机桌面应用程序 (Visual C++)   未解决1、使用dependency确定依赖DL">
+<meta name="twitter:title" content="程序配置及部署">
+<meta name="twitter:description" content="前言开发完的程序移植到新电脑，为图简单总是直接将包含exe的Release文件夹拷贝过去，时长出现“应用程序无法正常启动（0xc000007b）”错误。不知所措。   部署Tips1、vs2013安装目录\VC\redist下的dll是正统的MFCdll是面向分发的。2、正确的部署途径还是应该参见MSDN部署本机桌面应用程序 (Visual C++)   VS环境变量及dll引用我之前一直是将dl">
 
 
 
@@ -168,13 +168,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/11/15/程序部署/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/15/程序配置及部署/"/>
 
 
 
 
 
-  <title>程序部署 | 未 晞</title>
+  <title>程序配置及部署 | 未 晞</title>
   
 
 
@@ -322,7 +322,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/15/程序部署/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/15/程序配置及部署/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="未晞">
@@ -339,7 +339,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">程序部署</h1>
+          <h1 class="post-title" itemprop="name headline">程序配置及部署</h1>
         
 
         <div class="post-meta">
@@ -367,8 +367,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-11-16T10:24:23+08:00">
-                2018-11-16
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-22T22:50:00+08:00">
+                2018-11-22
               </time>
             
           </span>
@@ -386,8 +386,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/程序部署/" itemprop="url" rel="index">
-                    <span itemprop="name">程序部署</span>
+                  <a href="/categories/程序开发/" itemprop="url" rel="index">
+                    <span itemprop="name">程序开发</span>
                   </a>
                 </span>
 
@@ -424,7 +424,27 @@
 
       
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>开发完的程序移植到新电脑，为图简单总是直接将包含exe的Release文件夹拷贝过去，时长出现“应用程序无法正常启动（0xc000007b）”错误。不知所措。  </p>
-<h1 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h1><p>1、vs2013安装目录\VC\redist下的dll是正统的MFCdll是面向分发的。<br>2、正确的部署途径还是应该参见MSDN<a href="https://msdn.microsoft.com/zh-cn/library/zebw5zk9.aspx?f=255&amp;MSPPError=-2147217396" target="_blank" rel="noopener">部署本机桌面应用程序 (Visual C++)</a>  </p>
+<h1 id="部署Tips"><a href="#部署Tips" class="headerlink" title="部署Tips"></a>部署Tips</h1><p>1、vs2013安装目录\VC\redist下的dll是正统的MFCdll是面向分发的。<br>2、正确的部署途径还是应该参见MSDN<a href="https://msdn.microsoft.com/zh-cn/library/zebw5zk9.aspx?f=255&amp;MSPPError=-2147217396" target="_blank" rel="noopener">部署本机桌面应用程序 (Visual C++)</a>  </p>
+<h1 id="VS环境变量及dll引用"><a href="#VS环境变量及dll引用" class="headerlink" title="VS环境变量及dll引用"></a>VS环境变量及dll引用</h1><p>我之前一直是将dll文件全部拷贝到Release或Debug目录和exe同目录下，但是库一多程序一多每个程序都要拷贝一份dll文件库，极大的占据了磁盘空间，现在我想把dll库放到环境变量中去，方案的可行性在网上查了一下资料：<br><a href="https://blog.csdn.net/fyyyr/article/details/79253342" target="_blank" rel="noopener">环境变量与DLL等文件引用</a>    </p>
+<h1 id="VS环境变量过长问题"><a href="#VS环境变量过长问题" class="headerlink" title="VS环境变量过长问题"></a>VS环境变量过长问题</h1><p>这是我很久之前遇到解决的一个问题，今天发现还有其他解决方法。<br>1、硬链接（这不是LINUX中的吗，十分惊奇，LINUX中硬链接等命令我还要复习下）   </p>
+<ul>
+<li><a href="https://blog.csdn.net/SWhard/article/details/53141937" target="_blank" rel="noopener">通过硬链接方法解决Path环境变量过长</a>    </li>
+</ul>
+<p>2、可是我想将不同库dll的路径都放到一个单独的环境变量，然后在Path中包含的方法： （原来是用%%来代替o(╥﹏╥)o）          </p>
+<ul>
+<li><a href="https://blog.csdn.net/jinshelj/article/details/80193021" target="_blank" rel="noopener">通过新建环境变量的方法解决Path环境变量过长</a>   </li>
+</ul>
+<p><strong>3、动态链接库应该放置到Administrator的用户变量Path中</strong><br>这个问题也一直困惑着我，明明系统变量Path中放置了正确的dll路径，但程序运行起来还是显示找不到dll。今天问了下老师，老师说要<strong>放在用户变量Path</strong>中，哇，还可以这样，系统变量不是相当于系统中所有用户的用户变量吗，windows不是多用户吗，一直用的是系统变量而忽略了用户变量······<br>顺便网上搜索了一下，能明确指明和解决这个问题的很少，看到了MSDN：  </p>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-tw/windows/desktop/Dlls/dynamic-link-libraries" target="_blank" rel="noopener">MSDN上Dynamic-Link Libraries的说明</a>   </li>
+<li><a href="https://docs.microsoft.com/zh-tw/windows/desktop/Dlls/dynamic-link-library-search-order#search-order-for-desktop-applications" target="_blank" rel="noopener">MSDN上Dynamic-Link Library Search Order</a>中有一条指出  <blockquote>
+<p>The directories that are listed in the PATH environment variable. Note that this does not include the per-application path specified by the App Paths registry key. The App Paths key is not used when computing the DLL search path.  </p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>路径环境变量中列出的目录。注意，这并不包括应用程序路径注册键指定的每个应用程序路径。在计算DLL搜索路径时不使用App path键。</p>
+</blockquote>
 <h1 id="未解决"><a href="#未解决" class="headerlink" title="未解决"></a>未解决</h1><p>1、使用dependency确定依赖DLL<br>我用dependency去分析一个可正常执行的exe，出现错误，使我很迷茫：  </p>
 <blockquote>
 <p>Error: At least one required implicit or forwarded dependency was not found.<br>Warning: At least one delay-load dependency module was not found.<br>Warning: At least one module has an unresolved import due to a missing export function in a delay-load dependent module.  </p>
@@ -478,6 +498,10 @@
     <footer class="post-footer">
       
         <div class="post-tags">
+          
+            <a href="/tags/程序开发/" rel="tag"># 程序开发</a>
+          
+            <a href="/tags/环境配置/" rel="tag"># 环境配置</a>
           
             <a href="/tags/程序部署/" rel="tag"># 程序部署</a>
           
@@ -614,7 +638,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -669,7 +693,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Tips"><span class="nav-number">2.</span> <span class="nav-text">Tips</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#未解决"><span class="nav-number">3.</span> <span class="nav-text">未解决</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#部署Tips"><span class="nav-number">2.</span> <span class="nav-text">部署Tips</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VS环境变量及dll引用"><span class="nav-number">3.</span> <span class="nav-text">VS环境变量及dll引用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VS环境变量过长问题"><span class="nav-number">4.</span> <span class="nav-text">VS环境变量过长问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#未解决"><span class="nav-number">5.</span> <span class="nav-text">未解决</span></a></li></ol></div>
             
 
           </div>
