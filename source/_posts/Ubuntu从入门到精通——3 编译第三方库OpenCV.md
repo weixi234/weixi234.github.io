@@ -1,6 +1,6 @@
 ---
-title: ubuntu16配置opencvGPU&CPU
-date: 2018-10-26 09:55:43
+title: Ubuntu从入门到精通——3 编译第三方库OpenCV
+date: 2018-12-19 09:55:43
 tags:
 - Ubuntu
 - OpenCV
@@ -9,7 +9,11 @@ categories:
 - 深度学习
 ---
 # 前言  
+## 前言1
 我之前编译配置过opencv很多遍，无论是win环境还是Linux环境。这次在配置好CUDA的Ubuntu环境下编译配置OpenCV3.4和contribute库，也顺便将之前的经验总结归纳。另说明一点，之前在Ubuntu下我一直是输入命令cmake，发现CMAKE-GUI在Ubuntu下也蛮好用。  
+## 前言2
+现修改并完善之前的博文，成一个系列（20181219）
+
 # 环境准备  
 ## 搭建编译环境  
 >sudo apt-get install build-essential  
@@ -18,6 +22,18 @@ categories:
 >sudo apt-get install cmake git pkg-config libgtk2.0-dev libavcodec-dev libavformat-dev libswscale-dev  
 ## 安装关联库  
 >sudo apt-get install python-dev python-opencv python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev  
+
+### Ubuntu18.04下依赖包libjasper-dev无法安装问题  
+提示：>ubable to locate libjasper-dev    
+解决方法：  
+>sudo add-apt-repository "deb http://security.ubuntu.com/ubuntu xenial-security main"   
+>sudo apt update  
+>sudo apt install libjasper1 libjasper-dev  
+
+说明：libjasper1是libjasper-dev的依赖包   
+### cmake中not find package libgphoto2  
+>sudo apt-get -y install libgphoto2-dev  
+
 # 编译OpenCV  
 ## 用命令方式  
 1、最好将Opencv3.4.zip移动到用户主目录下进行编译：  
