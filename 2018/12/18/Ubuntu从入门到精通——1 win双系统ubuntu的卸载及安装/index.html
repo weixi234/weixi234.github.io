@@ -135,7 +135,7 @@
 <meta property="og:site_name" content="未 晞">
 <meta property="og:description" content="前言1我之前装过ubuntu18用过一段时间，但是我笔记本硬件显卡是630M（每次提到这个就想摔电脑😭）配置CUDA没成功，Ubuntu18资料暂时还少，也不想对g++降级，折腾的我也只能卸载ubuntu18安装Ubuntu16了。先说明：装好双系统后我电脑有两个引导，一个是Ubuntu那个紫色界面的引导，另一个是我安装win系统时遗留的引导。电脑上折腾过很多，每次都没记录下来，时间长了就容易忘">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-18T13:29:19.125Z">
+<meta property="og:updated_time" content="2018-12-19T01:17:55.734Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu从入门到精通——1 win双系统ubuntu的卸载及安装">
 <meta name="twitter:description" content="前言1我之前装过ubuntu18用过一段时间，但是我笔记本硬件显卡是630M（每次提到这个就想摔电脑😭）配置CUDA没成功，Ubuntu18资料暂时还少，也不想对g++降级，折腾的我也只能卸载ubuntu18安装Ubuntu16了。先说明：装好双系统后我电脑有两个引导，一个是Ubuntu那个紫色界面的引导，另一个是我安装win系统时遗留的引导。电脑上折腾过很多，每次都没记录下来，时间长了就容易忘">
@@ -367,8 +367,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-12-18T21:29:19+08:00">
-                2018-12-18
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-19T09:17:55+08:00">
+                2018-12-19
               </time>
             
           </span>
@@ -443,7 +443,10 @@
 <p>安装完场切记f2切换引导启动，拔出U盘  </p>
 <p>由于修改了默认启动引导位置，所以启动后并不会有Ubuntu启动引导  </p>
 <blockquote>
-<p><strong>当前win10+ubuntu18安装问题及解决：</strong>   1、<strong>提示：Ubuntu安装提示“无法将grub-efi-amd64-signed软件包安装到/target”</strong><br>win10支持UEFI安装，但是现存（Win7）系统非UEFI引导,主要是这个UEFI引导问题，具体我也不知道UEFI是什么😵这个后期如果有机会还要再研究。<br><strong>我当前的做法是选择非UEFIU盘启动项启动的。</strong><br>2、我当前的做法是从非UEFI启动盘启动安装的-&gt;然后使用EasyBCD从win10中添加引导。<br><strong>疑惑</strong>:①网上有些说如果电脑boot支持UEFI一定用UEFI安装，win8之后都支持UEFI，那为什么我安装时会出错😵<br>②我的挂载点选的同之前一样是/boot，同学说win10选的是Windows boot manager,我也不知道选啥🤔···  </p>
+<p><strong>当前win10+ubuntu18安装问题及解决：   
+</strong>1、提示：Ubuntu安装提示“无法将grub-efi-amd64-signed软件包安装到/target”<strong><br>win10支持UEFI安装，但是现存（Win7）系统非UEFI引导,主要是这个UEFI引导问题，具体我也不知道UEFI是什么😵这个后期如果有机会还要再研究。  
+</strong>我当前的做法是选择非UEFIU盘启动项启动的。<strong><br>2、我当前的做法是从非UEFI启动盘启动安装的-&gt;然后使用EasyBCD从win10中添加引导。   
+</strong>疑惑**:①网上有些说如果电脑boot支持UEFI一定用UEFI安装，win8之后都支持UEFI，那为什么我安装时会出错😵<br>②我的挂载点选的同之前一样是/boot，同学说win10选的是Windows boot manager,我也不知道选啥🤔···  </p>
 </blockquote>
 <p>3、现在我进入Ubuntu的流程是：<br>开机-&gt;BIOS自检-&gt;win10引导选择系统项-选择Ubuntu-&gt;BIOS自检-&gt;ubuntu引导选择系统项（GRUB）-&gt;选择Ubuntu-&gt;进入Ubuntu系统<br>我表示有些奇怪🧐    </p>
 <h3 id="修改启动引导"><a href="#修改启动引导" class="headerlink" title="修改启动引导"></a>修改启动引导</h3><p>EasyBCD-&gt;添加新条目-&gt;操作系统选Linux/BSD-&gt;类型选GRUB 2-&gt;名称Ubuntu16-&gt;驱动器选自己选的/boot分区-&gt;添加条目<br>EasyBCD-&gt;编辑引导菜单-&gt;倒计时-&gt;保存设置</p>
@@ -531,6 +534,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/19/Ubuntu从入门到精通——2 配置CUDA跑模型/" rel="prev" title="Ubuntu从入门到精通——2 配置CUDA跑模型">
+                Ubuntu从入门到精通——2 配置CUDA跑模型 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>

@@ -127,20 +127,23 @@
 
 
 
-<meta name="description" content="前言很早之前就装好Ubuntu双系统，在上面学过视觉SLEAM十四讲、CLion、CMAKE语法，编写过openCV、PCL、caffeCPU版等等，后来重装了Ubuntu18，前几天用Ubuntu18配置GPU版CUDA打算跑跑深度学习，一直没配置好，现在删除了Ubuntu18重新装回Ubuntu16。   Ubuntu16.04无法直接安装deb包问题 sudo apt-get install">
+<meta name="description" content="前言前言1很早之前就装好Ubuntu双系统，在上面学过视觉SLEAM十四讲、CLion、CMAKE语法，编写过openCV、PCL、caffeCPU版等等，后来重装了Ubuntu18，前几天用Ubuntu18配置GPU版CUDA打算跑跑深度学习，一直没配置好，现在删除了Ubuntu18重新装回Ubuntu16。   前言2现在我有台i5-8500+GTX1070Ti的台式，现在配置这个1070的设">
 <meta name="keywords" content="CUDA,ubuntu18,深度学习,LINUX">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu16配置CUDA跑模型">
-<meta property="og:url" content="http://yoursite.com/2018/10/15/Ubuntu16配置CUDA跑模型/index.html">
+<meta property="og:title" content="Ubuntu从入门到精通——2 配置CUDA跑模型">
+<meta property="og:url" content="http://yoursite.com/2018/12/19/Ubuntu从入门到精通——2 配置CUDA跑模型/index.html">
 <meta property="og:site_name" content="未 晞">
-<meta property="og:description" content="前言很早之前就装好Ubuntu双系统，在上面学过视觉SLEAM十四讲、CLion、CMAKE语法，编写过openCV、PCL、caffeCPU版等等，后来重装了Ubuntu18，前几天用Ubuntu18配置GPU版CUDA打算跑跑深度学习，一直没配置好，现在删除了Ubuntu18重新装回Ubuntu16。   Ubuntu16.04无法直接安装deb包问题 sudo apt-get install">
+<meta property="og:description" content="前言前言1很早之前就装好Ubuntu双系统，在上面学过视觉SLEAM十四讲、CLion、CMAKE语法，编写过openCV、PCL、caffeCPU版等等，后来重装了Ubuntu18，前几天用Ubuntu18配置GPU版CUDA打算跑跑深度学习，一直没配置好，现在删除了Ubuntu18重新装回Ubuntu16。   前言2现在我有台i5-8500+GTX1070Ti的台式，现在配置这个1070的设">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2018/10/15/Ubuntu16配置CUDA跑模型/驱动版本与CUDA工具对应关系.png">
-<meta property="og:updated_time" content="2018-10-25T05:42:33.000Z">
+<meta property="og:image" content="http://yoursite.com/2018/12/19/Ubuntu从入门到精通——2%20配置CUDA跑模型/驱动版本与CUDA工具对应关系.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/19/Ubuntu从入门到精通——2%20配置CUDA跑模型/CUDA9.1中的本机Linux分发支持.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/19/Ubuntu从入门到精通——2%20配置CUDA跑模型/CUDA安装完成.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/19/Ubuntu从入门到精通——2%20配置CUDA跑模型/cuDnn出错.png">
+<meta property="og:updated_time" content="2018-12-19T07:42:42.388Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ubuntu16配置CUDA跑模型">
-<meta name="twitter:description" content="前言很早之前就装好Ubuntu双系统，在上面学过视觉SLEAM十四讲、CLion、CMAKE语法，编写过openCV、PCL、caffeCPU版等等，后来重装了Ubuntu18，前几天用Ubuntu18配置GPU版CUDA打算跑跑深度学习，一直没配置好，现在删除了Ubuntu18重新装回Ubuntu16。   Ubuntu16.04无法直接安装deb包问题 sudo apt-get install">
-<meta name="twitter:image" content="http://yoursite.com/2018/10/15/Ubuntu16配置CUDA跑模型/驱动版本与CUDA工具对应关系.png">
+<meta name="twitter:title" content="Ubuntu从入门到精通——2 配置CUDA跑模型">
+<meta name="twitter:description" content="前言前言1很早之前就装好Ubuntu双系统，在上面学过视觉SLEAM十四讲、CLion、CMAKE语法，编写过openCV、PCL、caffeCPU版等等，后来重装了Ubuntu18，前几天用Ubuntu18配置GPU版CUDA打算跑跑深度学习，一直没配置好，现在删除了Ubuntu18重新装回Ubuntu16。   前言2现在我有台i5-8500+GTX1070Ti的台式，现在配置这个1070的设">
+<meta name="twitter:image" content="http://yoursite.com/2018/12/19/Ubuntu从入门到精通——2%20配置CUDA跑模型/驱动版本与CUDA工具对应关系.png">
 
 
 
@@ -170,13 +173,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/15/Ubuntu16配置CUDA跑模型/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/12/19/Ubuntu从入门到精通——2 配置CUDA跑模型/"/>
 
 
 
 
 
-  <title>Ubuntu16配置CUDA跑模型 | 未 晞</title>
+  <title>Ubuntu从入门到精通——2 配置CUDA跑模型 | 未 晞</title>
   
 
 
@@ -324,7 +327,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/15/Ubuntu16配置CUDA跑模型/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/19/Ubuntu从入门到精通——2 配置CUDA跑模型/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="未晞">
@@ -341,7 +344,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Ubuntu16配置CUDA跑模型</h1>
+          <h1 class="post-title" itemprop="name headline">Ubuntu从入门到精通——2 配置CUDA跑模型</h1>
         
 
         <div class="post-meta">
@@ -353,8 +356,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-15T16:48:55+08:00">
-                2018-10-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-19T15:48:55+08:00">
+                2018-12-19
               </time>
             
 
@@ -369,8 +372,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-10-25T13:42:33+08:00">
-                2018-10-25
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-19T15:42:42+08:00">
+                2018-12-19
               </time>
             
           </span>
@@ -425,7 +428,8 @@
       
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>很早之前就装好Ubuntu双系统，在上面学过视觉SLEAM十四讲、CLion、CMAKE语法，编写过openCV、PCL、caffeCPU版等等，后来重装了Ubuntu18，前几天用Ubuntu18配置GPU版CUDA打算跑跑深度学习，一直没配置好，现在删除了Ubuntu18重新装回Ubuntu16。  </p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h2 id="前言1"><a href="#前言1" class="headerlink" title="前言1"></a>前言1</h2><p>很早之前就装好Ubuntu双系统，在上面学过视觉SLEAM十四讲、CLion、CMAKE语法，编写过openCV、PCL、caffeCPU版等等，后来重装了Ubuntu18，前几天用Ubuntu18配置GPU版CUDA打算跑跑深度学习，一直没配置好，现在删除了Ubuntu18重新装回Ubuntu16。  </p>
+<h2 id="前言2"><a href="#前言2" class="headerlink" title="前言2"></a>前言2</h2><p>现在我有台i5-8500+GTX1070Ti的台式，现在配置这个1070的设备。发现原来写的这个博文有些连接失效，一并修改。  </p>
 <h1 id="Ubuntu16-04无法直接安装deb包问题"><a href="#Ubuntu16-04无法直接安装deb包问题" class="headerlink" title="Ubuntu16.04无法直接安装deb包问题"></a>Ubuntu16.04无法直接安装deb包问题</h1><blockquote>
 <p>sudo apt-get install gdebi</p>
 </blockquote>
@@ -442,15 +446,15 @@
 <blockquote>
 <p>sudo dpkg –configure -a<br>sudo rm /var/lib/apt/lists/lock（有效）   </p>
 </blockquote>
-<h1 id="ubuntu换源"><a href="#ubuntu换源" class="headerlink" title="ubuntu换源"></a>ubuntu换源</h1><p>step1：编辑/etc/apt/sources.list文件  </p>
+<h1 id="ubuntu换源"><a href="#ubuntu换源" class="headerlink" title="ubuntu换源"></a>ubuntu换源</h1><p>step1：编辑/etc/apt/sources.list文件   </p>
 <blockquote>
-<p>sudo gedit /ect/apt/sources.list<br>//源地址：<a href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/</a>  </p>
+<p>sudo gedit /ect/apt/sources.list<br>//源地址：  <a href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/</a>  </p>
 </blockquote>
-<p>step2：更新</p>
+<p>step2：更新  </p>
 <blockquote>
 <p>sudo apt-get update<br>sudo apt-get upgrade  </p>
 </blockquote>
-<h1 id="安装nvidia显卡驱动"><a href="#安装nvidia显卡驱动" class="headerlink" title="安装nvidia显卡驱动"></a>安装nvidia显卡驱动</h1><p>显卡驱动可参考<a href="https://linuxconfig.org/how-to-inatall-the-nvidia-drivers-on-ubuntu-18-04-bionic-beaver-linux#h8-manual-install-using-the-official-nvidia-com-driver" target="_blank" rel="noopener">如何安装NVIDIA显卡驱动</a><br>step1：查看显卡设备和驱动</p>
+<h1 id="安装nvidia显卡驱动"><a href="#安装nvidia显卡驱动" class="headerlink" title="安装nvidia显卡驱动"></a>安装nvidia显卡驱动</h1><p><del>显卡驱动可参考<a href="https://linuxconfig.org/how-to-inatall-the-nvidia-drivers-on-ubuntu-18-04-bionic-beaver-linux#h8-manual-install-using-the-official-nvidia-com-driver" target="_blank" rel="noopener">如何安装NVIDIA显卡驱动</a></del><br>step1：查看显卡设备和驱动</p>
 <blockquote>
 <p>ubuntu-drivers devices</p>
 </blockquote>
@@ -458,28 +462,54 @@
 <blockquote>
 <p>sudo ubuntu-drivers autoinstall  </p>
 </blockquote>
-<p>安装完成后要重启生效<br><strong>衡量nvidia显卡驱动安装是否成功</strong><br>1、终端中确认</p>
+<ul>
+<li>安装完成后要重启生效  </li>
+</ul>
+<p><strong>衡量nvidia显卡驱动安装是否成功</strong><br>1、终端中确认</p>
 <blockquote>
 <p>nvidia-smi</p>
 </blockquote>
-<p>2、设置-&gt;详细信息-&gt;About<br>3、软件中搜索‘nvidia setting’-&gt;Prime profiles</p>
-<h1 id="nvidia驱动与CUDA-TOOKit工具对应关系"><a href="#nvidia驱动与CUDA-TOOKit工具对应关系" class="headerlink" title="nvidia驱动与CUDA TOOKit工具对应关系"></a>nvidia驱动与CUDA TOOKit工具对应关系</h1><p><img src="驱动版本与CUDA工具对应关系.png" alt="驱动与CUDA对应关系"><br>给出参考网址<a href="https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html" target="_blank" rel="noopener">CUDA RELEASE NOTES</a><br>由于我电脑nvidia-smi显示的是384.130，对照表所以我只能选Cuda9.0.76版本。  </p>
-<h1 id="CUDA官网查询CUDA-Toolkit相关信息"><a href="#CUDA官网查询CUDA-Toolkit相关信息" class="headerlink" title="CUDA官网查询CUDA Toolkit相关信息"></a>CUDA官网查询CUDA Toolkit相关信息</h1><p>英伟达官方文档<a href="https://developer.nvidia.com/cuda-toolkit-archive" target="_blank" rel="noopener">CUDA Toolkit Archive</a>对应工具版本后面的Online Documentation中的安装指南推荐看看，网上的中文教程应该就是按照这个来的。</p>
+<p>2、设置-&gt;详细信息-&gt;About<br><del>3、软件中搜索‘nvidia setting’-&gt;Prime profiles</del>  </p>
+<h1 id="nvidia驱动与CUDA-TOOKit工具对应关系"><a href="#nvidia驱动与CUDA-TOOKit工具对应关系" class="headerlink" title="nvidia驱动与CUDA TOOKit工具对应关系"></a>nvidia驱动与CUDA TOOKit工具对应关系</h1><p><img src="驱动版本与CUDA工具对应关系.png" alt="驱动与CUDA对应关系"><br>给出参考网址<a href="https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html" target="_blank" rel="noopener">CUDA RELEASE NOTES</a><br>-由于我电脑nvidia-smi显示的是384.130，对照表所以我只能选Cuda9.0.76版本。<br>-当前我台式nvidia-smi显示的是390.77，对照表我可以安装CUDA 9.1（9.1.85）  </p>
+<h1 id="CUDA官网查询CUDA-Toolkit相关信息"><a href="#CUDA官网查询CUDA-Toolkit相关信息" class="headerlink" title="CUDA官网查询CUDA Toolkit相关信息"></a>CUDA官网查询CUDA Toolkit相关信息</h1><p>英伟达官方文档<a href="https://developer.nvidia.com/cuda-toolkit-archive" target="_blank" rel="noopener">CUDA Toolkit Archive</a>-&gt;安装指南中有对应工具版本后面的Online Documentation中的安装指南推荐看看，网上的中文教程应该就是按照这个来的。</p>
 <p>CUDA Toolkit 包括：NVCC编译器、CUDA函数头文件及库文件，及一些辅助库<br>CUDA Toolkit SDK 提供CUDA分析接口函数（帮助用户分析CUDA程序）<br>CUDA Toolkit获取<a href="https://developer.nvidia.com/cuda-toolkit-archive" target="_blank" rel="noopener">CUDA Toolkit Archive</a></p>
 <p>CUDA Archive获取<a href="https://developer.nvidia.com/rdp/cudnn-archive" target="_blank" rel="noopener">CUDA cuDNN Archive</a></p>
-<p>注意CUDA cuDNN与CUDA Toolkit 之间的对应关系</p>
-<h1 id="安装CUDA-Toolkit"><a href="#安装CUDA-Toolkit" class="headerlink" title="安装CUDA Toolkit"></a>安装CUDA Toolkit</h1><p>参照对应版本的说明文档即可</p>
+<p>注意CUDA cuDNN与CUDA Toolkit 之间的对应关系   </p>
+<p>CUDA安装指南中CUDA9.1与Linux分发版本支持：<br><img src="CUDA9.1中的本机Linux分发支持.png" alt="CUDA安装指南中CUDA9.1与Linux分发版本支持"><strong>Ubuntu18.04默认GCC-7.3.0.由于CUDA未支持GCC-7，所以需要安装低版本的5或者&lt;=6.3.0的版本，并且设置未默认版本</strong>   </p>
+<h1 id="查看gcc版本"><a href="#查看gcc版本" class="headerlink" title="查看gcc版本"></a>查看gcc版本</h1><blockquote>
+<p>gcc –version<br>g++ –version   </p>
+</blockquote>
+<h2 id="gcc-g-降级"><a href="#gcc-g-降级" class="headerlink" title="gcc/g++降级"></a>gcc/g++降级</h2><p>step1：下载安装gcc-6 g++-6：  </p>
+<blockquote>
+<p>sudo apt-get install gcc-6 g++-6  </p>
+</blockquote>
+<p>step2：链接实现gcc/g++降级：  </p>
+<blockquote>
+<p>cd /usr/bin<br>sudo rm gcc<br>sudo ln -s gcc-6 gcc<br>sudo rm g++<br>sudo ln -s g++-6 g++<br>step3:检查调整后gcc/g++版本<br>gcc –version<br>g++ –version  </p>
+</blockquote>
+<p>注意：我这样装的gcc/g++-6最后的版本是6.5.0😮很是吃惊，但是发现可以装  </p>
+<h1 id="安装CUDA-Toolkit"><a href="#安装CUDA-Toolkit" class="headerlink" title="安装CUDA Toolkit"></a>安装CUDA Toolkit</h1><h2 id="安装CUDA"><a href="#安装CUDA" class="headerlink" title="安装CUDA"></a>安装CUDA</h2><p>参照对应版本的说明文档即可</p>
 <blockquote>
 <p>sudo sh cuda_10.0.130_410.48_linux.run</p>
 </blockquote>
 <p>补丁也按照上述命令安装<br><strong>注意</strong>：出现 更多  点q  accept  驱动不装 其余yes</p>
-<p><strong>配置环境</strong><br>step1:打开profile文件  </p>
+<h2 id="安装CUDA过程中出现的问题"><a href="#安装CUDA过程中出现的问题" class="headerlink" title="安装CUDA过程中出现的问题"></a>安装CUDA过程中出现的问题</h2><p>1、发现提示sample、tookit已经安装成功但是缺少一些库,提示如下：     </p>
+<blockquote>
+<p>Driver: Not Selected<br>Tookit: Installed in /usr/local/cuda9.1<br>Samples:Installed in /home/用户,but missing recommended libraries  </p>
+</blockquote>
+<p><strong>解决方法：</strong>添加库      </p>
+<blockquote>
+<p>sudo apt-get install freeglut3-dev build-essential libx11-dev libxmu-dev libxi-dev libgl1-mesa-glx libglu1-mesa libglu1-mesa-dev     </p>
+</blockquote>
+<p><a href="https://blog.csdn.net/Jonms/article/details/79318566" target="_blank" rel="noopener">参考连接-CUDA9.1、cuDNN7在Ubuntu16.04上的安装</a>  </p>
+<p><em>记着安装完补丁</em></p>
+<h2 id="CUDA安装完成后配置环境"><a href="#CUDA安装完成后配置环境" class="headerlink" title="CUDA安装完成后配置环境"></a>CUDA安装完成后配置环境</h2><p><img src="CUDA安装完成.png" alt="CUDA安装完成提示"><br><strong>配置环境</strong><br>step1:打开profile文件  </p>
 <blockquote>
 <p>sudo gedit  /etc/profile  </p>
 </blockquote>
 <p>step2:打开文件后在文件末尾添加路径(安装目录)  </p>
 <blockquote>
-<p>export PATH=/usr/local/cuda-9.0/bin:\$PATH(\转义)<br>export  LD_LIBRARY_PATH=/usr/local/cuda-9.0/lib64$LD_LIBRARY_PATH<br>sudo ldconfig//重启生效</p>
+<p>export PATH=/usr/local/cuda-9.1/bin:\$PATH(\转义)<br>export  LD_LIBRARY_PATH=/usr/local/cuda-9.1/lib64$LD_LIBRARY_PATH<br>source /etc/profile//使修改立即生效</p>
 </blockquote>
 <p>step3:</p>
 <blockquote>
@@ -487,14 +517,14 @@
 </blockquote>
 <p>添加  </p>
 <blockquote>
-<p>export PATH=/usr/local/cuda-10.0/bin${PATH:+:${PATH}}<br>export LD_LIBRARY_PATH=/usr/local/cuda-10.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}  </p>
+<p>export PATH=/usr/local/cuda-9.1/bin${PATH:+:${PATH}}<br>export LD_LIBRARY_PATH=/usr/local/cuda-9.1/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}  </p>
 </blockquote>
 <blockquote>
-<p>source /etc/profile//使修改立即生效</p>
+<p>sudo ldconfig//重启生效   </p>
 </blockquote>
 <p><strong>阅读安装完的summary也可知道</strong></p>
 <p><del><strong>重启</strong></del><br><del>&gt;sudo reboot</del>  </p>
-<p><strong>检查cuda是否安装成功</strong></p>
+<p>##检查cuda是否安装成功  </p>
 <p>1、检测路径~/dev下有无存在名为nvidia*的多个文件，若无安装出错</p>
 <blockquote>
 <p>ls /dev | grep nvidia*</p>
@@ -508,7 +538,7 @@
 <blockquote>
 <p>make -j4</p>
 </blockquote>
-<p>在bin/x86_64/linux/release/运行deviceQuery程序</p>
+<p>在/home/用户/NVIDIA_CUDA_9.1_Samples/bin/x86_64/linux/release/运行deviceQuery程序</p>
 <blockquote>
 <p>sudo ./deviceQuery</p>
 </blockquote>
@@ -517,23 +547,33 @@
 <p>sudo ./bandwidthTest</p>
 </blockquote>
 <p>Pass表示通过 </p>
-<h1 id="安装cuDNN"><a href="#安装cuDNN" class="headerlink" title="安装cuDNN"></a>安装cuDNN</h1><p><strong>应该看官方说明文档，我偷懒了</strong><br>查询显卡计算能力<a href="https://deverloper.nvidia.com/cuda-gpus" target="_blank" rel="noopener">CUDA-GPU</a><br>安装方法应该是先查询自己电脑的计算能力，然后确定cudnn版本，然后确定对应的cuda版本  </p>
+<h1 id="安装cuDNN"><a href="#安装cuDNN" class="headerlink" title="安装cuDNN"></a>安装cuDNN</h1><p><strong>应该看官方说明文档，我偷懒了</strong><br>查询显卡计算能力<a href="https://deverloper.nvidia.com/cuda-gpus" target="_blank" rel="noopener">CUDA-GPU</a><br>安装方法应该是先查询自己电脑的计算能力，然后确定cudnn版本，然后确定对应的cuda版本<br><a href="https://developer.nvidia.com/cudnn" target="_blank" rel="noopener">cuDNN下载连接</a>   </p>
+<p><a href="https://blog.csdn.net/Lucifer_zzq/article/details/76675239" target="_blank" rel="noopener">参考连接-最正确的姿势安装cudnn</a>  </p>
+<h2 id="确定cuDNN对应的版本"><a href="#确定cuDNN对应的版本" class="headerlink" title="确定cuDNN对应的版本"></a>确定cuDNN对应的版本</h2><p>我安装的是cuda_9.1.85_387.26_linux.run<br>所以下载的cuDNN是：Download cuDNN v7.1.3 [April 17,2018],for CUDA 9.1-&gt;cuDNN v7.1.3 Library for Linux<br>(具体我也不知道cudnn该怎么选择😭不知道cudnn的选择与cuda安装版本间关系，也不知道cuDNN下载时是该选Library for linux还是Library for Ubuntu😵)    </p>
 <p>解压cudnn压缩包，执行或参考下面命令</p>
 <blockquote>
-<p>sudo cp cuda/include/cudnn.h  /usr/local/include<br>sudo cp cuda/lib64/libcudnn<em> /usr/local/cuda/lib64<br>sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn</em></p>
+<p>sudo cp cuda/include/cudnn.h  /usr/local/cuda-9.1/include<br>sudo cp cuda/lib64/libcudnn<em> /usr/local/cuda-9.1/lib64<br>sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn</em></p>
 </blockquote>
-<p><strong>验证cuDnn安装成功否</strong><br>cudnn官方说明文档(cuDNN Developer Guide)中指出cudnn加速要求计算能力在3.0以上，所以我的凉了~<br>官方文档(cuDnn inatall Guide)指出了deb方式下的验证方式，直接照着做就行，现我说明Ubuntu下的验证方式：<br>下载mnistCUDNN<a href="https://github.com/weixi234/cudnn_samples_v7" target="_blank" rel="noopener">cudnn_samples_v7</a>  </p>
+<h2 id="配置cuDNN安装环境"><a href="#配置cuDNN安装环境" class="headerlink" title="配置cuDNN安装环境"></a>配置cuDNN安装环境</h2><p>step1：</p>
 <blockquote>
-<p>make clean &amp;&amp; make<br>./mnistCUDNN  </p>
+<p>sudo gedit ~/.bashrc  </p>
 </blockquote>
-<p><strong>移动cuDnn库文件后可能找不到libcudart.so.9.0</strong>  </p>
-<ul>
-<li>确认路径<a href="https://blog.csdn.net/u010454261/article/details/71268325" target="_blank" rel="noopener">错误参考1</a>  </li>
-<li>确认路径<a href="https://github.com/BVLC/caffe/issues/4944" target="_blank" rel="noopener">错误参考2</a>     </li>
-<li>确认路径<a href="https://github.com/KlausT/ccminer/issues/149" target="_blank" rel="noopener">错误参考3</a>  </li>
-<li>确认路径<a href="www.cs.virginia.edu/~mwb7w/cuda_support/libcudart.html">错误参考4</a></li>
-</ul>
-<p><strong>说明</strong>：<br>1、cuDnn加速只支持GPU计算能力在3.0以上的GPU加速（这一点cudnn官方文档中也有指出）；<br>2、cuDnn(CUDA Deep Neural Network library):是NVIDIA打造的针对深度神经网络的加速库，是一个用于深层神经网络的GPU加速库，如果你要用GPU训练模型，cuDNN不是必须的，但是一般会采用这个加速库。</p>
+<p>step2:  </p>
+<blockquote>
+<p>export LD_LIBRARY_PATH=”$LD_LIBRARY_PATH:/usr/local/cuda-9.1/lib64:/usr/local/cuda-9.1/extras/CUPTI/lib64”<br>export CUDA_HOME=/usr/local/cuda-9.1<br>export PATH=”$CUDA_HOME/bin:$PATH”</p>
+</blockquote>
+<p>##验证cuDnn安装成功否<br>cudnn官方说明文档(cuDNN Developer Guide)中指出cudnn加速要求计算能力在3.0以上，所以我的凉了~<br>官方文档(cuDnn inatall Guide)指出了deb方式下的验证方式，直接照着做就行，现我说明Ubuntu下的验证方式：  </p>
+<p>下载mnistCUDNN<a href="https://github.com/weixi234/cudnn_samples_v7" target="_blank" rel="noopener">cudnn_samples_v7</a>   </p>
+<blockquote>
+<p>cd cudnn_samples_v7/mnistCUDNN<br>make clean &amp;&amp; make<br>./mnistCUDNN  </p>
+</blockquote>
+<p><strong>运行测试出错：</strong><br>If you’re trying to test your CUDA Toolkit 8.0 and cuDNN v6.0 installation (for TensorFlow), and mnistCUDNN gives you the following error:<br><img src="cuDnn出错.png" alt="cuDNN出错图"><br>…that’s due to corrupted cache, which you can fix by deleting it:  </p>
+<blockquote>
+<p>sudo rm -rf ~/.nv/<br>./mnistCUDNN</p>
+</blockquote>
+<p>然后就会输出成功结果。</p>
+<p><a href="https://www.alatortsev.com/2018/01/17/fixing-cudnn_status_internal_error/" target="_blank" rel="noopener">上述参考连接</a>  </p>
+<h1 id="最后说明"><a href="#最后说明" class="headerlink" title="最后说明"></a>最后说明</h1><p>1、cuDnn加速只支持GPU计算能力在3.0以上的GPU加速（这一点cudnn官方文档中也有指出）；<br>2、cuDnn(CUDA Deep Neural Network library):是NVIDIA打造的针对深度神经网络的加速库，是一个用于深层神经网络的GPU加速库，如果你要用GPU训练模型，cuDNN不是必须的，但是一般会采用这个加速库。</p>
 
       
     </div>
@@ -599,15 +639,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/12/18/Ubuntu从入门到精通——1 win双系统ubuntu的卸载及安装/" rel="next" title="Ubuntu从入门到精通——1 win双系统ubuntu的卸载及安装">
+                <i class="fa fa-chevron-left"></i> Ubuntu从入门到精通——1 win双系统ubuntu的卸载及安装
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/16/Git常用指令/" rel="prev" title="Git常用指令">
-                Git常用指令 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -772,7 +812,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ubuntu16-04无法直接安装deb包问题"><span class="nav-number">2.</span> <span class="nav-text">Ubuntu16.04无法直接安装deb包问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ubuntu16-04无法获得锁问题"><span class="nav-number">3.</span> <span class="nav-text">Ubuntu16.04无法获得锁问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ubuntu换源"><span class="nav-number">4.</span> <span class="nav-text">ubuntu换源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装nvidia显卡驱动"><span class="nav-number">5.</span> <span class="nav-text">安装nvidia显卡驱动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nvidia驱动与CUDA-TOOKit工具对应关系"><span class="nav-number">6.</span> <span class="nav-text">nvidia驱动与CUDA TOOKit工具对应关系</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CUDA官网查询CUDA-Toolkit相关信息"><span class="nav-number">7.</span> <span class="nav-text">CUDA官网查询CUDA Toolkit相关信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装CUDA-Toolkit"><span class="nav-number">8.</span> <span class="nav-text">安装CUDA Toolkit</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装cuDNN"><span class="nav-number">9.</span> <span class="nav-text">安装cuDNN</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言1"><span class="nav-number">1.1.</span> <span class="nav-text">前言1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前言2"><span class="nav-number">1.2.</span> <span class="nav-text">前言2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ubuntu16-04无法直接安装deb包问题"><span class="nav-number">2.</span> <span class="nav-text">Ubuntu16.04无法直接安装deb包问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ubuntu16-04无法获得锁问题"><span class="nav-number">3.</span> <span class="nav-text">Ubuntu16.04无法获得锁问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ubuntu换源"><span class="nav-number">4.</span> <span class="nav-text">ubuntu换源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装nvidia显卡驱动"><span class="nav-number">5.</span> <span class="nav-text">安装nvidia显卡驱动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nvidia驱动与CUDA-TOOKit工具对应关系"><span class="nav-number">6.</span> <span class="nav-text">nvidia驱动与CUDA TOOKit工具对应关系</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CUDA官网查询CUDA-Toolkit相关信息"><span class="nav-number">7.</span> <span class="nav-text">CUDA官网查询CUDA Toolkit相关信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看gcc版本"><span class="nav-number">8.</span> <span class="nav-text">查看gcc版本</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#gcc-g-降级"><span class="nav-number">8.1.</span> <span class="nav-text">gcc/g++降级</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装CUDA-Toolkit"><span class="nav-number">9.</span> <span class="nav-text">安装CUDA Toolkit</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装CUDA"><span class="nav-number">9.1.</span> <span class="nav-text">安装CUDA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装CUDA过程中出现的问题"><span class="nav-number">9.2.</span> <span class="nav-text">安装CUDA过程中出现的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CUDA安装完成后配置环境"><span class="nav-number">9.3.</span> <span class="nav-text">CUDA安装完成后配置环境</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装cuDNN"><span class="nav-number">10.</span> <span class="nav-text">安装cuDNN</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#确定cuDNN对应的版本"><span class="nav-number">10.1.</span> <span class="nav-text">确定cuDNN对应的版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置cuDNN安装环境"><span class="nav-number">10.2.</span> <span class="nav-text">配置cuDNN安装环境</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最后说明"><span class="nav-number">11.</span> <span class="nav-text">最后说明</span></a></li></ol></div>
             
 
           </div>
