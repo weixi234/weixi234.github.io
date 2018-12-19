@@ -64,7 +64,8 @@ swap    8G      逻辑分区    空间起始位置    交换空间
 
 由于修改了默认启动引导位置，所以启动后并不会有Ubuntu启动引导  
 
->**当前win10+ubuntu18安装问题及解决：**   1、**提示：Ubuntu安装提示“无法将grub-efi-amd64-signed软件包安装到/target”**  
+>**当前win10+ubuntu18安装问题及解决：   
+**1、提示：Ubuntu安装提示“无法将grub-efi-amd64-signed软件包安装到/target”**  
 win10支持UEFI安装，但是现存（Win7）系统非UEFI引导,主要是这个UEFI引导问题，具体我也不知道UEFI是什么😵这个后期如果有机会还要再研究。  
 **我当前的做法是选择非UEFIU盘启动项启动的。**  
 2、我当前的做法是从非UEFI启动盘启动安装的->然后使用EasyBCD从win10中添加引导。   
