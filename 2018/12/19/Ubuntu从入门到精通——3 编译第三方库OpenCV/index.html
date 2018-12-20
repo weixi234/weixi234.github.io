@@ -135,10 +135,13 @@
 <meta property="og:site_name" content="未 晞">
 <meta property="og:description" content="前言前言1我之前编译配置过opencv很多遍，无论是win环境还是Linux环境。这次在配置好CUDA的Ubuntu环境下编译配置OpenCV3.4和contribute库，也顺便将之前的经验总结归纳。另说明一点，之前在Ubuntu下我一直是输入命令cmake，发现CMAKE-GUI在Ubuntu下也蛮好用。   前言2现修改并完善之前的博文，成一个系列（20181219） 环境准备搭建编译环境">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-19T13:55:16.112Z">
+<meta property="og:image" content="http://yoursite.com/2018/12/19/Ubuntu从入门到精通——3%20编译第三方库OpenCV/make错误1.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/19/Ubuntu从入门到精通——3%20编译第三方库OpenCV/make错误2.png">
+<meta property="og:updated_time" content="2018-12-20T03:55:12.291Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu从入门到精通——3 编译第三方库OpenCV">
 <meta name="twitter:description" content="前言前言1我之前编译配置过opencv很多遍，无论是win环境还是Linux环境。这次在配置好CUDA的Ubuntu环境下编译配置OpenCV3.4和contribute库，也顺便将之前的经验总结归纳。另说明一点，之前在Ubuntu下我一直是输入命令cmake，发现CMAKE-GUI在Ubuntu下也蛮好用。   前言2现修改并完善之前的博文，成一个系列（20181219） 环境准备搭建编译环境">
+<meta name="twitter:image" content="http://yoursite.com/2018/12/19/Ubuntu从入门到精通——3%20编译第三方库OpenCV/make错误1.png">
 
 
 
@@ -367,8 +370,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-12-19T21:55:16+08:00">
-                2018-12-19
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-20T11:55:12+08:00">
+                2018-12-20
               </time>
             
           </span>
@@ -483,6 +486,7 @@
 <blockquote>
 <p>pkg-config –modversion opencv</p>
 </blockquote>
+<h1 id="错误疑惑不解"><a href="#错误疑惑不解" class="headerlink" title="错误疑惑不解"></a>错误疑惑不解</h1><p>Ubuntu18.04，Cuda9.1，cuDNN7.1,gcc5.5 -&gt;make 出错<br>Ubuntu18.04，Cuda9.1，cuDNN，gcc6.5 -&gt;make 出错<br>不知什么原因，Cuda及cuDNN是配置好的，测试能通过，估计是Ubuntu18.04的核心和gcc版本不对<br>CMAKE中勾选了WITH_CUDA就出这个错误，而不勾选WITH_CUDA是能正常通过的。😵<br>Opencv我编译了很多次，这次就是想WITH_CUDA。好像之前用Ubuntu16成功过一次，但是我就是想用Ubuntu18嘛😭<br><img src="make错误1.png" alt="make错误图1"><br><img src="make错误2.png" alt="make错误图2">  </p>
 
       
     </div>
@@ -723,7 +727,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言1"><span class="nav-number">1.1.</span> <span class="nav-text">前言1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前言2"><span class="nav-number">1.2.</span> <span class="nav-text">前言2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#环境准备"><span class="nav-number">2.</span> <span class="nav-text">环境准备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建编译环境"><span class="nav-number">2.1.</span> <span class="nav-text">搭建编译环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装辅助工具"><span class="nav-number">2.2.</span> <span class="nav-text">安装辅助工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装关联库"><span class="nav-number">2.3.</span> <span class="nav-text">安装关联库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ubuntu18-04下依赖包libjasper-dev无法安装问题"><span class="nav-number">2.3.1.</span> <span class="nav-text">Ubuntu18.04下依赖包libjasper-dev无法安装问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cmake中not-find-package-libgphoto2"><span class="nav-number">2.3.2.</span> <span class="nav-text">cmake中not find package libgphoto2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译OpenCV"><span class="nav-number">3.</span> <span class="nav-text">编译OpenCV</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#用命令方式"><span class="nav-number">3.1.</span> <span class="nav-text">用命令方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用CMAKE-GUI方式"><span class="nav-number">3.2.</span> <span class="nav-text">用CMAKE-GUI方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置OpenCV环境"><span class="nav-number">3.3.</span> <span class="nav-text">配置OpenCV环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OpenCV编译验证"><span class="nav-number">3.4.</span> <span class="nav-text">OpenCV编译验证</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言1"><span class="nav-number">1.1.</span> <span class="nav-text">前言1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前言2"><span class="nav-number">1.2.</span> <span class="nav-text">前言2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#环境准备"><span class="nav-number">2.</span> <span class="nav-text">环境准备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建编译环境"><span class="nav-number">2.1.</span> <span class="nav-text">搭建编译环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装辅助工具"><span class="nav-number">2.2.</span> <span class="nav-text">安装辅助工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装关联库"><span class="nav-number">2.3.</span> <span class="nav-text">安装关联库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ubuntu18-04下依赖包libjasper-dev无法安装问题"><span class="nav-number">2.3.1.</span> <span class="nav-text">Ubuntu18.04下依赖包libjasper-dev无法安装问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cmake中not-find-package-libgphoto2"><span class="nav-number">2.3.2.</span> <span class="nav-text">cmake中not find package libgphoto2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译OpenCV"><span class="nav-number">3.</span> <span class="nav-text">编译OpenCV</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#用命令方式"><span class="nav-number">3.1.</span> <span class="nav-text">用命令方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用CMAKE-GUI方式"><span class="nav-number">3.2.</span> <span class="nav-text">用CMAKE-GUI方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置OpenCV环境"><span class="nav-number">3.3.</span> <span class="nav-text">配置OpenCV环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OpenCV编译验证"><span class="nav-number">3.4.</span> <span class="nav-text">OpenCV编译验证</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#错误疑惑不解"><span class="nav-number">4.</span> <span class="nav-text">错误疑惑不解</span></a></li></ol></div>
             
 
           </div>
