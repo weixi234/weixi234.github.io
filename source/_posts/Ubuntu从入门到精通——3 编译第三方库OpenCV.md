@@ -95,8 +95,14 @@ export PKG_CONFIG_PATH
 >pkg-config --modversion opencv
 
 
-
-
+# 错误疑惑不解
+Ubuntu18.04，Cuda9.1，cuDNN7.1,gcc5.5 ->make 出错   
+Ubuntu18.04，Cuda9.1，cuDNN，gcc6.5 ->make 出错  
+不知什么原因，Cuda及cuDNN是配置好的，测试能通过，估计是Ubuntu18.04的核心和gcc版本不对  
+CMAKE中勾选了WITH_CUDA就出这个错误，而不勾选WITH_CUDA是能正常通过的。😵  
+Opencv我编译了很多次，这次就是想WITH_CUDA。好像之前用Ubuntu16成功过一次，但是我就是想用Ubuntu18嘛😭  
+![make错误图1](make错误1.png)  
+![make错误图2](make错误2.png)  
 
 
 
