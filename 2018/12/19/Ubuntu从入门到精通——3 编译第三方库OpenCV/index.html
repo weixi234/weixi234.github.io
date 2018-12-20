@@ -127,21 +127,18 @@
 
 
 
-<meta name="description" content="前言前言1我之前编译配置过opencv很多遍，无论是win环境还是Linux环境。这次在配置好CUDA的Ubuntu环境下编译配置OpenCV3.4和contribute库，也顺便将之前的经验总结归纳。另说明一点，之前在Ubuntu下我一直是输入命令cmake，发现CMAKE-GUI在Ubuntu下也蛮好用。   前言2现修改并完善之前的博文，成一个系列（20181219） 环境准备搭建编译环境">
+<meta name="description" content="前言前言1我之前编译配置过opencv很多遍，无论是win环境还是Linux环境。这次在配置好CUDA的Ubuntu环境下编译配置OpenCV3.4和contribute库，也顺便将之前的经验总结归纳。另说明一点，之前在Ubuntu下我一直是输入命令cmake，发现CMAKE-GUI在Ubuntu下也蛮好用。   前言2现修改并完善之前的博文，成一个系列（20181219）PCL我之前一直都是在w">
 <meta name="keywords" content="Ubuntu,OpenCV,GPU">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu从入门到精通——3 编译第三方库OpenCV">
+<meta property="og:title" content="Ubuntu从入门到精通——3 编译第三方库OpenCV和PCL">
 <meta property="og:url" content="http://yoursite.com/2018/12/19/Ubuntu从入门到精通——3 编译第三方库OpenCV/index.html">
 <meta property="og:site_name" content="未 晞">
-<meta property="og:description" content="前言前言1我之前编译配置过opencv很多遍，无论是win环境还是Linux环境。这次在配置好CUDA的Ubuntu环境下编译配置OpenCV3.4和contribute库，也顺便将之前的经验总结归纳。另说明一点，之前在Ubuntu下我一直是输入命令cmake，发现CMAKE-GUI在Ubuntu下也蛮好用。   前言2现修改并完善之前的博文，成一个系列（20181219） 环境准备搭建编译环境">
+<meta property="og:description" content="前言前言1我之前编译配置过opencv很多遍，无论是win环境还是Linux环境。这次在配置好CUDA的Ubuntu环境下编译配置OpenCV3.4和contribute库，也顺便将之前的经验总结归纳。另说明一点，之前在Ubuntu下我一直是输入命令cmake，发现CMAKE-GUI在Ubuntu下也蛮好用。   前言2现修改并完善之前的博文，成一个系列（20181219）PCL我之前一直都是在w">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2018/12/19/Ubuntu从入门到精通——3%20编译第三方库OpenCV/make错误1.png">
-<meta property="og:image" content="http://yoursite.com/2018/12/19/Ubuntu从入门到精通——3%20编译第三方库OpenCV/make错误2.png">
-<meta property="og:updated_time" content="2018-12-20T03:55:12.291Z">
+<meta property="og:updated_time" content="2018-12-20T13:55:39.384Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ubuntu从入门到精通——3 编译第三方库OpenCV">
-<meta name="twitter:description" content="前言前言1我之前编译配置过opencv很多遍，无论是win环境还是Linux环境。这次在配置好CUDA的Ubuntu环境下编译配置OpenCV3.4和contribute库，也顺便将之前的经验总结归纳。另说明一点，之前在Ubuntu下我一直是输入命令cmake，发现CMAKE-GUI在Ubuntu下也蛮好用。   前言2现修改并完善之前的博文，成一个系列（20181219） 环境准备搭建编译环境">
-<meta name="twitter:image" content="http://yoursite.com/2018/12/19/Ubuntu从入门到精通——3%20编译第三方库OpenCV/make错误1.png">
+<meta name="twitter:title" content="Ubuntu从入门到精通——3 编译第三方库OpenCV和PCL">
+<meta name="twitter:description" content="前言前言1我之前编译配置过opencv很多遍，无论是win环境还是Linux环境。这次在配置好CUDA的Ubuntu环境下编译配置OpenCV3.4和contribute库，也顺便将之前的经验总结归纳。另说明一点，之前在Ubuntu下我一直是输入命令cmake，发现CMAKE-GUI在Ubuntu下也蛮好用。   前言2现修改并完善之前的博文，成一个系列（20181219）PCL我之前一直都是在w">
 
 
 
@@ -177,7 +174,7 @@
 
 
 
-  <title>Ubuntu从入门到精通——3 编译第三方库OpenCV | 未 晞</title>
+  <title>Ubuntu从入门到精通——3 编译第三方库OpenCV和PCL | 未 晞</title>
   
 
 
@@ -342,7 +339,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Ubuntu从入门到精通——3 编译第三方库OpenCV</h1>
+          <h1 class="post-title" itemprop="name headline">Ubuntu从入门到精通——3 编译第三方库OpenCV和PCL</h1>
         
 
         <div class="post-meta">
@@ -370,7 +367,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-12-20T11:55:12+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-20T21:55:39+08:00">
                 2018-12-20
               </time>
             
@@ -427,8 +424,8 @@
 
       
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h2 id="前言1"><a href="#前言1" class="headerlink" title="前言1"></a>前言1</h2><p>我之前编译配置过opencv很多遍，无论是win环境还是Linux环境。这次在配置好CUDA的Ubuntu环境下编译配置OpenCV3.4和contribute库，也顺便将之前的经验总结归纳。另说明一点，之前在Ubuntu下我一直是输入命令cmake，发现CMAKE-GUI在Ubuntu下也蛮好用。  </p>
-<h2 id="前言2"><a href="#前言2" class="headerlink" title="前言2"></a>前言2</h2><p>现修改并完善之前的博文，成一个系列（20181219）</p>
-<h1 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h1><h2 id="搭建编译环境"><a href="#搭建编译环境" class="headerlink" title="搭建编译环境"></a>搭建编译环境</h2><blockquote>
+<h2 id="前言2"><a href="#前言2" class="headerlink" title="前言2"></a>前言2</h2><p>现修改并完善之前的博文，成一个系列（20181219）<br>PCL我之前一直都是在win下使用的，现在想在Ubuntu中使用。网上看了一下，发现不是很麻烦，遂和原来配置OpenCV的博文写在一起。</p>
+<h1 id="OpenCV环境准备"><a href="#OpenCV环境准备" class="headerlink" title="OpenCV环境准备"></a>OpenCV环境准备</h1><h2 id="搭建编译环境"><a href="#搭建编译环境" class="headerlink" title="搭建编译环境"></a>搭建编译环境</h2><blockquote>
 <p>sudo apt-get install build-essential  </p>
 </blockquote>
 <h2 id="安装辅助工具"><a href="#安装辅助工具" class="headerlink" title="安装辅助工具"></a>安装辅助工具</h2><p>安装cmake git pkg-conflg等辅助工具  </p>
@@ -456,9 +453,20 @@
 </blockquote>
 <h2 id="用CMAKE-GUI方式"><a href="#用CMAKE-GUI方式" class="headerlink" title="用CMAKE-GUI方式"></a>用CMAKE-GUI方式</h2><p><del>1、输入源码路劲</del><br><del>2、输出编译路径</del><br>3、勾选Grouped、Advanced-&gt;Configure<br><strong>安装好CUDA后 会检测到CUDA：CUDA detected:9.0</strong><br>可以检查一下WITH_CUDA选项，如果cmake检测到安装了CUDA则应该是自动勾上的。<br>4、编译选项：  </p>
 <blockquote>
-<p>OPENCV_EXTRA_MODULES_PATH -&gt; contribtue/modules<br>CMAEK_INSTALL_PREFIX -&gt;/usr/local<br>5、generate按钮<br>6、输出编译路径下：make -j4<br>7、sudo make install<br><strong>出现错误</strong><br>1、not used beacuse ‘OPENCV_TRAITS_ENABLE_DEPRECATED’ is defined<br>ENABLE_PRECOMPILED_HEADERS = OFF</p>
+<p>OPENCV_EXTRA_MODULES_PATH -&gt; contribtue/modules<br>CMAEK_INSTALL_PREFIX -&gt;/usr/local    </p>
 </blockquote>
-<h2 id="配置OpenCV环境"><a href="#配置OpenCV环境" class="headerlink" title="配置OpenCV环境"></a>配置OpenCV环境</h2><p>1、在/etc/ld.so.conf/opencv.conf文件中加入一行：  </p>
+<p><strong>》编译CUDA，勾上WITH_CUDA编译错误，而不勾编译通过，请看下方出现错误及解决《</strong><br>5、generate按钮<br>6、输出编译路径下：make -j4<br>7、sudo make install   </p>
+<p><strong>出现错误及解决</strong><br>WITH_CUDA出现警告，但是未出错，按照下述操作：<br>1、not used beacuse ‘OPENCV_TRAITS_ENABLE_DEPRECATED’ is defined  </p>
+<blockquote>
+<p>ENABLE_PRECOMPILED_HEADERS = OFF  </p>
+</blockquote>
+<p>2、CUDA_GENERATION=’Pascal’<br>3、UDA_HOST_COMPILER=/usr/bin/gcc<br>注意：这里/usr/bin/gcc的依据是之前gcc降级的操作（硬连接），还可以是/usr/bin/gcc-5等。  </p>
+<p>4、若是命令编译，则：   </p>
+<blockquote>
+<p>sudo apt install gcc-5 g++-5<br>cd opencv<br>git co 3.4.1<br>cd build<br>rm -rf *<br>cmake \<br>-D BUILD_EXAMPLES=ON \<br>-D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \<br>-D CMAKE_INSTALL_PREFIX=/usr/local \<br>-D CMAKE_BUILD_TYPE=RELEASE \<br>-D WITH_CUDA=ON \<br>-D CUDA_GENERATION=”Pascal” \<br>-D CUDA_HOST_COMPILER:FILEPATH=/usr/bin/gcc-5<br>make</p>
+</blockquote>
+<p>参考链接<a href="http://answers.opencv.org/question/189712/unable-to-compile-opencv-with-cuda9-and-gcc6/" target="_blank" rel="noopener">Unable to compile OpenCV with CUDA9 and gcc6</a>  </p>
+<h2 id="配置OpenCV环境"><a href="#配置OpenCV环境" class="headerlink" title="配置OpenCV环境"></a>配置OpenCV环境</h2><p>1、在/etc/ld.so.conf.d/opencv.conf文件中加入一行：  </p>
 <blockquote>
 <p>/usr/local/lib  </p>
 </blockquote>
@@ -478,15 +486,78 @@
 <blockquote>
 <p>source /etc/profile  </p>
 </blockquote>
-<h2 id="OpenCV编译验证"><a href="#OpenCV编译验证" class="headerlink" title="OpenCV编译验证"></a>OpenCV编译验证</h2><p>1、在opencv/samples\cpp\example_cmake中  </p>
+<h2 id="OpenCV编译验证"><a href="#OpenCV编译验证" class="headerlink" title="OpenCV编译验证"></a>OpenCV编译验证</h2><p>1、在opencv/samples\cpp\example_cmake中  ???   (我编译了example，不知道example在哪儿)   </p>
 <blockquote>
 <p>cmake<br>make<br>运行  </p>
 </blockquote>
 <p>2、查看opencv版本  </p>
 <blockquote>
-<p>pkg-config –modversion opencv</p>
+<p>pkg-config - - modversion opencv</p>
 </blockquote>
-<h1 id="错误疑惑不解"><a href="#错误疑惑不解" class="headerlink" title="错误疑惑不解"></a>错误疑惑不解</h1><p>Ubuntu18.04，Cuda9.1，cuDNN7.1,gcc5.5 -&gt;make 出错<br>Ubuntu18.04，Cuda9.1，cuDNN，gcc6.5 -&gt;make 出错<br>不知什么原因，Cuda及cuDNN是配置好的，测试能通过，估计是Ubuntu18.04的核心和gcc版本不对<br>CMAKE中勾选了WITH_CUDA就出这个错误，而不勾选WITH_CUDA是能正常通过的。😵<br>Opencv我编译了很多次，这次就是想WITH_CUDA。好像之前用Ubuntu16成功过一次，但是我就是想用Ubuntu18嘛😭<br><img src="make错误1.png" alt="make错误图1"><br><img src="make错误2.png" alt="make错误图2">  </p>
+<h1 id="PCL编译说明"><a href="#PCL编译说明" class="headerlink" title="PCL编译说明"></a>PCL编译说明</h1><p><a href="http://www.pointclouds.org/" target="_blank" rel="noopener">PCL官网</a><br><a href="http://www.pointclouds.org/downloads/" target="_blank" rel="noopener">PCL官方下载和安装说明</a><br>注：我当前是用的prebuilt binaries方式，因为我在官网上找不到需要哪些依赖😭网上有些，但是我没有采纳，担心版本不对或依赖版本不是我心仪的😝  </p>
+<h1 id="PCL编译"><a href="#PCL编译" class="headerlink" title="PCL编译"></a>PCL编译</h1><p><a href="https://blog.csdn.net/fsencen/article/details/79386570" target="_blank" rel="noopener">参考博文-Ubuntu16.04下PCL库的安装与测试</a><br>依赖库(来自于网络，官网没找到)   </p>
+<blockquote>
+<p>sudo apt-get update<br>sudo apt-get install git build-essential    linux-libc-dev<br>sudo apt-get install cmake cmake-gui<br>sudo apt-get install libusb-1.0-0-dev libusb-dev   libudev-dev<br>sudo apt-get install mpi-default-dev openmpi-bin openmpi-common<br>sudo apt-get install libflann1.8 libflann-dev<br>sudo apt-get install libeigen3-dev<br>sudo apt-get install libboost-all-dev<br>sudo apt-get install libvtk5.10-qt4 libvtk5.10 libvtk5-dev<br>sudo apt-get install libqhull* libgtest-dev<br>sudo apt-get install freeglut3-dev pkg-config<br>sudo apt-get install libxmu-dev libxi-dev<br>sudo apt-get install mono-complete<br>sudo apt-get install qt-sdk openjdk-8-jdk openjdk-8-jre   </p>
+</blockquote>
+<p>接着从github上把PCL源码clone下来:  </p>
+<blockquote>
+<p>git clone <a href="https://github.com/PointCloudLibrary/pcl.git" target="_blank" rel="noopener">https://github.com/PointCloudLibrary/pcl.git</a></p>
+</blockquote>
+<p>编译:  </p>
+<blockquote>
+<p>cd pcl<br>mkdir release<br>cd release<br>cmake -DCMAKE_BUILD_TYPE=None   -DCMAKE_INSTALL_PREFIX=/usr -D BUILD_GPU=ON  -D BUILD_apps=ON  -DBUILD_examples=ON   -D CMAKE_INSTALL_PREFIX=/usr ..<br>make   </p>
+</blockquote>
+<p>安装</p>
+<blockquote>
+<p>sudo make install   </p>
+</blockquote>
+<h1 id="在程序中测试PCL点云显示"><a href="#在程序中测试PCL点云显示" class="headerlink" title="在程序中测试PCL点云显示"></a>在程序中测试PCL点云显示</h1><h2 id="测试代码pcl-test-cpp"><a href="#测试代码pcl-test-cpp" class="headerlink" title="测试代码pcl_test.cpp"></a>测试代码pcl_test.cpp</h2><p>include \<iostream><br>include \&lt;pcl/common/common_headers.h&gt;<br>include \&lt;pcl/io/pcd_io.h&gt;<br>include \&lt;pcl/visualization/pcl_visualizer.h&gt;<br>include \&lt;pcl/visualization/cloud_viewer.h&gt;<br>include \&lt;pcl/console/parse.h&gt;  </iostream></p>
+<p>int main(int argc, char **argv) {<br>    std::cout &lt;&lt; “Test PCL !!!” &lt;&lt; std::endl;</p>
+<pre><code>pcl::PointCloud&lt;pcl::PointXYZRGB&gt;::Ptr point_cloud_ptr (new pcl::PointCloud&lt;pcl::PointXYZRGB&gt;);
+uint8_t r(255), g(15), b(15);
+for (float z(-1.0); z &lt;= 1.0; z += 0.05)
+{
+  for (float angle(0.0); angle &lt;= 360.0; angle += 5.0)
+  {
+pcl::PointXYZRGB point;
+point.x = 0.5 * cosf (pcl::deg2rad(angle));
+point.y = sinf (pcl::deg2rad(angle));
+point.z = z;
+uint32_t rgb = (static_cast&lt;uint32_t&gt;(r) &lt;&lt; 16 |
+    static_cast&lt;uint32_t&gt;(g) &lt;&lt; 8 | static_cast&lt;uint32_t&gt;(b));
+point.rgb = *reinterpret_cast&lt;float*&gt;(&amp;rgb);
+point_cloud_ptr-&gt;points.push_back (point);
+  }
+  if (z &lt; 0.0)
+  {
+r -= 12;
+g += 12;
+  }
+  else
+  {
+g -= 12;
+b += 12;
+  }
+}
+point_cloud_ptr-&gt;width = (int) point_cloud_ptr-&gt;points.size ();
+point_cloud_ptr-&gt;height = 1;
+
+pcl::visualization::CloudViewer viewer (&quot;test&quot;);
+viewer.showCloud(point_cloud_ptr);
+while (!viewer.wasStopped()){ };
+return 0;
+</code></pre><p>}</p>
+<h2 id="CMakeList-txt文件"><a href="#CMakeList-txt文件" class="headerlink" title="CMakeList.txt文件"></a>CMakeList.txt文件</h2><p>cmake_minimum_required(VERSION 2.6)<br>project(pcl_test)</p>
+<p>find_package(PCL 1.2 REQUIRED)</p>
+<p>include_directories(${PCL_INCLUDE_DIRS})<br>link_directories(${PCL_LIBRARY_DIRS})<br>add_definitions(${PCL_DEFINITIONS})</p>
+<p>add_executable(pcl_test pcl_test.cpp)</p>
+<p>target_link_libraries (pcl_test ${PCL_LIBRARIES})</p>
+<p>install(TARGETS pcl_test RUNTIME DESTINATION bin)</p>
+<h2 id="执行"><a href="#执行" class="headerlink" title="执行"></a>执行</h2><p>把pcl_test.cpp和CMakeLists.txt发在同一个文件夹后执行如下命令：  </p>
+<blockquote>
+<p>cmake .<br>make<br>./pcl_test  </p>
+</blockquote>
+<p>就可以看到一个漂亮的3D模型</p>
 
       
     </div>
@@ -650,7 +721,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -672,7 +743,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -727,7 +798,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言1"><span class="nav-number">1.1.</span> <span class="nav-text">前言1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前言2"><span class="nav-number">1.2.</span> <span class="nav-text">前言2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#环境准备"><span class="nav-number">2.</span> <span class="nav-text">环境准备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建编译环境"><span class="nav-number">2.1.</span> <span class="nav-text">搭建编译环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装辅助工具"><span class="nav-number">2.2.</span> <span class="nav-text">安装辅助工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装关联库"><span class="nav-number">2.3.</span> <span class="nav-text">安装关联库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ubuntu18-04下依赖包libjasper-dev无法安装问题"><span class="nav-number">2.3.1.</span> <span class="nav-text">Ubuntu18.04下依赖包libjasper-dev无法安装问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cmake中not-find-package-libgphoto2"><span class="nav-number">2.3.2.</span> <span class="nav-text">cmake中not find package libgphoto2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译OpenCV"><span class="nav-number">3.</span> <span class="nav-text">编译OpenCV</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#用命令方式"><span class="nav-number">3.1.</span> <span class="nav-text">用命令方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用CMAKE-GUI方式"><span class="nav-number">3.2.</span> <span class="nav-text">用CMAKE-GUI方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置OpenCV环境"><span class="nav-number">3.3.</span> <span class="nav-text">配置OpenCV环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OpenCV编译验证"><span class="nav-number">3.4.</span> <span class="nav-text">OpenCV编译验证</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#错误疑惑不解"><span class="nav-number">4.</span> <span class="nav-text">错误疑惑不解</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言1"><span class="nav-number">1.1.</span> <span class="nav-text">前言1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前言2"><span class="nav-number">1.2.</span> <span class="nav-text">前言2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OpenCV环境准备"><span class="nav-number">2.</span> <span class="nav-text">OpenCV环境准备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建编译环境"><span class="nav-number">2.1.</span> <span class="nav-text">搭建编译环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装辅助工具"><span class="nav-number">2.2.</span> <span class="nav-text">安装辅助工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装关联库"><span class="nav-number">2.3.</span> <span class="nav-text">安装关联库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ubuntu18-04下依赖包libjasper-dev无法安装问题"><span class="nav-number">2.3.1.</span> <span class="nav-text">Ubuntu18.04下依赖包libjasper-dev无法安装问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cmake中not-find-package-libgphoto2"><span class="nav-number">2.3.2.</span> <span class="nav-text">cmake中not find package libgphoto2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译OpenCV"><span class="nav-number">3.</span> <span class="nav-text">编译OpenCV</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#用命令方式"><span class="nav-number">3.1.</span> <span class="nav-text">用命令方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用CMAKE-GUI方式"><span class="nav-number">3.2.</span> <span class="nav-text">用CMAKE-GUI方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置OpenCV环境"><span class="nav-number">3.3.</span> <span class="nav-text">配置OpenCV环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OpenCV编译验证"><span class="nav-number">3.4.</span> <span class="nav-text">OpenCV编译验证</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PCL编译说明"><span class="nav-number">4.</span> <span class="nav-text">PCL编译说明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PCL编译"><span class="nav-number">5.</span> <span class="nav-text">PCL编译</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在程序中测试PCL点云显示"><span class="nav-number">6.</span> <span class="nav-text">在程序中测试PCL点云显示</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#测试代码pcl-test-cpp"><span class="nav-number">6.1.</span> <span class="nav-text">测试代码pcl_test.cpp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CMakeList-txt文件"><span class="nav-number">6.2.</span> <span class="nav-text">CMakeList.txt文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#执行"><span class="nav-number">6.3.</span> <span class="nav-text">执行</span></a></li></ol></li></ol></div>
             
 
           </div>

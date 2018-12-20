@@ -116,7 +116,7 @@
 
 
 
-  <meta name="keywords" content="标定,相机,二维图像," />
+  <meta name="keywords" content="Ubuntu,GPU,Caffe," />
 
 
 
@@ -127,18 +127,18 @@
 
 
 
-<meta name="description" content="前言张氏标定总结张氏标定Flexible camera calibration by viewing a plane from unknow orientations中文翻译参考 透镜畸变及校正模型 镜头畸变现象及其校正方法  可关注sylvester0510  slam 此处mark一下  matlab标定相机结果参数获取 最详细、最完整的相机标定讲解 小白可以先看这个知乎 张氏法相机标定 看看">
-<meta name="keywords" content="标定,相机,二维图像">
+<meta name="description" content="前言我之前跑过CPU版的Caffe，现在配置了1070Ti的迷你台式，现在开始尝试配置GPU开发环境。 Caffe配置准备Caffe相关连接Caffe官方网站Caffe安装说明界面配置参考——在Ubuntu17.10上使用CPU运行caffe的SSD 安装Caffe依赖Caffe官方安装指导1、官网安装指导对于&amp;gt;17.04版本的Ubuntu，可以通过一行命令安装依赖项：    sudo ap">
+<meta name="keywords" content="Ubuntu,GPU,Caffe">
 <meta property="og:type" content="article">
-<meta property="og:title" content="张氏标定总结">
-<meta property="og:url" content="http://yoursite.com/2018/10/18/张氏标定总结/index.html">
+<meta property="og:title" content="Ubuntu从入门到精通——5 编译配置第三方库Caffe">
+<meta property="og:url" content="http://yoursite.com/2018/12/20/Ubuntu从入门到精通——5-编译配置第三方库Caffe/index.html">
 <meta property="og:site_name" content="未 晞">
-<meta property="og:description" content="前言张氏标定总结张氏标定Flexible camera calibration by viewing a plane from unknow orientations中文翻译参考 透镜畸变及校正模型 镜头畸变现象及其校正方法  可关注sylvester0510  slam 此处mark一下  matlab标定相机结果参数获取 最详细、最完整的相机标定讲解 小白可以先看这个知乎 张氏法相机标定 看看">
+<meta property="og:description" content="前言我之前跑过CPU版的Caffe，现在配置了1070Ti的迷你台式，现在开始尝试配置GPU开发环境。 Caffe配置准备Caffe相关连接Caffe官方网站Caffe安装说明界面配置参考——在Ubuntu17.10上使用CPU运行caffe的SSD 安装Caffe依赖Caffe官方安装指导1、官网安装指导对于&amp;gt;17.04版本的Ubuntu，可以通过一行命令安装依赖项：    sudo ap">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-18T13:25:39.888Z">
+<meta property="og:updated_time" content="2018-12-20T13:44:18.489Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="张氏标定总结">
-<meta name="twitter:description" content="前言张氏标定总结张氏标定Flexible camera calibration by viewing a plane from unknow orientations中文翻译参考 透镜畸变及校正模型 镜头畸变现象及其校正方法  可关注sylvester0510  slam 此处mark一下  matlab标定相机结果参数获取 最详细、最完整的相机标定讲解 小白可以先看这个知乎 张氏法相机标定 看看">
+<meta name="twitter:title" content="Ubuntu从入门到精通——5 编译配置第三方库Caffe">
+<meta name="twitter:description" content="前言我之前跑过CPU版的Caffe，现在配置了1070Ti的迷你台式，现在开始尝试配置GPU开发环境。 Caffe配置准备Caffe相关连接Caffe官方网站Caffe安装说明界面配置参考——在Ubuntu17.10上使用CPU运行caffe的SSD 安装Caffe依赖Caffe官方安装指导1、官网安装指导对于&amp;gt;17.04版本的Ubuntu，可以通过一行命令安装依赖项：    sudo ap">
 
 
 
@@ -168,13 +168,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/18/张氏标定总结/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/12/20/Ubuntu从入门到精通——5-编译配置第三方库Caffe/"/>
 
 
 
 
 
-  <title>张氏标定总结 | 未 晞</title>
+  <title>Ubuntu从入门到精通——5 编译配置第三方库Caffe | 未 晞</title>
   
 
 
@@ -322,7 +322,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/18/张氏标定总结/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/20/Ubuntu从入门到精通——5-编译配置第三方库Caffe/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="未晞">
@@ -339,7 +339,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">张氏标定总结</h1>
+          <h1 class="post-title" itemprop="name headline">Ubuntu从入门到精通——5 编译配置第三方库Caffe</h1>
         
 
         <div class="post-meta">
@@ -351,8 +351,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-18T20:40:00+08:00">
-                2018-10-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-20T19:48:34+08:00">
+                2018-12-20
               </time>
             
 
@@ -367,8 +367,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-10-18T21:25:39+08:00">
-                2018-10-18
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-20T21:44:18+08:00">
+                2018-12-20
               </time>
             
           </span>
@@ -386,8 +386,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/二维图像/" itemprop="url" rel="index">
-                    <span itemprop="name">二维图像</span>
+                  <a href="/categories/Ubuntu/" itemprop="url" rel="index">
+                    <span itemprop="name">Ubuntu</span>
                   </a>
                 </span>
 
@@ -423,20 +423,60 @@
       
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h1 id="张氏标定总结"><a href="#张氏标定总结" class="headerlink" title="张氏标定总结"></a>张氏标定总结</h1><p><a href="https://blog.csdn.net/heroacool/article/details/50286677" target="_blank" rel="noopener">张氏标定Flexible camera calibration by viewing a plane from unknow orientations中文翻译参考</a></p>
-<p><a href="https://blog.csdn.net/dcrmg/article/details/52950141" target="_blank" rel="noopener">透镜畸变及校正模型</a></p>
-<p><a href="https://blog.csdn.net/piaoxuezhong/article/details/75268535" target="_blank" rel="noopener">镜头畸变现象及其校正方法</a></p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我之前跑过CPU版的Caffe，现在配置了1070Ti的迷你台式，现在开始尝试配置GPU开发环境。</p>
+<h1 id="Caffe配置准备"><a href="#Caffe配置准备" class="headerlink" title="Caffe配置准备"></a>Caffe配置准备</h1><h2 id="Caffe相关连接"><a href="#Caffe相关连接" class="headerlink" title="Caffe相关连接"></a>Caffe相关连接</h2><p><a href="http://caffe.berkeleyvision.org/" target="_blank" rel="noopener">Caffe官方网站</a><br><a href="http://caffe.berkeleyvision.org/install_apt.html" target="_blank" rel="noopener">Caffe安装说明界面</a><br><a href="https://blog.csdn.net/rockwzy/article/details/79155566" target="_blank" rel="noopener">配置参考——在Ubuntu17.10上使用CPU运行caffe的SSD</a></p>
+<h2 id="安装Caffe依赖"><a href="#安装Caffe依赖" class="headerlink" title="安装Caffe依赖"></a>安装Caffe依赖</h2><p><a href="http://caffe.berkeleyvision.org/installation.html#compilation" target="_blank" rel="noopener">Caffe官方安装指导</a><br>1、官网安装指导<br>对于&gt;17.04版本的Ubuntu，可以通过一行命令安装依赖项：  </p>
 <blockquote>
-<p>可关注sylvester0510  slam 此处mark一下</p>
+<p>sudo apt build-dep caffe-cpu        # dependencies for CPU-only version<br>sudo apt build-dep caffe-cuda       # dependencies for CUDA version</p>
 </blockquote>
-<p><a href="https://blog.csdn.net/felix86/article/details/38438259" target="_blank" rel="noopener">matlab标定相机结果参数获取</a></p>
-<p><a href="https://blog.csdn.net/a083614/article/details/78579163" target="_blank" rel="noopener">最详细、最完整的相机标定讲解</a></p>
-<p>小白可以先看这个<a href="https://zhuanlan.zhihu.com/p/24651968" target="_blank" rel="noopener">知乎 张氏法相机标定</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/29785583" target="_blank" rel="noopener">看看这篇文章 摄像机内外参矩阵和一些疑问</a></p>
-<p>深入<a href="https://blog.csdn.net/yang/dashi888/article/details/51356385" target="_blank" rel="noopener">内参外参畸变参数三种参数与相机的标定方法与相机坐标系的理解</a></p>
+<p>它需要deb-src。即sources.list中的#deb-src注释项去掉。   </p>
 <blockquote>
-<p>归一化平面 的理解 mark一下</p>
+<p>sudo gedit /ect/apt/sources.list   </p>
 </blockquote>
+<blockquote>
+<p>sudo apt-get update<br>sudo apt-get upgrade   </p>
+</blockquote>
+<p>2、网络参考安装依赖<br>非常不建议使用源码编译安装Caffe的依赖，因为这过程中可能会出现新的依赖问题。caffe官网推荐采用apt获取编译所需的依赖。   </p>
+<blockquote>
+<p>sudo apt build-dep caffe-cpu   </p>
+</blockquote>
+<p>对于Ubuntu17.04及以上版本，官方提供了caffe的源码编译环境，但是实际上在后面编译的时候可能会提示并未找到某些依赖，如果出现找不到依赖的情况，根据报错补装。<br>编译caffe所需要的所有依赖:   </p>
+<ul>
+<li><p>基本依赖 </p>
+<blockquote>
+<p>sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler<br>sudo apt-get install –no-install-recommends libboost-all-dev    </p>
+</blockquote>
+</li>
+<li><p>CUDA高性能并行计算库：我们安装的是CPU版本，不存在CUDA<br>BLAS线性代数库，有两种开源线性代数库可供选择：   </p>
+<blockquote>
+<p>atlas sudo apt-get install libatlas-base-dev<br>openblas sudo apt-get install libopenblas-dev   </p>
+</blockquote>
+</li>
+<li><p>构建caffe的Python接口pycaffe所需的python-dev包：   </p>
+<blockquote>
+<p>sudo apt-get install the python-dev   </p>
+</blockquote>
+</li>
+<li><p>对于Ubuntu14.04版本，还需要安装以下依赖：    </p>
+<blockquote>
+<p>sudo apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev   </p>
+</blockquote>
+</li>
+</ul>
+<p>综合：<br>网上这个配置依赖是配置CPU的，我想配置的是GPU的。我首先是根据第二点进行配置，然后根据第一点，取消sources.list中的注释，（先运行了sudo apt build-dep caffe-cpu然后sudo apt build-dep caffe-cuda）根据官网安装说明进行配置的。  </p>
+<h1 id="下载Caffe源码"><a href="#下载Caffe源码" class="headerlink" title="下载Caffe源码"></a>下载Caffe源码</h1><h2 id="相关连接"><a href="#相关连接" class="headerlink" title="相关连接"></a>相关连接</h2><p><a href="https://github.com/BVLC/caffe" target="_blank" rel="noopener">官方Caffe源码</a><br><a href="https://github.com/weiliu89/caffe" target="_blank" rel="noopener">SSD版本Caffe？</a>     </p>
+<h2 id="下载Caffe源码-1"><a href="#下载Caffe源码-1" class="headerlink" title="下载Caffe源码"></a>下载Caffe源码</h2><p>caffe是开源项目，所有人都能fork出一个分支，一千个人就有一千个版本。SSD实现的比较好的是这个版本<a href="https://github.com/weiliu89/caffe，点击Clone" target="_blank" rel="noopener">https://github.com/weiliu89/caffe，点击Clone</a> or Download按钮获取源码，推荐使用Download下来再解压。   </p>
+<h1 id="编译Caffe"><a href="#编译Caffe" class="headerlink" title="编译Caffe"></a>编译Caffe</h1><p>1、官方编译说明<br><a href="http://caffe.berkeleyvision.org/installation.html#compilation" target="_blank" rel="noopener">官方从源码安装编译</a>    </p>
+<p>2、网上编译说明<br><del>git checkout ssd 切换到ssd分支</del>  </p>
+<blockquote>
+<p>cp Makefile.config.example Makefile.config  </p>
+</blockquote>
+<p>复制caffe提供的Makefile.config样例。然后修改Makefile.config：    </p>
+<ul>
+<li>line 8，取消CPU_ONLY字段的注释</li>
+<li>line 50，如果安装的是openblas，则将值atlas改为open<br>line 94，在INCLUDE_DIRS字段后面添加/usr/include/hdf5/serial<br>line 107，取消USE_PKG_CONFIG字段的注释，否则可能会报错opencv的相关错误<br>修改Makefile：<br>line 181，将hdf5_hl hdf5替换成hdf5_serial_hl hdf5_serial</li>
+</ul>
+<p>make -j 编译caffe<br>可能会出现如下报错：<br>/usr/bin/ld: cannot find -lboost_regex<br>/usr/bin/ld: cannot find -lopenblas<br>原因是boost库和openblas没安装好，参考上文重装依赖。<br>make pycaffe 编译caffe的Python接口<br>可能会出现如下报错：<br>fatal error: numpy/arrayobject.h: No such file or directory<br>原因是numpy模块没安装好，sudo apt-get install python-numpy安装numpy。</p>
 
       
     </div>
@@ -483,11 +523,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/标定/" rel="tag"># 标定</a>
+            <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
           
-            <a href="/tags/相机/" rel="tag"># 相机</a>
+            <a href="/tags/GPU/" rel="tag"># GPU</a>
           
-            <a href="/tags/二维图像/" rel="tag"># 二维图像</a>
+            <a href="/tags/Caffe/" rel="tag"># Caffe</a>
           
         </div>
       
@@ -500,8 +540,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/16/Gocator从零开始开发/" rel="next" title="Gocator从零开始开发">
-                <i class="fa fa-chevron-left"></i> Gocator从零开始开发
+              <a href="/2018/12/19/Ubuntu从入门到精通——4-Ubuntu中使用IDE之Clion/" rel="next" title="Ubuntu从入门到精通——4 Ubuntu中使用IDE之Clion">
+                <i class="fa fa-chevron-left"></i> Ubuntu从入门到精通——4 Ubuntu中使用IDE之Clion
               </a>
             
           </div>
@@ -509,10 +549,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/18/PCA主成成分分析/" rel="prev" title="PCA主成分分析">
-                PCA主成分分析 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -677,7 +713,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#张氏标定总结"><span class="nav-number">2.</span> <span class="nav-text">张氏标定总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Caffe配置准备"><span class="nav-number">2.</span> <span class="nav-text">Caffe配置准备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Caffe相关连接"><span class="nav-number">2.1.</span> <span class="nav-text">Caffe相关连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Caffe依赖"><span class="nav-number">2.2.</span> <span class="nav-text">安装Caffe依赖</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#下载Caffe源码"><span class="nav-number">3.</span> <span class="nav-text">下载Caffe源码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#相关连接"><span class="nav-number">3.1.</span> <span class="nav-text">相关连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载Caffe源码-1"><span class="nav-number">3.2.</span> <span class="nav-text">下载Caffe源码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译Caffe"><span class="nav-number">4.</span> <span class="nav-text">编译Caffe</span></a></li></ol></div>
             
 
           </div>
