@@ -131,11 +131,11 @@
 <meta name="keywords" content="Ubuntu,GPU,Caffe">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu从入门到精通——5 编译配置第三方库Caffe">
-<meta property="og:url" content="http://yoursite.com/2018/12/20/Ubuntu从入门到精通——5-编译配置第三方库Caffe/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/12/21/Ubuntu从入门到精通——5 编译配置第三方库Caffe/index.html">
 <meta property="og:site_name" content="未 晞">
 <meta property="og:description" content="前言我之前跑过CPU版的Caffe，现在配置了1070Ti的迷你台式，现在开始尝试配置GPU开发环境。 Caffe配置准备Caffe相关连接Caffe官方网站Caffe安装说明界面配置参考——在Ubuntu17.10上使用CPU运行caffe的SSD 安装Caffe依赖Caffe官方安装指导1、官网安装指导对于&amp;gt;17.04版本的Ubuntu，可以通过一行命令安装依赖项：    sudo ap">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-20T13:44:18.489Z">
+<meta property="og:updated_time" content="2018-12-21T03:45:42.378Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu从入门到精通——5 编译配置第三方库Caffe">
 <meta name="twitter:description" content="前言我之前跑过CPU版的Caffe，现在配置了1070Ti的迷你台式，现在开始尝试配置GPU开发环境。 Caffe配置准备Caffe相关连接Caffe官方网站Caffe安装说明界面配置参考——在Ubuntu17.10上使用CPU运行caffe的SSD 安装Caffe依赖Caffe官方安装指导1、官网安装指导对于&amp;gt;17.04版本的Ubuntu，可以通过一行命令安装依赖项：    sudo ap">
@@ -168,7 +168,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/12/20/Ubuntu从入门到精通——5-编译配置第三方库Caffe/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/12/21/Ubuntu从入门到精通——5 编译配置第三方库Caffe/"/>
 
 
 
@@ -322,7 +322,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/20/Ubuntu从入门到精通——5-编译配置第三方库Caffe/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/21/Ubuntu从入门到精通——5 编译配置第三方库Caffe/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="未晞">
@@ -351,8 +351,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-20T19:48:34+08:00">
-                2018-12-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T11:48:34+08:00">
+                2018-12-21
               </time>
             
 
@@ -367,8 +367,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-12-20T21:44:18+08:00">
-                2018-12-20
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-21T11:45:42+08:00">
+                2018-12-21
               </time>
             
           </span>
@@ -464,19 +464,33 @@
 </li>
 </ul>
 <p>综合：<br>网上这个配置依赖是配置CPU的，我想配置的是GPU的。我首先是根据第二点进行配置，然后根据第一点，取消sources.list中的注释，（先运行了sudo apt build-dep caffe-cpu然后sudo apt build-dep caffe-cuda）根据官网安装说明进行配置的。  </p>
-<h1 id="下载Caffe源码"><a href="#下载Caffe源码" class="headerlink" title="下载Caffe源码"></a>下载Caffe源码</h1><h2 id="相关连接"><a href="#相关连接" class="headerlink" title="相关连接"></a>相关连接</h2><p><a href="https://github.com/BVLC/caffe" target="_blank" rel="noopener">官方Caffe源码</a><br><a href="https://github.com/weiliu89/caffe" target="_blank" rel="noopener">SSD版本Caffe？</a>     </p>
-<h2 id="下载Caffe源码-1"><a href="#下载Caffe源码-1" class="headerlink" title="下载Caffe源码"></a>下载Caffe源码</h2><p>caffe是开源项目，所有人都能fork出一个分支，一千个人就有一千个版本。SSD实现的比较好的是这个版本<a href="https://github.com/weiliu89/caffe，点击Clone" target="_blank" rel="noopener">https://github.com/weiliu89/caffe，点击Clone</a> or Download按钮获取源码，推荐使用Download下来再解压。   </p>
+<h1 id="下载Caffe源码"><a href="#下载Caffe源码" class="headerlink" title="下载Caffe源码"></a>下载Caffe源码</h1><h2 id="相关连接"><a href="#相关连接" class="headerlink" title="相关连接"></a>相关连接</h2><p><a href="https://github.com/BVLC/caffe" target="_blank" rel="noopener">官方Caffe源码</a><br><del><a href="https://github.com/weiliu89/caffe" target="_blank" rel="noopener">SSD版本Caffe？</a></del>     </p>
+<h2 id="下载Caffe源码-1"><a href="#下载Caffe源码-1" class="headerlink" title="下载Caffe源码"></a>下载Caffe源码</h2><p><del>caffe是开源项目，所有人都能fork出一个分支，一千个人就有一千个版本。SSD实现的比较好的是这个版本<a href="https://github.com/weiliu89/caffe，点击Clone" target="_blank" rel="noopener">https://github.com/weiliu89/caffe，点击Clone</a> or Download按钮获取源码，推荐使用Download下来再解压。</del><br>最后我还是下载官方的源码，如果下载分支源码，会出想错误，让你替换最新的caffe文件。     </p>
 <h1 id="编译Caffe"><a href="#编译Caffe" class="headerlink" title="编译Caffe"></a>编译Caffe</h1><p>1、官方编译说明<br><a href="http://caffe.berkeleyvision.org/installation.html#compilation" target="_blank" rel="noopener">官方从源码安装编译</a>    </p>
-<p>2、网上编译说明<br><del>git checkout ssd 切换到ssd分支</del>  </p>
+<p>2、修改Makefile.config<br>step1:复制caffe提供的Makefile.config.examples样例,然后修改Makefile.config：       </p>
 <blockquote>
 <p>cp Makefile.config.example Makefile.config  </p>
 </blockquote>
-<p>复制caffe提供的Makefile.config样例。然后修改Makefile.config：    </p>
-<ul>
-<li>line 8，取消CPU_ONLY字段的注释</li>
-<li>line 50，如果安装的是openblas，则将值atlas改为open<br>line 94，在INCLUDE_DIRS字段后面添加/usr/include/hdf5/serial<br>line 107，取消USE_PKG_CONFIG字段的注释，否则可能会报错opencv的相关错误<br>修改Makefile：<br>line 181，将hdf5_hl hdf5替换成hdf5_serial_hl hdf5_serial</li>
-</ul>
-<p>make -j 编译caffe<br>可能会出现如下报错：<br>/usr/bin/ld: cannot find -lboost_regex<br>/usr/bin/ld: cannot find -lopenblas<br>原因是boost库和openblas没安装好，参考上文重装依赖。<br>make pycaffe 编译caffe的Python接口<br>可能会出现如下报错：<br>fatal error: numpy/arrayobject.h: No such file or directory<br>原因是numpy模块没安装好，sudo apt-get install python-numpy安装numpy。</p>
+<p>step2:取消USE_CUDNN:=1的注释（并且最好前面不要空格）  </p>
+<p>step3：注释CUDA_ARCH:=中的   </p>
+<blockquote>
+<p># For CUDA &gt;= 9.0, comment the <em>_20 and </em>_21 lines for compatibility.<br>\CUDA_ARCH :=<br># -gencode arch=compute_20,code=sm_20 \<br>#        -gencode arch=compute_20,code=sm_21 \<br>step4:hdf5问题<br>将这里替换为下面这样，即后面加上hdf5路径：<br># Whatever else you find you need goes here.<br>INCLUDE_DIRS := $(PYTHON_INCLUDE) /usr/local/include /usr/include/hdf5/serial<br>LIBRARY_DIRS := $(PYTHON_LIB) /usr/local/lib /usr/lib /usr/lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu/hdf5/serial/    </p>
+</blockquote>
+<p>step5：对cv::imread(cv::String const&amp;,int)未定义的引用问题<br>是因为用的OpenCV3,去掉注释：     </p>
+<blockquote>
+<p># Uncomment if you’re using OpenCV 3<br>OPENCV_VERSION := 3</p>
+</blockquote>
+<p>3、编译   </p>
+<blockquote>
+<p>make all -j6  </p>
+</blockquote>
+<blockquote>
+<p>make test  </p>
+</blockquote>
+<blockquote>
+<p>make runtest  </p>
+</blockquote>
+<p>4、编译成功</p>
 
       
     </div>
@@ -540,7 +554,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/19/Ubuntu从入门到精通——4-Ubuntu中使用IDE之Clion/" rel="next" title="Ubuntu从入门到精通——4 Ubuntu中使用IDE之Clion">
+              <a href="/2018/12/19/Ubuntu从入门到精通——4 Ubuntu中使用IDE之Clion/" rel="next" title="Ubuntu从入门到精通——4 Ubuntu中使用IDE之Clion">
                 <i class="fa fa-chevron-left"></i> Ubuntu从入门到精通——4 Ubuntu中使用IDE之Clion
               </a>
             
