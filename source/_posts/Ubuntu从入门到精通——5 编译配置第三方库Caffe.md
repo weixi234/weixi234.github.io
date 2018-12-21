@@ -1,6 +1,6 @@
 ---
 title: Ubuntu从入门到精通——5 编译配置第三方库Caffe
-date: 2018-12-20 19:48:34
+date: 2018-12-21 11:48:34
 tags:
 - Ubuntu 
 - Caffe
@@ -58,41 +58,46 @@ BLAS线性代数库，有两种开源线性代数库可供选择：
 # 下载Caffe源码  
 ## 相关连接  
 [官方Caffe源码](https://github.com/BVLC/caffe)       
-[SSD版本Caffe？](https://github.com/weiliu89/caffe)     
+~~[SSD版本Caffe？](https://github.com/weiliu89/caffe)~~     
 
 ## 下载Caffe源码
-caffe是开源项目，所有人都能fork出一个分支，一千个人就有一千个版本。SSD实现的比较好的是这个版本https://github.com/weiliu89/caffe，点击Clone or Download按钮获取源码，推荐使用Download下来再解压。   
+~~caffe是开源项目，所有人都能fork出一个分支，一千个人就有一千个版本。SSD实现的比较好的是这个版本https://github.com/weiliu89/caffe，点击Clone or Download按钮获取源码，推荐使用Download下来再解压。~~    
+最后我还是下载官方的源码，如果下载分支源码，会出想错误，让你替换最新的caffe文件。     
 
 # 编译Caffe
 1、官方编译说明   
 [官方从源码安装编译](http://caffe.berkeleyvision.org/installation.html#compilation)    
 
-
-
-2、网上编译说明   
-~~git checkout ssd 切换到ssd分支~~  
+2、修改Makefile.config   
+step1:复制caffe提供的Makefile.config.examples样例,然后修改Makefile.config：       
 >cp Makefile.config.example Makefile.config  
 
-复制caffe提供的Makefile.config样例。然后修改Makefile.config：    
-- line 8，取消CPU_ONLY字段的注释
-- line 50，如果安装的是openblas，则将值atlas改为open
-line 94，在INCLUDE_DIRS字段后面添加/usr/include/hdf5/serial
-line 107，取消USE_PKG_CONFIG字段的注释，否则可能会报错opencv的相关错误
-修改Makefile： 
-line 181，将hdf5_hl hdf5替换成hdf5_serial_hl hdf5_serial
+step2:取消USE_CUDNN:=1的注释（并且最好前面不要空格）  
 
-make -j 编译caffe 
-可能会出现如下报错： 
-/usr/bin/ld: cannot find -lboost_regex 
-/usr/bin/ld: cannot find -lopenblas 
-原因是boost库和openblas没安装好，参考上文重装依赖。
-make pycaffe 编译caffe的Python接口 
-可能会出现如下报错： 
-fatal error: numpy/arrayobject.h: No such file or directory 
-原因是numpy模块没安装好，sudo apt-get install python-numpy安装numpy。
+step3：注释CUDA_ARCH:=中的   
+>\# For CUDA >= 9.0, comment the *_20 and *_21 lines for compatibility.     
+>\CUDA_ARCH :=     
+>\# -gencode arch=compute_20,code=sm_20 \   
+>\#		-gencode arch=compute_20,code=sm_21 \   
+step4:hdf5问题  
+将这里替换为下面这样，即后面加上hdf5路径：       
+>\# Whatever else you find you need goes here.   
+>INCLUDE_DIRS := $(PYTHON_INCLUDE) /usr/local/include /usr/include/hdf5/serial      
+>LIBRARY_DIRS := $(PYTHON_LIB) /usr/local/lib /usr/lib /usr/lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu/hdf5/serial/    
 
+step5：对cv::imread(cv::String const&,int)未定义的引用问题   
+是因为用的OpenCV3,去掉注释：     
+>\# Uncomment if you're using OpenCV 3    
+>OPENCV_VERSION := 3
 
+3、编译   
+>make all -j6  
 
+>make test  
+
+>make runtest  
+
+4、编译成功
 
 
 
