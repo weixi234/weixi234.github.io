@@ -135,7 +135,7 @@
 <meta property="og:site_name" content="未 晞">
 <meta property="og:description" content="前言gcc编译过程我这里就不用什么流程图语法了，发现markdown语法编辑器似乎不支持 hello.c–预处理器(cpp)[gcc -E]–&amp;gt;hello.i(c文件)–编译器(gcc)[gcc -S]–&amp;gt;hello.s(汇编文件)–汇编器(as)[gcc -C]–&amp;gt;hello.o(二进制文件)–连接器(ld)[gcc]–&amp;gt;a.out(可执行文件) 预处理器：cpp ===">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-24T02:19:03.561Z">
+<meta property="og:updated_time" content="2018-12-23T11:27:57.669Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LINUX中的库文件总结">
 <meta name="twitter:description" content="前言gcc编译过程我这里就不用什么流程图语法了，发现markdown语法编辑器似乎不支持 hello.c–预处理器(cpp)[gcc -E]–&amp;gt;hello.i(c文件)–编译器(gcc)[gcc -S]–&amp;gt;hello.s(汇编文件)–汇编器(as)[gcc -C]–&amp;gt;hello.o(二进制文件)–连接器(ld)[gcc]–&amp;gt;a.out(可执行文件) 预处理器：cpp ===">
@@ -367,8 +367,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-10-24T10:19:03+08:00">
-                2018-10-24
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-23T19:27:57+08:00">
+                2018-12-23
               </time>
             
           </span>
@@ -505,6 +505,17 @@
 <p>sudo ldconfig -v(输出信息)</p>
 </blockquote>
 <p><strong>动态库优缺点</strong><br>1、执行程序体积小<br>2、动态库更新了，不需要重新编译程序，函数接口不变<br>3、发布时需将动态库提供给用户<br>4、动态库没有加载到应用程序中，加载速度较慢</p>
+<h1 id="写得好的博文"><a href="#写得好的博文" class="headerlink" title="写得好的博文"></a>写得好的博文</h1><p><a href="https://blog.csdn.net/wangeen/article/details/8159500" target="_blank" rel="noopener">linux环境变量设置方法总结(PATH/LD_LIBRARY_PATH)</a>    </p>
+<p>PATH和LD_LIBRARY_PATH本质都是变量，所谓变量的意思就是由别人赋值产生的，直觉往往会让我们添加和减少这个变量本身的某些路径，实际上这是不正确的。正确的做法是我们要去修改赋予这个变量数值的那些配置文件，加一条路径或者减一条。说到底变量只关乎显示，不关乎其用于显示的内容。  </p>
+<h2 id="PATH-可执行程序的查找路径"><a href="#PATH-可执行程序的查找路径" class="headerlink" title="PATH:可执行程序的查找路径"></a>PATH:可执行程序的查找路径</h2><p>查看当前环境变量:   </p>
+<blockquote>
+<p>echo $PATH   </p>
+</blockquote>
+<p>设置方法:<br>方法一： export PATH=PATH:/XXX 但是登出后就失效   </p>
+<p>方法二：修改~/.bashrc或~/.bash_profile或系统级别的/etc/profile<br>①在其中添加例如export PATH=/opt/ActivePython-2.7/bin:$PATH<br>②source .bashrc  (Source命令也称为“点命令”，也就是一个点符号（.）。source命令通常用于重新执行刚修改的初始化文件，使之立即生效，而不必注销并重新登录)</p>
+<h2 id="LD-LIBRARY-PATH-动态库的查找路径"><a href="#LD-LIBRARY-PATH-动态库的查找路径" class="headerlink" title="LD_LIBRARY_PATH: 动态库的查找路径"></a>LD_LIBRARY_PATH: 动态库的查找路径</h2><p>设置：<br>方法一：export  LD_LIBRARY_PATH=LD_LIBRARY_PATH:/XXX 但是登出后就失效   </p>
+<p>方法二：修改~/.bashrc或~/.bash_profile或系统级别的/etc/profile<br>①在其中添加例如export PATH=/opt/ActiveP/lib:$LD_LIBRARY_PATH<br>②source .bashrc(Source命令也称为“点命令”，也就是一个点符号（.）。source命令通常用于重新执行刚修改的初始化文件，使之立即生效，而不必注销并重新登录)  </p>
+<p>方法三：这个没有修改LD_LIBRARY_PATH但是效果是一样的实现动态库的查找，<br>①/etc/ld.so.conf下面加一行/usr/local/mysql/lib<br>②保存过后ldconfig一下（ldconfig 命令的用途,主要是在默认搜寻目录(/lib和/usr/lib)以及动态库配置文件/etc/ld.so.conf内所列的目录下,搜索出可共享的动态链接库(格式如前介绍,lib<em>.so</em>),进而创建出动态装入程序(ld.so)所需的连接和缓存文件.缓存文件默认为/etc/ld.so.cache,此文件保存已排好序的动态链接库名字列表.）<br>方法三设置稍微麻烦，好处是比较不受用户的限制。</p>
 
       
     </div>
@@ -670,7 +681,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -692,7 +703,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -747,7 +758,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#gcc编译过程"><span class="nav-number">2.</span> <span class="nav-text">gcc编译过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#静态库的制作和使用"><span class="nav-number">3.</span> <span class="nav-text">静态库的制作和使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#共享库（动态库）"><span class="nav-number">4.</span> <span class="nav-text">共享库（动态库）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#gcc编译过程"><span class="nav-number">2.</span> <span class="nav-text">gcc编译过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#静态库的制作和使用"><span class="nav-number">3.</span> <span class="nav-text">静态库的制作和使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#共享库（动态库）"><span class="nav-number">4.</span> <span class="nav-text">共享库（动态库）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#写得好的博文"><span class="nav-number">5.</span> <span class="nav-text">写得好的博文</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#PATH-可执行程序的查找路径"><span class="nav-number">5.1.</span> <span class="nav-text">PATH:可执行程序的查找路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LD-LIBRARY-PATH-动态库的查找路径"><span class="nav-number">5.2.</span> <span class="nav-text">LD_LIBRARY_PATH: 动态库的查找路径</span></a></li></ol></li></ol></div>
             
 
           </div>

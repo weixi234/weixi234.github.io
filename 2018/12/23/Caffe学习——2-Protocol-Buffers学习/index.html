@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Caffe,Ubuntu,Protobuf," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言之前只是简单的用caffe中的几个命令跑了跑数据集。要学会caffe，protobuf是绕不过去的，现在打算好好学习学习Protocol Buffer。 ProtoBuf相关查询1、我觉得这个博文写得比较好Protocol Buffers C++入门教程写得比较好，推荐看看。     2、Google-Protocol官网官网资料写得比较好，推荐大家看看。百度上能查到的中文入门指南其实都是来源">
+<meta name="keywords" content="Caffe,Ubuntu,Protobuf">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Caffe学习——2 Protocol Buffers学习">
+<meta property="og:url" content="http://yoursite.com/2018/12/23/Caffe学习——2-Protocol-Buffers学习/index.html">
+<meta property="og:site_name" content="未 晞">
+<meta property="og:description" content="前言之前只是简单的用caffe中的几个命令跑了跑数据集。要学会caffe，protobuf是绕不过去的，现在打算好好学习学习Protocol Buffer。 ProtoBuf相关查询1、我觉得这个博文写得比较好Protocol Buffers C++入门教程写得比较好，推荐看看。     2、Google-Protocol官网官网资料写得比较好，推荐大家看看。百度上能查到的中文入门指南其实都是来源">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/12/23/Caffe学习——2-Protocol-Buffers学习/编译安装完成图.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/23/Caffe学习——2-Protocol-Buffers学习/环境配置参考.png">
+<meta property="og:updated_time" content="2018-12-23T13:27:07.624Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Caffe学习——2 Protocol Buffers学习">
+<meta name="twitter:description" content="前言之前只是简单的用caffe中的几个命令跑了跑数据集。要学会caffe，protobuf是绕不过去的，现在打算好好学习学习Protocol Buffer。 ProtoBuf相关查询1、我觉得这个博文写得比较好Protocol Buffers C++入门教程写得比较好，推荐看看。     2、Google-Protocol官网官网资料写得比较好，推荐大家看看。百度上能查到的中文入门指南其实都是来源">
+<meta name="twitter:image" content="http://yoursite.com/2018/12/23/Caffe学习——2-Protocol-Buffers学习/编译安装完成图.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/23/Caffe学习——2-Protocol-Buffers学习/"/>
+
+
+
+
+
+  <title>Caffe学习——2 Protocol Buffers学习 | 未 晞</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?294d40586178dce17bb24335bf3ca589";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">未 晞</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">白露未晞，看书学习到天明~</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-fa fa-address-book"></i> <br />
+            
+            留言板
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/23/Caffe学习——2-Protocol-Buffers学习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="未晞">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tuxiang.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="未 晞">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Caffe学习——2 Protocol Buffers学习</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-23T17:15:08+08:00">
+                2018-12-23
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-23T21:27:07+08:00">
+                2018-12-23
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/深度学习/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>之前只是简单的用caffe中的几个命令跑了跑数据集。要学会caffe，protobuf是绕不过去的，现在打算好好学习学习Protocol Buffer。</p>
+<h1 id="ProtoBuf相关查询"><a href="#ProtoBuf相关查询" class="headerlink" title="ProtoBuf相关查询"></a>ProtoBuf相关查询</h1><p><strong>1、我觉得这个博文写得比较好</strong><a href="https://blog.csdn.net/K346K346/article/details/51754431" target="_blank" rel="noopener"><strong>Protocol Buffers C++入门教程</strong></a>写得比较好，推荐看看。    </p>
+<p>2、<a href="https://developers.google.com/protocol-buffers/" target="_blank" rel="noopener">Google-Protocol官网</a><br>官网资料写得比较好，推荐大家看看。百度上能查到的中文入门指南其实都是来源于官方文档。阅读原始官方文档才是入门的正确途径。英语写得也不是很难。     </p>
+<p>3、<a href="https://github.com/protocolbuffers/protobuf" target="_blank" rel="noopener">官方ProtoBuf的Github</a>README.md的Protobuf运行时安装表格中<a href="https://github.com/protocolbuffers/protobuf/tree/master/src" target="_blank" rel="noopener">C++语言资源Src</a>是C++部分的源代码及安装说明。</p>
+<h1 id="ProtoBuf安装"><a href="#ProtoBuf安装" class="headerlink" title="ProtoBuf安装"></a>ProtoBuf安装</h1><h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><p>To build protobuf from source, the following tools are needed:   </p>
+<ul>
+<li>autoconf     </li>
+<li>automake  </li>
+<li>libtool  </li>
+<li>make  </li>
+<li>g++  </li>
+<li>unzip  </li>
+</ul>
+<p>On Ubuntu/Debian, you can install them with:  </p>
+<blockquote>
+<p>$ sudo apt-get install autoconf automake libtool curl make g++ unzip  </p>
+</blockquote>
+<p>On other platforms, please use the corresponding package managing tool to install them before proceeding   </p>
+<h2 id="下载源码"><a href="#下载源码" class="headerlink" title="下载源码"></a>下载源码</h2><p>To get the source, download one of the release .tar.gz or .zip packages in the release page:  </p>
+<blockquote>
+<p><a href="https://github.com/protocolbuffers/protobuf/releases/latest" target="_blank" rel="noopener">https://github.com/protocolbuffers/protobuf/releases/latest</a>  </p>
+</blockquote>
+<p><strong>For example:</strong>  </p>
+<ul>
+<li>if you only need C++, download protobuf-cpp-[VERSION].tar.gz   </li>
+<li>if you need C++ and Java, download protobuf-java-[VERSION].tar.gz (every package contains C++ source already)  </li>
+<li>if you need C++ and multiple other languages, download protobuf-all-[VERSION].tar.gz  </li>
+</ul>
+<p>You can also get the source by “git clone” our git repository. Make sure you have also cloned the submodules and generated the configure script (skip this if you are using a release .tar.gz or .zip package):  </p>
+<blockquote>
+<p>$ git clone <a href="https://github.com/protocolbuffers/protobuf.git" target="_blank" rel="noopener">https://github.com/protocolbuffers/protobuf.git</a><br>$ cd protobuf<br>$ git submodule update –init –recursive<br>$ ./autogen.sh   </p>
+</blockquote>
+<h2 id="编译和安装"><a href="#编译和安装" class="headerlink" title="编译和安装"></a>编译和安装</h2><h3 id="编译安装步骤"><a href="#编译安装步骤" class="headerlink" title="编译安装步骤"></a>编译安装步骤</h3><p>To build and install the C++ Protocol Buffer runtime and the Protocol Buffer compiler (protoc) execute the following:    </p>
+<blockquote>
+<p>$ cd 目录<br>$ ./configure<br>$ make<br>$ make check<br>$ sudo make install<br>$ sudo ldconfig  // refresh shared library cache.    </p>
+</blockquote>
+<p>编译完成后，查看Protocol Buffer版本：<br>其实Protocol Buffers的编译器叫protoc。     </p>
+<blockquote>
+<p>protoc –version  </p>
+</blockquote>
+<p>当前我用的版本是3.6.1  </p>
+<p>If “make check” fails, you can still install, but it is likely that some features of this library will not work correctly on your system. Proceed at your own risk.   </p>
+<p>For advanced usage information on configure and make, please refer to the autoconf documentation: </p>
+<blockquote>
+<p><a href="http://www.gnu.org/software/autoconf/manual/autoconf.html#Running-configure-Scripts" target="_blank" rel="noopener">http://www.gnu.org/software/autoconf/manual/autoconf.html#Running-configure-Scripts</a>        </p>
+</blockquote>
+<p><img src="编译安装完成图.png" alt="编译安装完成图">   </p>
+<p>环境配置参考：<br><img src="环境配置参考.png" alt="环境配置参考图">  </p>
+<h3 id="Hint-on-install-location-提示安装位置"><a href="#Hint-on-install-location-提示安装位置" class="headerlink" title="Hint on install location(提示安装位置)"></a>Hint on install location(提示安装位置)</h3><p>By default, the package will be installed to /usr/local. However, on many platforms, /usr/local/lib is not part of LD_LIBRARY_PATH. You can add it, but it may be easier to just install to /usr instead. To do this, invoke configure as follows:  </p>
+<blockquote>
+<p>./configure –prefix=/usr  </p>
+</blockquote>
+<p>If you already built the package with a different prefix, make sure to run “make clean” before building again.</p>
+<p>当前我在~/.bashrc中加入：</p>
+<blockquote>
+<p>export LD_LIBRARY_PATH=”$LD_LIBRARY_PATH:/usr/local/lib”  </p>
+</blockquote>
+<p>更新：  </p>
+<blockquote>
+<p>source .bashrc  </p>
+</blockquote>
+<h2 id="使用Protocol-Buffer"><a href="#使用Protocol-Buffer" class="headerlink" title="使用Protocol Buffer"></a>使用Protocol Buffer</h2><p>编译方法：指定源目录（即你的应用程序源代码所在的目录—如果不指定的话，就使用当前目录）、目标目录（即生成的代码放置的目录）、以及你的.proto文件所在的目录。命令如下：  </p>
+<blockquote>
+<p>protoc -I=源目录 –cpp_out=输出目录 proto目录（addressbook.proto）    </p>
+</blockquote>
+<p>因为需要生成的是C++类，所以使用了–cpp_out选项参数—protocol buffers也为其他支持的语言提供了类似的选项参数，如–java_out=OUT_DIR，指定java源文件生成目录。   </p>
+<p>以上面自定义的student.proto为例，来编译产生我们的student消息类。运行如下命令：   </p>
+<blockquote>
+<p>protoc student.proto –cpp_out=./    //生成输出路径不能省略</p>
+</blockquote>
+<p>这样就可以在我指定的当前目录下生成如下文件：  </p>
+<blockquote>
+<p>student.pb.h：声明你生成的类的头文件。<br>student.pb.cc：你生成的类的实现文件。     </p>
+</blockquote>
+<p>具体可参见博文开始所说的参考文章<a href="https://blog.csdn.net/K346K346/article/details/51754431" target="_blank" rel="noopener"><strong>Protocol Buffers C++入门教程</strong></a></p>
+<p><strong>下面的官方参考手册我还没仔细研究</strong>😂</p>
+<h3 id="Compiling-dependent-packages"><a href="#Compiling-dependent-packages" class="headerlink" title="Compiling dependent packages"></a>Compiling dependent packages</h3><p>To compile a package that uses Protocol Buffers, you need to pass various flags to your compiler and linker. As of version 2.2.0, Protocol Buffers integrates with pkg-config to manage this. If you have pkg-config installed, then you can invoke it to get a list of flags like so:   </p>
+<blockquote>
+<p>pkg-config –cflags protobuf         # print compiler flags<br>pkg-config –libs protobuf           # print linker flags<br>pkg-config –cflags –libs protobuf  # print both   </p>
+</blockquote>
+<p>For example:<br>c++ my_program.cc my_proto.pb.cc <code>pkg-config --cflags --libs protobuf</code><br>Note that packages written prior to the 2.2.0 release of Protocol Buffers may not yet integrate with pkg-config to get flags, and may not pass the correct set of flags to correctly link against libprotobuf. If the package in question uses autoconf, you can often fix the problem by invoking its configure script like:</p>
+<p>configure CXXFLAGS=”$(pkg-config –cflags protobuf)” \<br>          LIBS=”$(pkg-config –libs protobuf)”<br>This will force it to use the correct flags.</p>
+<p>If you are writing an autoconf-based package that uses Protocol Buffers, you should probably use the PKG_CHECK_MODULES macro in your configure script like:</p>
+<p>PKG_CHECK_MODULES([protobuf], [protobuf])<br>See the pkg-config man page for more info.</p>
+<p>If you only want protobuf-lite, substitute “protobuf-lite” in place of “protobuf” in these examples.</p>
+<p>Note for Mac users</p>
+<p>For a Mac system, Unix tools are not available by default. You will first need to install Xcode from the Mac AppStore and then run the following command from a terminal:</p>
+<p>$ sudo xcode-select –install<br>To install Unix tools, you can install “port” following the instructions at <a href="https://www.macports.org" target="_blank" rel="noopener">https://www.macports.org</a> . This will reside in /opt/local/bin/port for most Mac installations.</p>
+<p>$ sudo /opt/local/bin/port install autoconf automake libtool<br>Then follow the Unix instructions above.</p>
+<p>Note for cross-compiling</p>
+<p>The makefiles normally invoke the protoc executable that they just built in order to build tests. When cross-compiling, the protoc executable may not be executable on the host machine. In this case, you must build a copy of protoc for the host machine first, then use the –with-protoc option to tell configure to use it instead. For example:</p>
+<p>./configure –with-protoc=protoc<br>This will use the installed protoc (found in your $PATH) instead of trying to execute the one built during the build process. You can also use an executable that hasn’t been installed. For example, if you built the protobuf package for your host machine in ../host, you might do:</p>
+<p>./configure –with-protoc=../host/src/protoc<br>Either way, you must make sure that the protoc executable you use has the same version as the protobuf source code you are trying to use it with.</p>
+<p>Note for Solaris users</p>
+<p>Solaris 10 x86 has a bug that will make linking fail, complaining about libstdc++.la being invalid. We have included a work-around in this package. To use the work-around, run configure as follows:</p>
+<p>./configure LDFLAGS=-L$PWD/src/solaris<br>See src/solaris/libstdc++.la for more info on this bug.</p>
+<p>Note for HP C++ Tru64 users</p>
+<p>To compile invoke configure as follows:</p>
+<p>./configure CXXFLAGS=”-O -std ansi -ieee -D__USE_STD_IOSTREAM”<br>Also, you will need to use gmake instead of make.</p>
+<p>Note for AIX users</p>
+<p>Compile using the IBM xlC C++ compiler as follows:</p>
+<p>./configure CXX=xlC<br>Also, you will need to use GNU make (gmake) instead of AIX make.</p>
+<p>C++ Installation - Windows<br>If you only need the protoc binary, you can download it from the release page:</p>
+<p><a href="https://github.com/protocolbuffers/protobuf/releases/latest" target="_blank" rel="noopener">https://github.com/protocolbuffers/protobuf/releases/latest</a><br>In the downloads section, download the zip file protoc-$VERSION-win32.zip. It contains the protoc binary as well as public proto files of protobuf library.</p>
+<p>Protobuf and its dependencies can be installed directly by using vcpkg:</p>
+<blockquote>
+<p>vcpkg install protobuf protobuf:x64-windows<br>If zlib support is desired, you’ll also need to install the zlib feature:</p>
+</blockquote>
+<blockquote>
+<p>vcpkg install protobuf[zlib] protobuf[zlib]:x64-windows<br>See <a href="https://github.com/Microsoft/vcpkg" target="_blank" rel="noopener">https://github.com/Microsoft/vcpkg</a> for more information.</p>
+</blockquote>
+<p>To build from source using Microsoft Visual C++, see cmake/README.md.</p>
+<p>To build from source using Cygwin or MinGW, follow the Unix installation instructions, above.</p>
+<p>Binary Compatibility Warning<br>Due to the nature of C++, it is unlikely that any two versions of the Protocol Buffers C++ runtime libraries will have compatible ABIs. That is, if you linked an executable against an older version of libprotobuf, it is unlikely to work with a newer version without re-compiling. This problem, when it occurs, will normally be detected immediately on startup of your app. Still, you may want to consider using static linkage. You can configure this package to install static libraries only using:</p>
+<p>./configure –disable-shared<br>Usage<br>The complete documentation for Protocol Buffers is available via the web at:</p>
+<p><a href="https://developers.google.com/protocol-buffers/" target="_blank" rel="noopener">https://developers.google.com/protocol-buffers/</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>支持我吧</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.bmp" alt="未晞 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.bmp" alt="未晞 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Caffe/" rel="tag"># Caffe</a>
+          
+            <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
+          
+            <a href="/tags/Protobuf/" rel="tag"># Protobuf</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/22/Caffe学习——1-跑LeNet-mnist数据集/" rel="next" title="Caffe学习——1 跑LeNet mnist数据集">
+                <i class="fa fa-chevron-left"></i> Caffe学习——1 跑LeNet mnist数据集
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zOTkyMS8xNjQ0OA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/tuxiang.png"
+                alt="未晞" />
+            
+              <p class="site-author-name" itemprop="name">未晞</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/weixi234" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/3598071457" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zhouyang234@hotmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i></a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ProtoBuf相关查询"><span class="nav-number">2.</span> <span class="nav-text">ProtoBuf相关查询</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ProtoBuf安装"><span class="nav-number">3.</span> <span class="nav-text">ProtoBuf安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装依赖"><span class="nav-number">3.1.</span> <span class="nav-text">安装依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载源码"><span class="nav-number">3.2.</span> <span class="nav-text">下载源码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译和安装"><span class="nav-number">3.3.</span> <span class="nav-text">编译和安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#编译安装步骤"><span class="nav-number">3.3.1.</span> <span class="nav-text">编译安装步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hint-on-install-location-提示安装位置"><span class="nav-number">3.3.2.</span> <span class="nav-text">Hint on install location(提示安装位置)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Protocol-Buffer"><span class="nav-number">3.4.</span> <span class="nav-text">使用Protocol Buffer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Compiling-dependent-packages"><span class="nav-number">3.4.1.</span> <span class="nav-text">Compiling dependent packages</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">晞</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">白露未晞，看书学习到天明</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

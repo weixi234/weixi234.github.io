@@ -116,7 +116,7 @@
 
 
 
-  <meta name="keywords" content="Ubuntu,GPU,Caffe," />
+  <meta name="keywords" content="Caffe,Ubuntu,GPU," />
 
 
 
@@ -128,14 +128,14 @@
 
 
 <meta name="description" content="前言我之前跑过CPU版的Caffe，现在配置了1070Ti的迷你台式，现在开始尝试配置GPU开发环境。 Caffe配置准备Caffe相关连接Caffe官方网站Caffe安装说明界面配置参考——在Ubuntu17.10上使用CPU运行caffe的SSD 安装Caffe依赖Caffe官方安装指导1、官网安装指导对于&amp;gt;17.04版本的Ubuntu，可以通过一行命令安装依赖项：    sudo ap">
-<meta name="keywords" content="Ubuntu,GPU,Caffe">
+<meta name="keywords" content="Caffe,Ubuntu,GPU">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu从入门到精通——5 编译配置第三方库Caffe">
 <meta property="og:url" content="http://yoursite.com/2018/12/21/Ubuntu从入门到精通——5 编译配置第三方库Caffe/index.html">
 <meta property="og:site_name" content="未 晞">
 <meta property="og:description" content="前言我之前跑过CPU版的Caffe，现在配置了1070Ti的迷你台式，现在开始尝试配置GPU开发环境。 Caffe配置准备Caffe相关连接Caffe官方网站Caffe安装说明界面配置参考——在Ubuntu17.10上使用CPU运行caffe的SSD 安装Caffe依赖Caffe官方安装指导1、官网安装指导对于&amp;gt;17.04版本的Ubuntu，可以通过一行命令安装依赖项：    sudo ap">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T03:45:42.378Z">
+<meta property="og:updated_time" content="2018-12-22T13:13:50.939Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu从入门到精通——5 编译配置第三方库Caffe">
 <meta name="twitter:description" content="前言我之前跑过CPU版的Caffe，现在配置了1070Ti的迷你台式，现在开始尝试配置GPU开发环境。 Caffe配置准备Caffe相关连接Caffe官方网站Caffe安装说明界面配置参考——在Ubuntu17.10上使用CPU运行caffe的SSD 安装Caffe依赖Caffe官方安装指导1、官网安装指导对于&amp;gt;17.04版本的Ubuntu，可以通过一行命令安装依赖项：    sudo ap">
@@ -367,8 +367,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-12-21T11:45:42+08:00">
-                2018-12-21
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-22T21:13:50+08:00">
+                2018-12-22
               </time>
             
           </span>
@@ -480,15 +480,30 @@
 <blockquote>
 <p># Uncomment if you’re using OpenCV 3<br>OPENCV_VERSION := 3</p>
 </blockquote>
-<p>3、编译   </p>
+<blockquote>
+<p>step6:用draw.py出现问题<br>用caffe绘制网络图出现错误的时候，开启Makefile.config的这个选项：<br># Uncomment to support layers written in Python (will link against Python libs)<br>WITH_PYTHON_LAYER := 1  # 使用此行即可，然后重新编译caffe</p>
+</blockquote>
+<p>详见《Caffe学习——1 跑LeNet mnist数据集》</p>
+<p>3、编译<br># in caffe root dir  </p>
 <blockquote>
 <p>make all -j6  </p>
 </blockquote>
 <blockquote>
-<p>make test  </p>
+<p>make test  -j6</p>
 </blockquote>
 <blockquote>
-<p>make runtest  </p>
+<p>make runtest  -j6</p>
+</blockquote>
+<blockquote>
+<p>make pycaffe<br>make distribute  </p>
+</blockquote>
+<p># make dir for custom python modules, install caffe    </p>
+<blockquote>
+<p>mkdir ~/python<br>mv distribute/python/caffe ~/python<br># set PYTHONPATH (this should go in your .bashrc or whatever<br>PYTHONPATH=\${HOME}/python:$PYTHONPATH</p>
+</blockquote>
+<p>或 也可以  </p>
+<blockquote>
+<p>PYTHONPATH=/home/zhouyang/caffe-master/distribute/python:$PYTHONPATH</p>
 </blockquote>
 <p>4、编译成功</p>
 
@@ -537,11 +552,11 @@
       
         <div class="post-tags">
           
+            <a href="/tags/Caffe/" rel="tag"># Caffe</a>
+          
             <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
           
             <a href="/tags/GPU/" rel="tag"># GPU</a>
-          
-            <a href="/tags/Caffe/" rel="tag"># Caffe</a>
           
         </div>
       
@@ -563,6 +578,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/22/Caffe学习——1-跑LeNet-mnist数据集/" rel="prev" title="Caffe学习——1 跑LeNet mnist数据集">
+                Caffe学习——1 跑LeNet mnist数据集 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -650,7 +669,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -672,7 +691,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
