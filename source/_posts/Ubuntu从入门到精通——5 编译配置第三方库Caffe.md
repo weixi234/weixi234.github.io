@@ -90,14 +90,33 @@ step5：对cv::imread(cv::String const&,int)未定义的引用问题
 >\# Uncomment if you're using OpenCV 3    
 >OPENCV_VERSION := 3
 
+>step6:用draw.py出现问题  
+用caffe绘制网络图出现错误的时候，开启Makefile.config的这个选项：  
+>\# Uncomment to support layers written in Python (will link against Python libs)
+WITH_PYTHON_LAYER := 1  # 使用此行即可，然后重新编译caffe
+
+详见《Caffe学习——1 跑LeNet mnist数据集》
+
 3、编译   
+\# in caffe root dir  
 >make all -j6  
+ 
+>make test  -j6
 
->make test  
+>make runtest  -j6
 
->make runtest  
+>make pycaffe   
+>make distribute  
+
+\# make dir for custom python modules, install caffe    
+>mkdir ~/python   
+>mv distribute/python/caffe ~/python   
+\# set PYTHONPATH (this should go in your .bashrc or whatever   
+PYTHONPATH=\${HOME}/python:$PYTHONPATH
+
+或 也可以  
+>PYTHONPATH=/home/zhouyang/caffe-master/distribute/python:$PYTHONPATH
+
 
 4、编译成功
-
-
 
