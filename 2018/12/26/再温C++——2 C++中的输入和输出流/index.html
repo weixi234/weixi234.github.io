@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="基础语法,C++,C++输入和输出流," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言字符串的处理及读写文件操作我一直都觉得是C/C++中最常用、学习耗时最多、效果不很理想的部分。今天在火车上总结总结。（20181227） C++输入输出流相关概念1、C++输入输出包含以下三个方面的内容：     对系统指定的标准设备的输入和输出。即从键盘输入数据，输出到显示器屏幕。这种输入输出称为标准的输入输出，简称标准I/O。   以外存磁盘文件为对象进行输入和输出，即从磁盘文件输入数据，">
+<meta name="keywords" content="基础语法,C++,C++输入和输出流">
+<meta property="og:type" content="article">
+<meta property="og:title" content="再温C++——2 C++中的输入和输出流">
+<meta property="og:url" content="http://yoursite.com/2018/12/26/再温C++——2 C++中的输入和输出流/index.html">
+<meta property="og:site_name" content="未 晞">
+<meta property="og:description" content="前言字符串的处理及读写文件操作我一直都觉得是C/C++中最常用、学习耗时最多、效果不很理想的部分。今天在火车上总结总结。（20181227） C++输入输出流相关概念1、C++输入输出包含以下三个方面的内容：     对系统指定的标准设备的输入和输出。即从键盘输入数据，输出到显示器屏幕。这种输入输出称为标准的输入输出，简称标准I/O。   以外存磁盘文件为对象进行输入和输出，即从磁盘文件输入数据，">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/12/26/再温C++——2%20C++中的输入和输出流/IO类库中的常用流类.png">
+<meta property="og:updated_time" content="2018-12-27T18:21:17.762Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="再温C++——2 C++中的输入和输出流">
+<meta name="twitter:description" content="前言字符串的处理及读写文件操作我一直都觉得是C/C++中最常用、学习耗时最多、效果不很理想的部分。今天在火车上总结总结。（20181227） C++输入输出流相关概念1、C++输入输出包含以下三个方面的内容：     对系统指定的标准设备的输入和输出。即从键盘输入数据，输出到显示器屏幕。这种输入输出称为标准的输入输出，简称标准I/O。   以外存磁盘文件为对象进行输入和输出，即从磁盘文件输入数据，">
+<meta name="twitter:image" content="http://yoursite.com/2018/12/26/再温C++——2%20C++中的输入和输出流/IO类库中的常用流类.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/26/再温C++——2 C++中的输入和输出流/"/>
+
+
+
+
+
+  <title>再温C++——2 C++中的输入和输出流 | 未 晞</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?294d40586178dce17bb24335bf3ca589";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">未 晞</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">白露未晞，看书学习到天明~</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-fa fa-address-book"></i> <br />
+            
+            留言板
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/26/再温C++——2 C++中的输入和输出流/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="未晞">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tuxiang.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="未 晞">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">再温C++——2 C++中的输入和输出流</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-26T09:52:39+08:00">
+                2018-12-26
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-28T02:21:17+08:00">
+                2018-12-28
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/再温CPP/" itemprop="url" rel="index">
+                    <span itemprop="name">再温CPP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>字符串的处理及读写文件操作我一直都觉得是C/C++中最常用、学习耗时最多、效果不很理想的部分。今天在火车上总结总结。（20181227）</p>
+<h1 id="C-输入输出流"><a href="#C-输入输出流" class="headerlink" title="C++输入输出流"></a>C++输入输出流</h1><h2 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h2><p>1、C++输入输出包含以下三个方面的内容：   </p>
+<ul>
+<li>对系统指定的<strong>标准设备</strong>的输入和输出。即从键盘输入数据，输出到显示器屏幕。这种输入输出称为标准的输入输出，简称<strong>标准I/O</strong>。  </li>
+<li>以外存<strong>磁盘文件</strong>为对象进行输入和输出，即从磁盘文件输入数据，数据输出到磁盘文件。以外存文件为对象的输入输出称为文件的输入输出，简称<strong>文件I/O</strong>。   </li>
+<li>对<strong>内存</strong>中指定的空间进行输入和输出。通常指定一个字符数组作为存储空间(实际上可以利用该空间存储任何信息)。这种输入和输出称为字符串输入输出，简称<strong>串I/O</strong>。  </li>
+</ul>
+<p>2、C++中IO对C的扩展</p>
+<ul>
+<li>在C语言中，用printf和scanf进行输入输出，往往不能保证所输入输出的<strong>数据是可靠的安全</strong>的。在C++的输入输出中，编译系统对数据类型进行严格的检查，凡是类型不正确的数据都不可能通过编译。因此C++的I/O操作是<strong>类型安全(type safe)</strong>的。  </li>
+<li>C++的I/O操作是<strong>可扩展</strong>的，不仅可以用来输入输出标准类型的数据，也可以用于用户自定义类型的数据。   </li>
+<li>C++通过I/O类库来实现丰富的I/O功能。这样使C++的输人输出明显地优于C语言中的printf和scanf，但C++的I/O系统变得比较复杂，增加学习成本。    </li>
+<li>C++编译系统提供了用于输入输出的iostream类库。iostream这个单词是由3个部分组成的，即i-o-stream，意为输入输出流。  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">继承图表：</span><br><span class="line">ios-&gt;istream-&gt;iostream  </span><br><span class="line">   -&gt;ostream-&gt; </span><br><span class="line"></span><br><span class="line">ios是抽象基类，由它派生出istream类和ostream类，两个类名中第1个字母i和o分别代表输入(input)和输出(output)。istream类支持输入操作，ostream类支持输出操作，iostream类支持输入输出操作。iostream类是从istream类和ostream类通过**多重继承而派生的类**。</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="IO类库中的常用流类.png" alt="IO类库中的常用流类">  </p>
+<ul>
+<li>C++对文件的输入输出需要用ifstrcam和ofstream类，两个类名中第1个字母i和o分别代表输入和输出，第2个字母f代表文件 (file)。ifstream支持对文件的输入操作， ofstream支持对文件的输出操作。类ifstream继承了类istream，类ofstream继承了类ostream，类fstream继承了 类iostream。    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">继承图表：  </span><br><span class="line">ios-&gt;istream-&gt;ifstream  </span><br><span class="line">ios-&gt;istream-&gt;iostream-&gt;fstream  </span><br><span class="line">ios-&gt;ostream-&gt;iostream-&gt;fstream  </span><br><span class="line">ios-&gt;ostream-&gt;ofstream  </span><br><span class="line">(这几个继承图后期再改吧，先写个初稿)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="头文件说明"><a href="#头文件说明" class="headerlink" title="头文件说明"></a>头文件说明</h2><p>1、<strong>iostream</strong>包含了对输入输出流进行操作所需的基本信息。<br>2、<strong>fstream</strong>用于用户管理的文件的I/O操作。<br>3、<strong>strstream</strong>用于字符串流I/O。<br>4、<strong>stdiostream</strong>用于混合使用C和C + +的I/O机制时，例如想将C程序转变为C++程序。<br>5、<strong>iomanip</strong>在使用格式化I/O时应包含此头文件。  </p>
+<h2 id="在iostream头文件中定义的流对象"><a href="#在iostream头文件中定义的流对象" class="headerlink" title="在iostream头文件中定义的流对象"></a>在iostream头文件中定义的流对象</h2><ul>
+<li><p>在iostream头文件中定义的类有 ios，istream，ostream，iostream，istream _withassign， ostream_withassign，iostream_withassign等。  </p>
+</li>
+<li><p>在iostream头文件中不仅定义了有关的类，还定义了4种流对象，</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">对象</th>
+<th style="text-align:center">含义</th>
+<th style="text-align:right">对应设备</th>
+<th style="text-align:center">对应的类</th>
+<th style="text-align:right">c语言中相应的标准文件 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">cin</td>
+<td style="text-align:center">标准输入流</td>
+<td style="text-align:right">键盘</td>
+<td style="text-align:center">istream_withassign</td>
+<td style="text-align:right">stdin </td>
+</tr>
+<tr>
+<td style="text-align:left">cout</td>
+<td style="text-align:center">标准输出流</td>
+<td style="text-align:right">屏幕</td>
+<td style="text-align:center">ostream_withassign</td>
+<td style="text-align:right">stdout </td>
+</tr>
+<tr>
+<td style="text-align:left">cerr</td>
+<td style="text-align:center">标准错误流</td>
+<td style="text-align:right">屏幕</td>
+<td style="text-align:center">ostream_withassign</td>
+<td style="text-align:right">stderr </td>
+</tr>
+<tr>
+<td style="text-align:left">clog</td>
+<td style="text-align:center">标准错误流</td>
+<td style="text-align:right">屏幕</td>
+<td style="text-align:center">ostream_withassign</td>
+<td style="text-align:right">stderr </td>
+</tr>
+</tbody>
+</table>
+<p><strong>使用案例：</strong><br>在iostream头文件中定义以上4个流对象用以下的形式（以cout为例）：  </p>
+<blockquote>
+<p>ostream cout ( stdout);  </p>
+</blockquote>
+<p>在定义cout为ostream流类对象时，把标准输出设备stdout作为参数，这样它就与标准输出设备(显示器)联系起来，如果有  </p>
+<blockquote>
+<p>cout &lt;&lt;3;  </p>
+</blockquote>
+<p>就会在显示器的屏幕上输出3。</p>
+<ul>
+<li>在iostream头文件中重载运算符<br>“&lt;&lt;”和“&gt;&gt;”本来在C++中是被定义为左位移运算符和右位移运算符的，由于在iostream头文件中对它们进行了重载， 使它们能用作标准类型数据的输入和输出运算符。所以，在用它们的程序中必须用#include命令把iostream包含到程序中。  <blockquote>
+<p>#include &lt;\iostream&gt;   </p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>>>a表示将数据放入a对象中<br>\&lt;&lt; a表示将a对象中存储的数据拿出。</p>
+</blockquote>
+<h1 id="标准I-O流"><a href="#标准I-O流" class="headerlink" title="标准I/O流"></a>标准I/O流</h1><p>标准I/O对象:cin，cout，cerr，clog。</p>
+<h2 id="cout流对象"><a href="#cout流对象" class="headerlink" title="cout流对象"></a>cout流对象</h2><p>cout是console output的缩写，意为在控制台（终端显示器）的输出。<br>1、cout不是C++预定义的关键字，它是ostream流类的对象，在iostream中定义。 顾名思义，流是流动的数据，cout流是流向显示器的数据。cout流中的数据是用流插入运算符“&lt;&lt;”顺序加入的。如  </p>
+<blockquote>
+<p>cout&lt;&lt;”I “&lt;&lt;”study C++”&lt;&lt;”very hard. &lt;&lt; “wang bao ming “;  </p>
+</blockquote>
+<p>按顺序将字符串”I “, “study C++ “, “very hard.”插人到cout流中，cout就将它们送到显示器，在显示器上输出字符串”I study C++ very hard.”。<strong>cout流是容纳数据的载体，它并不是一个运算符</strong>。人们关心的是cout流中的内容，也就是向显示器输出什么。   </p>
+<p>2、用“cout&lt;&lt;”输出基本类型的数据时，可以不必考虑数据是什么类型，系统会判断数据的类型，并<strong>根据其类型选择调用与之匹配的运算符重载函数</strong>。这个过程都是自动的，用户不必干预。如果在C语言中用prinf函数输出不同类型的数据，必须分别指定相应的输出格式符，十分麻烦，而且容易出错。C++的I/O机制对用户来说，显然是方便而安全的。  </p>
+<p>3、cout流在内存中对应开辟了一个缓冲区，用来存放流中的数据，当向cout流插人一个<strong>endl</strong>时，不论缓冲区是否已满，都立即输出流中所有数据，然后插入一个换行符，并刷新流（清空缓冲区）。注意如果插人一个换行符”\n“（如cout&lt;&lt; a&lt;&lt;”\n”），则只输出和换行，而不刷新cout流(但并不是所有编译系统都体现出这一区别）。  </p>
+<p>4、在iostream中只对”&lt;&lt;”和”&gt;&gt;”运算符用于<strong>标准类型数据的输入输出进行了重载</strong>，但未对用户声明的类型数据的输入输出进行重载。如果用户声明了新的类型，并希望用”&lt;&lt;”和”&gt;&gt;”运算符对其进行输入输出，按照重运算符重载来做。</p>
+<h2 id="cerr流对象"><a href="#cerr流对象" class="headerlink" title="cerr流对象"></a>cerr流对象</h2><p>cerr流对象是标准错误流，<strong>cerr流已被指定为与显示器关联。</strong>cerr的作用是向标准错误设备(standard error device)输出有关出错信息。  </p>
+<ul>
+<li>cerr与标准输出流cout的作用和用法差不多。<strong>但有一点不同：cout流通常是传送到显示器输出，但也可以被重定向输出到磁盘文件，而cerr流中的信息只能在显示器输出。</strong>当调试程序时，往往不希望程序运行时的出错信息被送到其他文件，而要求在显示器上及时输出，这时应该用cerr。cerr流中的信息是用户根据需要指定的。</li>
+</ul>
+<h2 id="clog流对象"><a href="#clog流对象" class="headerlink" title="clog流对象"></a>clog流对象</h2><p>clog流对象也是标准错误流，它是console log的缩写。</p>
+<ul>
+<li>它的作用和cerr相同，都是在终端显示器上显示出错信息。  </li>
+<li>cerr是不经过<strong>缓冲区</strong>，直接向显示器上输出有关信息，而clog中的信息存放在缓冲区中，缓冲区满后或遇endl时向显示器输出。</li>
+</ul>
+<h1 id="输入输出流编程语法"><a href="#输入输出流编程语法" class="headerlink" title="输入输出流编程语法"></a>输入输出流编程语法</h1><h2 id="标准输入流-cin"><a href="#标准输入流-cin" class="headerlink" title="标准输入流 cin"></a>标准输入流 cin</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cin</span>.get() <span class="comment">//一次只能读取一个字符</span></span><br><span class="line"><span class="built_in">cin</span>.get(一个参数) <span class="comment">//读一个字符</span></span><br><span class="line"><span class="built_in">cin</span>.get(三个参数) <span class="comment">//可以读字符串</span></span><br><span class="line"><span class="built_in">cin</span>.getline()</span><br><span class="line"><span class="built_in">cin</span>.ignore()</span><br><span class="line"><span class="built_in">cin</span>.peek()</span><br><span class="line"><span class="built_in">cin</span>.putback()</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>支持我吧</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.bmp" alt="未晞 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.bmp" alt="未晞 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/基础语法/" rel="tag"># 基础语法</a>
+          
+            <a href="/tags/C/" rel="tag"># C++</a>
+          
+            <a href="/tags/C-输入和输出流/" rel="tag"># C++输入和输出流</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/25/再温C++——1 C++中的异常/" rel="next" title="再温C++——1 C++中的异常">
+                <i class="fa fa-chevron-left"></i> 再温C++——1 C++中的异常
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zOTkyMS8xNjQ0OA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/tuxiang.png"
+                alt="未晞" />
+            
+              <p class="site-author-name" itemprop="name">未晞</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/weixi234" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/3598071457" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zhouyang234@hotmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i></a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C-输入输出流"><span class="nav-number">2.</span> <span class="nav-text">C++输入输出流</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#相关概念"><span class="nav-number">2.1.</span> <span class="nav-text">相关概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#头文件说明"><span class="nav-number">2.2.</span> <span class="nav-text">头文件说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在iostream头文件中定义的流对象"><span class="nav-number">2.3.</span> <span class="nav-text">在iostream头文件中定义的流对象</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#标准I-O流"><span class="nav-number">3.</span> <span class="nav-text">标准I/O流</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cout流对象"><span class="nav-number">3.1.</span> <span class="nav-text">cout流对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cerr流对象"><span class="nav-number">3.2.</span> <span class="nav-text">cerr流对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#clog流对象"><span class="nav-number">3.3.</span> <span class="nav-text">clog流对象</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#输入输出流编程语法"><span class="nav-number">4.</span> <span class="nav-text">输入输出流编程语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#标准输入流-cin"><span class="nav-number">4.1.</span> <span class="nav-text">标准输入流 cin</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">晞</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">白露未晞，看书学习到天明</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

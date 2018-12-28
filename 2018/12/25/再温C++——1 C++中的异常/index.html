@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="基础语法,C++,C++异常," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言 之前学过C++，时间长了，有些遗忘。当时学时也有些不扎实，一直想写这个再温系列，一直没抽出时间，今天就以这个CPP中的异常开始吧。（20181225）    异常介绍1、异常是一种程序控制机制，与函数机制独立和互补函数是一种以栈结构展开的上下函数衔接的程序控制系统,异常是另一种控制结构,它依附于栈结构,却可以同时设置多个异常类型作为网捕条件,从而以类型匹配在栈机制中跳跃回馈.2、异常设计目的">
+<meta name="keywords" content="基础语法,C++,C++异常">
+<meta property="og:type" content="article">
+<meta property="og:title" content="再温C++——1 C++中的异常">
+<meta property="og:url" content="http://yoursite.com/2018/12/25/再温C++——1 C++中的异常/index.html">
+<meta property="og:site_name" content="未 晞">
+<meta property="og:description" content="前言 之前学过C++，时间长了，有些遗忘。当时学时也有些不扎实，一直想写这个再温系列，一直没抽出时间，今天就以这个CPP中的异常开始吧。（20181225）    异常介绍1、异常是一种程序控制机制，与函数机制独立和互补函数是一种以栈结构展开的上下函数衔接的程序控制系统,异常是另一种控制结构,它依附于栈结构,却可以同时设置多个异常类型作为网捕条件,从而以类型匹配在栈机制中跳跃回馈.2、异常设计目的">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/12/25/再温C++——1%20C++中的异常/异常图示.png">
+<meta property="og:updated_time" content="2018-12-26T01:55:38.455Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="再温C++——1 C++中的异常">
+<meta name="twitter:description" content="前言 之前学过C++，时间长了，有些遗忘。当时学时也有些不扎实，一直想写这个再温系列，一直没抽出时间，今天就以这个CPP中的异常开始吧。（20181225）    异常介绍1、异常是一种程序控制机制，与函数机制独立和互补函数是一种以栈结构展开的上下函数衔接的程序控制系统,异常是另一种控制结构,它依附于栈结构,却可以同时设置多个异常类型作为网捕条件,从而以类型匹配在栈机制中跳跃回馈.2、异常设计目的">
+<meta name="twitter:image" content="http://yoursite.com/2018/12/25/再温C++——1%20C++中的异常/异常图示.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/25/再温C++——1 C++中的异常/"/>
+
+
+
+
+
+  <title>再温C++——1 C++中的异常 | 未 晞</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?294d40586178dce17bb24335bf3ca589";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">未 晞</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">白露未晞，看书学习到天明~</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-fa fa-address-book"></i> <br />
+            
+            留言板
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/25/再温C++——1 C++中的异常/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="未晞">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tuxiang.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="未 晞">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">再温C++——1 C++中的异常</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-25T09:22:06+08:00">
+                2018-12-25
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-26T09:55:38+08:00">
+                2018-12-26
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/再温CPP/" itemprop="url" rel="index">
+                    <span itemprop="name">再温CPP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p> 之前学过C++，时间长了，有些遗忘。当时学时也有些不扎实，一直想写这个再温系列，一直没抽出时间，今天就以这个CPP中的异常开始吧。（20181225）   </p>
+<h1 id="异常介绍"><a href="#异常介绍" class="headerlink" title="异常介绍"></a>异常介绍</h1><p>1、异常是一种程序控制机制，与函数机制独立和互补<br>函数是一种以栈结构展开的上下函数衔接的程序控制系统,异常是另一种控制结构,它依附于栈结构,却可以同时设置多个异常类型作为网捕条件,从而以类型匹配在栈机制中跳跃回馈.<br>2、异常设计目的：<br>栈机制是一种高度节律性控制机制,面向对象编程却要求对象之间有方向、有目的的控制传动,从一开始，异常就是冲着改变程序控制结构，以适应面向对象程序更有效地工作这个主题，而不是仅为了进行错误处理。<br>异常设计出来之后，却发现在错误处理方面获得了最大的好处。</p>
+<h1 id="异常处理的基本思想"><a href="#异常处理的基本思想" class="headerlink" title="异常处理的基本思想"></a>异常处理的基本思想</h1><p>1、C/Cpp中传统错误处理机制是通过函数返回值来处理错误。<br>2、C++的异常处理机制使得<strong>异常的引发和异常的处理不必在同一个函数中</strong>，这样<strong>底层的函数可以着重解决具体问题，而不必过多的考虑异常的处理。上层调用者可以再适当的位置设计对不同类型异常的处理</strong>。<br>3、异常是专门针对抽象编程中的一系列错误处理的，C++中不能借助函数机制，因为栈结构的本质是先进后出，依次访问，无法进行跳跃，但错误处理的特征却是遇到错误信息就想要转到若干级之上进行重新尝试。<br>4、异常超脱于函数机制，决定了其对函数的跨越式回跳。<br>5、异常跨越函数。<br><img src="异常图示.png" alt="异常图示">    </p>
+<h1 id="异常基本语法"><a href="#异常基本语法" class="headerlink" title="异常基本语法"></a>异常基本语法</h1><h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//抛掷异常程序段</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Fun</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//······</span></span><br><span class="line">    <span class="keyword">throw</span> 表达式;</span><br><span class="line">    <span class="comment">//······</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//捕获并处理异常程序段</span></span><br><span class="line"><span class="keyword">try</span></span><br><span class="line">&#123;</span><br><span class="line">    复合语句</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span>(异常类型声明)</span><br><span class="line">&#123;</span><br><span class="line">    复合语句</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span>(类型(形参))</span><br><span class="line">&#123;</span><br><span class="line">    复合语句</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//······</span></span><br><span class="line"><span class="comment">//······</span></span><br></pre></td></tr></table></figure>
+<h2 id="语法阐述"><a href="#语法阐述" class="headerlink" title="语法阐述"></a>语法阐述</h2><p>1、若有异常则<strong>通过throw操作创建一个异常对象</strong>并抛掷。<br>2、将可能抛出异常的程序段嵌在try块之中。控制通过正常的顺序执行到达try语句，然后执行try块内的保护段。<br>3、如果在保护段执行期间没有引起异常，那么跟在try块后的catch子句就不执行。程序从try块后跟随的最后一个catch子句后面的语句继续执行下去。<br>4、catch子句按其在try块后出现的<strong>顺序被检查</strong>。匹配的catch子句将捕获并处理异常（或继续抛掷异常）。<br>5、如果匹配的处理器未找到，则运行函数terminate将被自动调用，其缺省功能是调用abort终止程序。<br>6、处理不了的异常，可以在catch的最后一个分支，使用throw语法，向上扔。<br>7、异常机制与函数机制互不干涉，但捕捉的方式是基于类型匹配。捕捉相当于函数返回类型的匹配，而不是函数参数的匹配，所以捕捉不用考虑一个抛掷中的多种数据类型匹配问题。<br>8、异常捕捉严格按照类型匹配。异常捕捉的类型匹配之苛刻程度可以和模板的类型匹配媲美,它不允许相容类型的隐式转换,比如,抛掷char类型用int型就捕捉不到。    </p>
+<h2 id="基本语法实例"><a href="#基本语法实例" class="headerlink" title="基本语法实例"></a>基本语法实例</h2><p>1、被零整除<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">divide</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (y ==<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">throw</span> x;<span class="comment">//x是整形</span></span><br><span class="line">        <span class="comment">//功能函数中抛异常，异常抛出跨函数</span></span><br><span class="line">        <span class="comment">//一直往上抛，直到被catch捕获，或最终抛出异常终止  </span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> x/y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">try</span><span class="comment">//上层函数接异常</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"8/2 = "</span> &lt;&lt; divide(<span class="number">8</span>, <span class="number">2</span>) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"10/0 ="</span> &lt;&lt; divide(<span class="number">10</span>, <span class="number">0</span>) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="comment">//catch是按照类型进行</span></span><br><span class="line">	<span class="keyword">catch</span> (<span class="keyword">int</span> e)<span class="comment">//x是整形</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"e"</span> &lt;&lt; <span class="string">" is divided by zero!"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span>(...)<span class="comment">//其他类型异常 </span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">throw</span>;<span class="comment">//也可继续往上抛</span></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"未知异常"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">        </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"ok"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    system(<span class="string">"pause"</span>);</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>2、类中的异常抛出<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>&#123;</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(...) <span class="keyword">throw</span> A;  </span><br><span class="line">  <span class="comment">//throw A将穿透函数f，g和main，抵达系统的最后一道防线——激发terminate函数,该函数调用引起运行终止的abort函数.</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">g</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">try</span></span><br><span class="line">  &#123;</span><br><span class="line">    f();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">catch</span>(B)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;“exception B\n”;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  g();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>补充：</strong><br>最后一道防线的函数可以由程序员设置，从而规定其终止前的行为。<br>修改系统默认行为：<br>可以通过set_terminate函数修改捕捉不住异常的默认处理器，从而使得发生捉不住异常时，被自定义函数处理：  </p>
+<ul>
+<li>void myTerminate(){cout&lt;&lt;“HereIsMyTerminate\n”;}   </li>
+<li>set_terminate(myTerminate);   </li>
+<li>set_terminate函数在头文件exception中声明，参数为函数指针void(*)()    </li>
+</ul>
+<p>3、构造函数中异常抛出<br>构造函数没有返回类型，无法通过返回值来报告运行状态，所以只通过一种非函数机制的途径，即异常机制，来解决构造函数的出错问题。     </p>
+<p>4、异常抛出参数传递机制<br>异常机制与函数机制互不干涉，但捕捉的方式是<strong>基于类型匹配</strong>。捕捉相当于<strong>函数返回类型的匹配</strong>，而不是<strong>函数参数的匹配</strong>，所以捕捉不用考虑一个抛掷中的多种数据类型匹配问题。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>&#123;</span>&#125;;  </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span>&#123;</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">try</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> 	j = <span class="number">0</span>;    </span><br><span class="line">        <span class="keyword">double</span> 	d = <span class="number">2.3</span>;    </span><br><span class="line">        <span class="keyword">char</span> 	str[<span class="number">20</span>] = <span class="string">"Hello"</span>;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"Please input a exception number: "</span>;</span><br><span class="line">        <span class="keyword">int</span> a; </span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;a;</span><br><span class="line">        <span class="keyword">switch</span>(a)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">case</span>  <span class="number">1</span>: </span><br><span class="line">                <span class="keyword">throw</span> d;      </span><br><span class="line">            <span class="keyword">case</span>  <span class="number">2</span>: </span><br><span class="line">                <span class="keyword">throw</span> j;      </span><br><span class="line">            <span class="keyword">case</span>  <span class="number">3</span>: </span><br><span class="line">                <span class="keyword">throw</span> str;</span><br><span class="line">            <span class="keyword">case</span>  <span class="number">4</span>: </span><br><span class="line">                <span class="keyword">throw</span> A();      </span><br><span class="line">            <span class="keyword">case</span>  <span class="number">5</span>: </span><br><span class="line">                <span class="keyword">throw</span> B();</span><br><span class="line">            <span class="keyword">default</span>: </span><br><span class="line">                <span class="built_in">cout</span>&lt;&lt;<span class="string">"No throws here.\n"</span>;    </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">     <span class="keyword">catch</span>(<span class="keyword">int</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"int exception.\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span>(<span class="keyword">double</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"double exception.\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span>(<span class="keyword">char</span>*)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"char* exception.\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span>(A)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"class A exception.\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span>(B)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"class B exception.\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"That's ok.\n"</span>;</span><br><span class="line">    system(<span class="string">"pause"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//====================================</span></span><br></pre></td></tr></table></figure>
+<p><strong>补充：</strong>  </p>
+<ul>
+<li>catch代码块必须出现在try后，并且在try块后可以出现多个catch代码块，以捕捉各种不同类型的抛掷。   </li>
+<li><strong>异常机制是基于这样的原理：程序运行实质上是数据实体在做一些操作，因此发生异常现象的地方，一定是某个实体出了差错，该实体所对应的数据类型便作为抛掷和捕捉的依据。</strong>   </li>
+</ul>
+<p>5、异常捕捉严格按照类型匹配<br>异常捕捉的类型匹配之苛刻程度可以和模板的类型匹配媲美,它不允许相容类型的隐式转换。比如,<strong>抛掷char类型用int型就捕捉不到。</strong><br>例如下列代码不会输出“int exception.”，从而也不会输出“That’s ok.”       </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">try</span></span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">throw</span> ‘H’;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">catch</span>(<span class="keyword">int</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"int exception.\n"</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">cout</span>&lt;&lt;<span class="string">"That's ok.\n"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="栈解旋-unwinding"><a href="#栈解旋-unwinding" class="headerlink" title="栈解旋(unwinding)"></a>栈解旋(unwinding)</h1><p><strong>异常被抛出后，从进入try块起，到异常被抛掷前，这期间在栈上的构造的所有对象，都会被自动析构。析构的顺序与构造的顺序相反。这一过程称为栈的解旋(unwinding)。</strong><br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyException</span> &#123;</span>&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Test(<span class="keyword">int</span> a=<span class="number">0</span>, <span class="keyword">int</span> b=<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;a = a;</span><br><span class="line">        <span class="keyword">this</span>-&gt;b = b;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"Test 构造函数执行"</span> &lt;&lt; <span class="string">"a:"</span> &lt;&lt; a &lt;&lt; <span class="string">" b: "</span> &lt;&lt; b &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">printT</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"a:"</span> &lt;&lt; a &lt;&lt; <span class="string">" b: "</span> &lt;&lt; b &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ~Test()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"Test 析构函数执行"</span> &lt;&lt; <span class="string">"a:"</span> &lt;&lt; a &lt;&lt; <span class="string">" b: "</span> &lt;&lt; b &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">    <span class="keyword">int</span> b;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myFunc</span><span class="params">()</span> <span class="title">throw</span> <span class="params">(MyException)</span> <span class="comment">//异常接口声明</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Test t1;</span><br><span class="line">    Test t2;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"定义了两个栈变量,异常抛出后测试栈变量的如何被析构"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">throw</span> MyException();<span class="comment">//疑惑，这里抛出的是类对象还是构造函数？？？</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//异常被抛出后，从进入try块起，到异常被抛掷前，这期间在栈上的构造的所有对象，</span></span><br><span class="line">    <span class="comment">//都会被自动析构。析构的顺序与构造的顺序相反。</span></span><br><span class="line">    <span class="comment">//这一过程称为栈的解旋(unwinding)</span></span><br><span class="line">    <span class="keyword">try</span>  </span><br><span class="line">    &#123;</span><br><span class="line">        myFunc();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//catch(MyException &amp;e) //这里不能访问异常对象？？？</span></span><br><span class="line">    <span class="keyword">catch</span>(MyException ) <span class="comment">//这里不能访问异常对象？？？</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"接收到MyException类型异常"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span>(...)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"未知类型异常"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">    system(<span class="string">"pause"</span>);</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="异常接口声明"><a href="#异常接口声明" class="headerlink" title="异常接口声明"></a>异常接口声明</h1><ul>
+<li><p>为了加强程序的可读性，可以在函数声明中列出可能抛出的<strong>所有异常类型</strong>，例如：   </p>
+<blockquote>
+<p>void func() throw (A,B,C,D); //这个函数func（）能够且只能抛出类型A、B、C、D及其子类型的异常。   </p>
+</blockquote>
+</li>
+<li><p>如果在函数声明中没有包含异常接口声明，则次函数可以<strong>抛掷任何类型的异常</strong>，例如：       </p>
+<blockquote>
+<p>   void func();  </p>
+</blockquote>
+</li>
+<li><p>一个<strong>不抛掷任何类型异常</strong>的函数可以声明为：</p>
+<blockquote>
+<p>   void func()  throw();  </p>
+</blockquote>
+</li>
+<li><p>如果一个函数抛出了它的异常接口声明所<strong>不允许抛出的异常</strong>，unexpected函数会被调用，该函数默认行为调用terminate函数中止程序。    </p>
+</li>
+</ul>
+<h1 id="异常类型和异常变量的生命周期"><a href="#异常类型和异常变量的生命周期" class="headerlink" title="异常类型和异常变量的生命周期"></a>异常类型和异常变量的生命周期</h1><ul>
+<li>throw的异常是有类型的，可以使，数字、字符串、类对象。      </li>
+<li>throw的异常是有类型的，catch严格按照类型进行匹配。     </li>
+<li>注意：异常对象的内存模型。    </li>
+</ul>
+<h2 id="传统错误处理"><a href="#传统错误处理" class="headerlink" title="传统错误处理"></a>传统错误处理</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//文件的二进制copy</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">filecopy</span><span class="params">(<span class="keyword">char</span> *filename2, <span class="keyword">char</span> *filename1 )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    FILE *fp1= <span class="literal">NULL</span>,  *fp2 = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    fp1 = fopen(filename1, <span class="string">"rb"</span>);</span><br><span class="line">    <span class="keyword">if</span> (fp1 == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fp2 = fopen(filename2, <span class="string">"wb"</span>);</span><br><span class="line">    <span class="keyword">if</span> (fp1 == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">char</span> buf[<span class="number">256</span>];</span><br><span class="line">    <span class="keyword">int</span>  readlen, writelen;</span><br><span class="line">    <span class="keyword">while</span> ( (readlen = fread(buf, <span class="number">1</span>, <span class="number">256</span>, fp1)) &gt; <span class="number">0</span> ) <span class="comment">//如果读到数据，则大于0 </span></span><br><span class="line">    &#123;</span><br><span class="line">        writelen = fwrite(buf, <span class="number">1</span>, readlen, fp2);</span><br><span class="line">        <span class="keyword">if</span> (readlen != readlen)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">3</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fclose(fp1);</span><br><span class="line">    fclose(fp2);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ret;</span><br><span class="line">    ret = filecopy(<span class="string">"c:/1.txt"</span>,<span class="string">"c:/2.txt"</span>);</span><br><span class="line">    <span class="keyword">if</span> (ret !=<span class="number">0</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">switch</span>(ret)</span><br><span class="line">        &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"打开源文件时出错!\n"</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"打开目标文件时出错!\n"</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"拷贝文件时出错!\n"</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"发生未知错误!\n"</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="throw-int类型异常"><a href="#throw-int类型异常" class="headerlink" title="throw int类型异常"></a>throw int类型异常</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">/文件的二进制copy</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">filecopy</span><span class="params">(<span class="keyword">char</span> *filename2, <span class="keyword">char</span> *filename1 )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    FILE *fp1= <span class="literal">NULL</span>,  *fp2 = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    fp1 = fopen(filename1, <span class="string">"rb"</span>);</span><br><span class="line">    <span class="keyword">if</span> (fp1 == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//return 1;</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fp2 = fopen(filename2, <span class="string">"wb"</span>);</span><br><span class="line">    <span class="keyword">if</span> (fp1 == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//return 2;</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">char</span> buf[<span class="number">256</span>];</span><br><span class="line">    <span class="keyword">int</span>  readlen, writelen;</span><br><span class="line">    <span class="keyword">while</span> ( (readlen = fread(buf, <span class="number">1</span>, <span class="number">256</span>, fp1)) &gt; <span class="number">0</span> ) <span class="comment">//如果读到数据，则大于0 </span></span><br><span class="line">    &#123;</span><br><span class="line">        writelen = fwrite(buf, <span class="number">1</span>, readlen, fp2);</span><br><span class="line">        <span class="keyword">if</span> (readlen != readlen)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//return 3;</span></span><br><span class="line">            <span class="keyword">throw</span> <span class="number">3</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fclose(fp1);</span><br><span class="line">    fclose(fp2);</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="throw字符类型异常"><a href="#throw字符类型异常" class="headerlink" title="throw字符类型异常"></a>throw字符类型异常</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//文件的二进制copy</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">filecopy</span><span class="params">(<span class="keyword">char</span> *filename2, <span class="keyword">char</span> *filename1 )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    FILE *fp1= <span class="literal">NULL</span>,  *fp2 = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    fp1 = fopen(filename1, <span class="string">"rb"</span>);</span><br><span class="line">    <span class="keyword">if</span> (fp1 == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="string">"打开源文件时出错"</span>;<span class="comment">//**这里抛出时抛的是字符串常量**</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fp2 = fopen(filename2, <span class="string">"wb"</span>);</span><br><span class="line">    <span class="keyword">if</span> (fp1 == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="string">"打开目标文件时出错"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">char</span> buf[<span class="number">256</span>];</span><br><span class="line">    <span class="keyword">int</span>  readlen, writelen;</span><br><span class="line">    <span class="keyword">while</span> ( (readlen = fread(buf, <span class="number">1</span>, <span class="number">256</span>, fp1)) &gt; <span class="number">0</span> ) <span class="comment">//如果读到数据，则大于0 </span></span><br><span class="line">    &#123;</span><br><span class="line">        writelen = fwrite(buf, <span class="number">1</span>, readlen, fp2);</span><br><span class="line">        <span class="keyword">if</span> (readlen != readlen)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="string">"拷贝文件过程中失败"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fclose(fp1);</span><br><span class="line">    fclose(fp2);</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">try</span></span><br><span class="line">    &#123;</span><br><span class="line">        filecopy(<span class="keyword">char</span> *filename2, <span class="keyword">char</span> *filename1 );</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span>(<span class="keyword">char</span> *e)<span class="comment">//因为抛出时抛出的是字符串常量，所以此处指针可指向字符串常量指针  </span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;e&lt;&lt;<span class="string">"char* 类型异常"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="throw类对象类型异常"><a href="#throw类对象类型异常" class="headerlink" title="throw类对象类型异常"></a>throw类对象类型异常</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BadSrcFile</span> </span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    BadSrcFile()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"BadSrcFile 构造 do "</span>&lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ~BadSrcFile()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"BadSrcFile 析构 do "</span>&lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    BadSrcFile(BadSrcFile &amp; obj)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"拷贝构造  do "</span>&lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">toString</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"aaaa"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BadDestFile</span> &#123;</span>&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BadCpyFile</span> &#123;</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">filecopy</span><span class="params">(<span class="keyword">char</span> *filename2, <span class="keyword">char</span> *filename1 )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    FILE *fp1= <span class="literal">NULL</span>,  *fp2 = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    fp1 = fopen(filename1, <span class="string">"rb"</span>);</span><br><span class="line">    <span class="keyword">if</span> (fp1 == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//throw new BadSrcFile();</span></span><br><span class="line">        <span class="keyword">throw</span>  BadSrcFile();<span class="comment">//**这里必须加括号，抛出的是构造函数**</span></span><br><span class="line">                            <span class="comment">//**这里会不会产生匿名对象呢？**</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fp2 = fopen(filename2, <span class="string">"wb"</span>);</span><br><span class="line">    <span class="keyword">if</span> (fp1 == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">throw</span> BadDestFile();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (fp1 == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">throw</span> &amp;(BadDestFile());<span class="comment">//**抛出指针异常，catch(BadDestFile *e),用指针接**  </span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (fp1 == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;<span class="comment">//**正确抛出指针异常写法，应该new出来，否则catch接的时候是野指针！！！！**</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> BadDestFile;  <span class="comment">//!!! </span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">char</span> buf[<span class="number">256</span>];</span><br><span class="line">    <span class="keyword">int</span>  readlen, writelen;</span><br><span class="line">    <span class="keyword">while</span> ( (readlen = fread(buf, <span class="number">1</span>, <span class="number">256</span>, fp1)) &gt; <span class="number">0</span> ) <span class="comment">//如果读到数据，则大于0 </span></span><br><span class="line">    &#123;</span><br><span class="line">        writelen = fwrite(buf, <span class="number">1</span>, readlen, fp2);</span><br><span class="line">        <span class="keyword">if</span> (readlen != readlen)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">throw</span> BadCpyFile();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fclose(fp1);</span><br><span class="line">    fclose(fp2);</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//结论：//C++编译器通过throw 来产生对象，C++编译器再执行对应的catch分支，相当于一个函数调用，把实参传递给形参。</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">try</span></span><br><span class="line">    &#123;</span><br><span class="line">        filecopy(<span class="string">"c:/1.txt"</span>,<span class="string">"c:/2.txt"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span> (<span class="keyword">int</span> e)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"发生异常：%d \n"</span>, e);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span> (<span class="keyword">const</span> <span class="keyword">char</span> * e)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"发生异常：%s \n"</span>, e);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span> ( BadSrcFile *e)<span class="comment">//类 指针</span></span><br><span class="line">    &#123;</span><br><span class="line">        e-&gt;toString();</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"发生异常：打开源文件时出错!\n"</span>);</span><br><span class="line">        <span class="keyword">delete</span> e;<span class="comment">//new之后要delete，不然内存泄漏！！！    </span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span> ( BadSrcFile &amp;e)<span class="comment">//类 引用；**同一个类型，元素和引用不能同时写**</span></span><br><span class="line">    &#123;</span><br><span class="line">        e.toString();</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"发生异常：打开源文件时出错!\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span> ( BadDestFile e)<span class="comment">//类 对象；**是把匿名对象copy给e（调用拷贝构造函数），还是e是该匿名对象**</span></span><br><span class="line">    <span class="comment">//其实e是拷贝构造的！！！！！  </span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"发生异常：打开目标文件时出错!\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span> ( BadCpyFile e)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"发生异常：copy时出错!\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span>(...) <span class="comment">//抓漏网之鱼</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"发生了未知异常! 抓漏网之鱼\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>重要结论：</strong><br><strong>（1）若是用了类元素接抛出的异常，则该异常是调用拷贝构造函数进行构造的</strong><br><strong>流程入下：</strong><br>throw BadSrcFile()-&gt;BadSrcFile构造函数-&gt;catch(BadSrcFile e)-&gt;拷贝构造函数-&gt;析构throw BadSrcFile()匿名对象-&gt;析构catch(BadSrcFile e)拷贝构造函数<br><strong>（2）catch（）的时候引用和元素不能同时写</strong><br><strong>使用引用是流程如下：（自会构造和析构一次）</strong><br>throw BadSrcFile()-&gt;BadSrcFile构造函数-&gt;析构throw BadSrcFile()匿名对象<br><strong>（3）指针和引用，指针和元素都能同时写，但是元素和引用不能同时写</strong><br><strong>如果是指针的话，抛出来的时候要new，捕捉后要delete</strong><br><strong>（4）引用最简单，指针最繁琐</strong></p>
+<h1 id="异常的层次结构-继承在异常中的应用-（重要）"><a href="#异常的层次结构-继承在异常中的应用-（重要）" class="headerlink" title="异常的层次结构(继承在异常中的应用)（重要）"></a>异常的层次结构(继承在异常中的应用)（重要）</h1><ul>
+<li>异常是类 – 创建自己的异常类  </li>
+<li>异常派生  </li>
+<li>异常中的数据：数据成员  </li>
+<li>按引用传递异常  </li>
+<li>在异常中使用虚函数<br>案例：设计一个数组类 MyArray，重载[]操作，数组初始化时，对数组的个数进行有效检查<br>(1) index<0 抛出异常enegative="" (2)="" index="0" 抛出异常="" ezero="" (3)="">1000抛出异常eTooBig<br>(4) index&lt;10 抛出异常eTooSmall<br>(5) eSize类是以上类的父类，实现有参数构造、并定义virtual void printErr()输出错误。  </0></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyArray</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        MyArray(<span class="keyword">int</span> len);</span><br><span class="line">        ~MyArray();</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="keyword">int</span> &amp; <span class="keyword">operator</span>[](<span class="keyword">int</span> index);</span><br><span class="line">        <span class="function"><span class="keyword">int</span> <span class="title">getLen</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="class"><span class="keyword">class</span> <span class="title">eSize</span></span></span><br><span class="line"><span class="class">        &#123;</span></span><br><span class="line">        <span class="keyword">public</span>:</span><br><span class="line">            eSize(<span class="keyword">int</span> size)</span><br><span class="line">            &#123;</span><br><span class="line">                m_size=size;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">printErr</span><span class="params">()</span></span></span><br><span class="line"><span class="function">            </span>&#123;</span><br><span class="line">                <span class="built_in">cout</span>&lt;&lt;<span class="string">"size:"</span>&lt;&lt;m_size&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="keyword">protected</span>:</span><br><span class="line">            <span class="keyword">int</span> m_size;</span><br><span class="line"></span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="class"><span class="keyword">class</span> <span class="title">eNegative</span>:</span><span class="keyword">public</span> eSize</span><br><span class="line">        &#123;</span><br><span class="line">        <span class="keyword">public</span>:</span><br><span class="line">            eNegative(<span class="keyword">int</span> size):eSize(size)</span><br><span class="line">            &#123;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">printErr</span><span class="params">()</span></span></span><br><span class="line"><span class="function">            </span>&#123;</span><br><span class="line">                <span class="built_in">cout</span>&lt;&lt;<span class="string">"eNegative类错误:"</span>&lt;&lt;m_size&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="class"><span class="keyword">class</span> <span class="title">eZero</span>:</span><span class="keyword">public</span> eSize</span><br><span class="line">        &#123;</span><br><span class="line">        <span class="keyword">public</span>:</span><br><span class="line">            eNegative(<span class="keyword">int</span> size):eSize(size)</span><br><span class="line">            &#123;</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">            <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">printErr</span><span class="params">()</span></span></span><br><span class="line"><span class="function">            </span>&#123;</span><br><span class="line">                <span class="built_in">cout</span>&lt;&lt;<span class="string">"eZero类错误:"</span>&lt;&lt;m_size&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="class"><span class="keyword">class</span> <span class="title">eTooBig</span>:</span><span class="keyword">public</span> eSize</span><br><span class="line">        &#123;</span><br><span class="line">        <span class="keyword">public</span>:</span><br><span class="line">            eNegative(<span class="keyword">int</span> size):eSize(size)</span><br><span class="line">            &#123;</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">            <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">printErr</span><span class="params">()</span></span></span><br><span class="line"><span class="function">            </span>&#123;</span><br><span class="line">                <span class="built_in">cout</span>&lt;&lt;<span class="string">"eTooBig类错误:"</span>&lt;&lt;m_size&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">            &#125;    </span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="class"><span class="keyword">class</span> <span class="title">eTooSmall</span>:</span><span class="keyword">public</span> eSize</span><br><span class="line">        &#123;</span><br><span class="line">        <span class="keyword">public</span>:</span><br><span class="line">            eNegative(<span class="keyword">int</span> size):eSize(size)</span><br><span class="line">            &#123;</span><br><span class="line">                </span><br><span class="line">            &#125; </span><br><span class="line">            <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">printErr</span><span class="params">()</span></span></span><br><span class="line"><span class="function">            </span>&#123;</span><br><span class="line">                <span class="built_in">cout</span>&lt;&lt;<span class="string">"eTooSmall类错误:"</span>&lt;&lt;m_size&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">            &#125; </span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> *m_space;</span><br><span class="line">    <span class="keyword">int</span> m_len;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">MyArray::MyArray(<span class="keyword">int</span> len)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//构造函数中异常的抛出，因为构造函数中没有返回值</span></span><br><span class="line">    <span class="keyword">if</span>(len&lt;<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">throw</span> eNegative();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(len=<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">throw</span> eZero();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(len&lt;<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">throw</span> eTooBig();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(len&lt;<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">throw</span> eTooSmall();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    m_len=len;</span><br><span class="line">    m_space=<span class="keyword">new</span> <span class="keyword">int</span>[len];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">MyArray::~MyArray()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(m_space!=<span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">delete</span> [] m_space;</span><br><span class="line">        m_space=<span class="literal">NULL</span>;</span><br><span class="line">        m_len=<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> &amp; MyArray::<span class="keyword">operator</span>[](<span class="keyword">int</span> index)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> m_space[index];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> MyArray::getLen()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> m_len;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//常见方法</span></span><br><span class="line">    <span class="keyword">try</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function">MyArray <span class="title">a</span><span class="params">(<span class="number">5</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;a.getLen();i++)</span><br><span class="line">        &#123;</span><br><span class="line">            a[i]=i+<span class="number">1</span>;    </span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d "</span>,a[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span>(MyArray::eNegative &amp;e)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"eNegative类型异常"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span>(MyArray::eZero &amp;e)</span><br><span class="line">    &#123;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"eZero类型异常"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span>(MyArray::eTooBig &amp;e)</span><br><span class="line">    &#123;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"eTooBig类型异常"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span>(MyArray::eTooSmall &amp;e)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"eTooSmall类型异常"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//优化方法 类继承方式</span></span><br><span class="line">    <span class="keyword">try</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function">MyArray <span class="title">a</span><span class="params">(<span class="number">5</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;a.getLen();i++)</span><br><span class="line">        &#123;</span><br><span class="line">            a[i]=i+<span class="number">1</span>;    </span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d "</span>,a[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span>(MyArray::eSize &amp;e)<span class="comment">//父类指针指向子类对象</span></span><br><span class="line">    &#123;</span><br><span class="line">        e.printErr();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="标准程序库异常"><a href="#标准程序库异常" class="headerlink" title="标准程序库异常"></a>标准程序库异常</h1><p>example1:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// out_of_range</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"iostream"</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdexcept&gt;  </span></span></span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Teacher</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Teacher(<span class="keyword">int</span> age)  <span class="comment">//构造函数, 通过异常机制 处理错误</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (age &gt; <span class="number">100</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">throw</span> out_of_range(<span class="string">"年龄太大"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">this</span>-&gt;age = age;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">int</span> age;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mainxx</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">try</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="function">Teacher <span class="title">t1</span><span class="params">(<span class="number">102</span>)</span></span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">catch</span> (out_of_range e)</span><br><span class="line">	&#123;</span><br><span class="line">		</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; e.what() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	exception e;</span><br><span class="line">	system(<span class="string">"pause"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="从标准类继承"><a href="#从标准类继承" class="headerlink" title="从标准类继承"></a>从标准类继承</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyException</span>:</span><span class="keyword">public</span> exception</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    MyException(<span class="keyword">const</span> <span class="keyword">char</span> *p)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;m_p=p;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keyword">char</span>* <span class="title">what</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"MyException:类型"</span>&lt;&lt; m_p &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">char</span> *m_p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">testMyExcept</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">throw</span> MyException(<span class="string">"函数异常"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">try</span></span><br><span class="line">    &#123;</span><br><span class="line">        testMyExcept();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span>(MyException &amp;e)</span><br><span class="line">    &#123;</span><br><span class="line">        e.what();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span>(...)</span><br><span class="line">    &#123;</span><br><span class="line">       <span class="built_in">cout</span>&lt;&lt;<span class="string">"未知异常"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>支持我吧</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.bmp" alt="未晞 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.bmp" alt="未晞 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/基础语法/" rel="tag"># 基础语法</a>
+          
+            <a href="/tags/C/" rel="tag"># C++</a>
+          
+            <a href="/tags/C-异常/" rel="tag"># C++异常</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/23/Caffe学习——2-Protocol-Buffers学习/" rel="next" title="Caffe学习——2 Protocol Buffers学习">
+                <i class="fa fa-chevron-left"></i> Caffe学习——2 Protocol Buffers学习
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/26/再温C++——2 C++中的输入和输出流/" rel="prev" title="再温C++——2 C++中的输入和输出流">
+                再温C++——2 C++中的输入和输出流 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zOTkyMS8xNjQ0OA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/tuxiang.png"
+                alt="未晞" />
+            
+              <p class="site-author-name" itemprop="name">未晞</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/weixi234" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/3598071457" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zhouyang234@hotmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i></a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异常介绍"><span class="nav-number">2.</span> <span class="nav-text">异常介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异常处理的基本思想"><span class="nav-number">3.</span> <span class="nav-text">异常处理的基本思想</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异常基本语法"><span class="nav-number">4.</span> <span class="nav-text">异常基本语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本语法"><span class="nav-number">4.1.</span> <span class="nav-text">基本语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语法阐述"><span class="nav-number">4.2.</span> <span class="nav-text">语法阐述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本语法实例"><span class="nav-number">4.3.</span> <span class="nav-text">基本语法实例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#栈解旋-unwinding"><span class="nav-number">5.</span> <span class="nav-text">栈解旋(unwinding)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异常接口声明"><span class="nav-number">6.</span> <span class="nav-text">异常接口声明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异常类型和异常变量的生命周期"><span class="nav-number">7.</span> <span class="nav-text">异常类型和异常变量的生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#传统错误处理"><span class="nav-number">7.1.</span> <span class="nav-text">传统错误处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#throw-int类型异常"><span class="nav-number">7.2.</span> <span class="nav-text">throw int类型异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#throw字符类型异常"><span class="nav-number">7.3.</span> <span class="nav-text">throw字符类型异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#throw类对象类型异常"><span class="nav-number">7.4.</span> <span class="nav-text">throw类对象类型异常</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异常的层次结构-继承在异常中的应用-（重要）"><span class="nav-number">8.</span> <span class="nav-text">异常的层次结构(继承在异常中的应用)（重要）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#标准程序库异常"><span class="nav-number">9.</span> <span class="nav-text">标准程序库异常</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#从标准类继承"><span class="nav-number">9.1.</span> <span class="nav-text">从标准类继承</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">晞</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">白露未晞，看书学习到天明</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
