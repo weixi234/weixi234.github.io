@@ -68,7 +68,7 @@ namespace ConsoleApp1
 2、定义命名空间namespace ConsoleApp1；命名空间名ConsoleApp1。   
 3、定义类。  
 4、定义方法，Main方法,只允许一个。  
-![C#程序分析](C#程序分析.png)  
+![CSharp程序分析](CSharp程序分析.png)  
 ```
     》小卡片《
 Ctrl+X 剪切  
@@ -190,16 +190,17 @@ Unicode是一个16进制的数字，表示这个字符在内存中以哪个数�
 ![布尔运算符4](布尔运算符4.png)   
 
 22、goto语句的语法  
->goto \<labelName>;  
+>goto <\labelName>;  
 标签定义  
->\<labelName>:
+><\labelName>:
     
 23、三元运算符  
 >语法  
-\<test> ? \<resultIfTrue> : \<resultIfFalse>
+<\test> ? <\resultIfTrue> : <\resultIfFalse>
 
 24、switch的语法结构  
->switch (\<testvar>){  
+```C#
+switch (<testvar>){  
 	case <comparisonVal1>:  
 	<code to execute if <testvar> == <comparisionVal1>>  
 	break;  
@@ -214,7 +215,8 @@ Unicode是一个16进制的数字，表示这个字符在内存中以哪个数�
 	<code to execute if <testvar>!=<comparisionVals>>  
 	break;  
 }  
-\<testvar> 这里不管直接放一个字面值还是变量，它的类型是数值类型跟char类型
+```
+<\testvar> 这里不管直接放一个字面值还是变量，它的类型是数值类型跟char类型
 
 **switch注意点**  
 - switch与goto结合：  
@@ -237,28 +239,28 @@ continue，只会终止当次循环，继续运行下次循环。
 ![convert转换](convert转换.png)  
 
 27、枚举类型   
->enum \<typeName> : \<underlyingType>  
+>enum <\typeName> : <\underlyingType>  
 {  
-	\<value1>,  
-	\<value2>,  
-	\<value3>,  
+	<\value1>,  
+	<\value2>,  
+	<\value3>,  
 	...  
-	\<valueN>  
+	<\valueN>  
 }   
-枚举类型的声明 \<typeName> \<varName>;  
-枚举类型的赋值\<varName>=\<typeName>.\<value>;
+枚举类型的声明 <\typeName> <\varName>;  
+枚举类型的赋值 <\varName>= <\typeName>.<\value>;
   
 默认情况下枚举类型中的值从0开始,我们可以直接在枚举类型定义的时候 使用=运算符给每一个枚举指定一个特定的值。  
 ![枚举注意](枚举注意.png)   
 
 28、结构体  
->struct \<typeName>{  
-	\<memberDeclarations>  
+>struct <\typeName>{  
+	<\memberDeclarations>  
 }  
 
 29、数组  
 - 数组的声明  
->\<baseType>[] \<name>;  
+><\baseType>[] <\name>;  
 数组是一个变量的索引列表，这个索引是一个整数，第一个条目的索引是0，第二个是1，以此类推...   
 int[] scores; 声明了分数的数组(int类型的数组)  
 - 数组初始化  
@@ -270,21 +272,22 @@ scores = new int[10]; 里面的每一个元素按照类型的默认值赋值
 第三种方式  
 scores = new int[10]{123,12,34,56,77,89,85,6,45634,34};  
 - 数组的访问  
->\<arrayName>[条目索引]
+><\arrayName>[条目索引]
 - 数组的遍历  
+```C#
 >第一种方式for  
-for(int i =0;i<\array.Length;i++){    
+for(int i =0;i<array.Length;i++){    
 }  
 第二种方式while循环  
 int i=0;  
-while(i<\array.Length){  
+while(i<array.Length){  
 	//use array[i]  
 	i++;  
 }  
 第三种方式foreach  
 foreach(int temp in array){  	   
 }  
-
+```
 30、字符串的处理  
 字符串可以当做字符char类型的数组,可以通过数组遍历字符串的每一个字符。  
 name[index]访问指定字符串指定索引位置处的字符  
@@ -297,9 +300,9 @@ str.Length访问到字符串的长度（有多少个字符）
 
 31、函数的定义及使用    
 - 定义函数  
->static \<returnType> \<FunctionName>  (\<parameType> \<paramName>, ...){  
+>static <\returnType> <\FunctionName>  (<\parameType> <\paramName>, ...){  
 	...;  
-	return \<returnValue>;  
+	return <\returnValue>;  
 }  
 
 用例：  
@@ -324,7 +327,8 @@ str.Length访问到字符串的长度（有多少个字符）
 结构体，枚举的使用同上都分为定义和声明 
 整数类型数组类型字符串类型都是直接声明变量的，因为类型的定义已经完成了（CLR中已经完成定义）。
 - 委托的使用  
->delegate double MyDelegate(double param1,double param2);     
+```C#
+delegate double MyDelegate(double param1,double param2);     
 static double Multiply(double param1,double param2){  
 	return param1*param2;  
 }  
@@ -337,7 +341,8 @@ de = Multiply;
 de(param1,param2);  
 de = Divide;  
 de(param1,param2);  
-  
+``` 
+
 ## C#中异常语法
 **try ... catch ... finally**  
 异常的定义已经在CLR中定义好了。如果不去处理这个异常，那么当异常发生的时候，程序会终止掉，然后异常后面的代码都无法执行。   
