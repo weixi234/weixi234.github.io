@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="基础语法,C++,继承," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言C++继承（应该是多态）这个位置总有些遗忘，再次看看。（20190112）抽象、封装、继承和多态性：    封装：突破了C语言函数的概念，当将一个类作函数参数时能将一个对象传递给函数并且在函数中能访问该对象的属性和方法；   继承：继承能够复用前人写的代码；   多态：不仅能复用前人写的代码而且能够复用后来人写的代码（能向后扩展）。例如：80年代写了一个框架···90人写的代码···。">
+<meta name="keywords" content="基础语法,C++,继承">
+<meta property="og:type" content="article">
+<meta property="og:title" content="再温C++—3 继承及多态">
+<meta property="og:url" content="http://yoursite.com/2019/01/12/再温C++—3 继承及多态/index.html">
+<meta property="og:site_name" content="未 晞">
+<meta property="og:description" content="前言C++继承（应该是多态）这个位置总有些遗忘，再次看看。（20190112）抽象、封装、继承和多态性：    封装：突破了C语言函数的概念，当将一个类作函数参数时能将一个对象传递给函数并且在函数中能访问该对象的属性和方法；   继承：继承能够复用前人写的代码；   多态：不仅能复用前人写的代码而且能够复用后来人写的代码（能向后扩展）。例如：80年代写了一个框架···90人写的代码···。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/01/12/再温C++—3%20继承及多态/多态面试.jpg">
+<meta property="og:updated_time" content="2019-01-13T05:10:59.851Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="再温C++—3 继承及多态">
+<meta name="twitter:description" content="前言C++继承（应该是多态）这个位置总有些遗忘，再次看看。（20190112）抽象、封装、继承和多态性：    封装：突破了C语言函数的概念，当将一个类作函数参数时能将一个对象传递给函数并且在函数中能访问该对象的属性和方法；   继承：继承能够复用前人写的代码；   多态：不仅能复用前人写的代码而且能够复用后来人写的代码（能向后扩展）。例如：80年代写了一个框架···90人写的代码···。">
+<meta name="twitter:image" content="http://yoursite.com/2019/01/12/再温C++—3%20继承及多态/多态面试.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/12/再温C++—3 继承及多态/"/>
+
+
+
+
+
+  <title>再温C++—3 继承及多态 | 未 晞</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?294d40586178dce17bb24335bf3ca589";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">未 晞</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">白露未晞，看书学习到天明~</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-fa fa-address-book"></i> <br />
+            
+            留言板
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/12/再温C++—3 继承及多态/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="未晞">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tuxiang.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="未 晞">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">再温C++—3 继承及多态</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-12T14:49:53+08:00">
+                2019-01-12
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-01-13T13:10:59+08:00">
+                2019-01-13
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/再温CPP/" itemprop="url" rel="index">
+                    <span itemprop="name">再温CPP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>C++继承（应该是多态）这个位置总有些遗忘，再次看看。（20190112）<br>抽象、封装、继承和多态性：  </p>
+<ul>
+<li>封装：突破了C语言函数的概念，当将一个类作函数参数时能将一个对象传递给函数并且在函数中能访问该对象的属性和方法；  </li>
+<li>继承：继承能够复用前人写的代码；  </li>
+<li>多态：不仅能复用前人写的代码而且能够复用后来人写的代码（能向后扩展）。例如：80年代写了一个框架···90人写的代码···。         </li>
+</ul>
+<h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><ul>
+<li><p>派生类继承了基类的全部成员变量和成员方法（除了构造和析构之外的成员方法），但是这些成员的访问属性，在派生过程中是可以调整的。   </p>
+</li>
+<li><p>继承方式及子类对外访问属性    </p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Item</th>
+<th style="text-align:right">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">public继承</td>
+<td style="text-align:right">父类成员在子类中保持原有访问级别</td>
+</tr>
+<tr>
+<td style="text-align:left">private继承</td>
+<td style="text-align:right">父类成员在子类中变为private成员</td>
+</tr>
+<tr>
+<td style="text-align:left">protected继承</td>
+<td style="text-align:right">父类中public成员会变成protected</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:right">父类中protected成员仍然为protected</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:right">父类中private成员仍然为private</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>private成员在子类中依然存在，但是却无法访问到。不论种方式继承基类，派生类都不能直接使用基类的私有成员。</p>
+</li>
+<li><p>继承中的访问控制    </p>
+</li>
+</ul>
+<p><strong>类的继承方式会影响父类的属性在子类及子类外部的访问</strong><br>判断某一句话，能否被访问<br>    1）看调用语句，这句话写在子类的内部、外部<br>    2）看子类如何从父类继承（public、private、protected）<br>    3）看父类中的访问级别（public、private、protected）   </p>
+<ul>
+<li>访问级别设置原则   </li>
+</ul>
+<p>1、需要被外界访问的成员直接设置为public<br>2、只能在当前类中访问的成员设置为private<br>3、只能在当前类和子类中访问的成员设置为protected，protected成员的访问权限介于public和private之间。   </p>
+<hr>
+<ul>
+<li>类型兼容性原则  </li>
+</ul>
+<p>类型兼容规则是指在需要基类对象的任何地方，都可以使用公有派生类的对象来替代。通过公有继承，派生类得到了基类中除构造函数、析构函数之外的所有成员。这样，公有派生类实际就具备了基类的所有功能，凡是基类能解决的问题，公有派生类都可以解决。类型兼容规则中所指的替代包括以下情况：    </p>
+<blockquote>
+<p>子类对象可以当作父类对象使用<br>子类对象可以直接赋值给父类对象<br>子类对象可以直接初始化父类对象     </p>
+</blockquote>
+<blockquote>
+<p>父类指针可以直接指向子类对象<br>父类引用可以直接引用子类对象     </p>
+</blockquote>
+<p>在替代之后，派生类对象就可以作为基类的对象使用，但是只能使用从基类继承的成员。<br>类型兼容规则是多态性的重要基础之一。   </p>
+<p><strong>子类就是特殊的父类 (base *p = &child;)</strong>  </p>
+<ul>
+<li>继承中的对象模型   </li>
+</ul>
+<p>类在C++编译器的内部可以理解为结构体<br>子类是由父类成员叠加子类新成员得到的   </p>
+<p>在子类对象构造时，需要调用父类构造函数对其继承得来的成员进行初始化<br>在子类对象析构时，需要调用父类析构函数对其继承得来的成员进行清理   </p>
+<p>子类对象在创建时会首先调用父类的构造函数<br>父类构造函数执行结束后，执行子类的构造函数<br>当父类的构造函数有参数时，需要在子类的初始化列表中显示调用<br>析构函数调用的先后顺序与构造函数相反   </p>
+<ul>
+<li>继承与组合混搭情况下，构造和析构调用原则</li>
+</ul>
+<p>原则：<br>先构造父类，再构造成员变量、最后构造自己<br>先析构自己，在析构成员变量、最后析构父类    </p>
+<ul>
+<li>继承中同名成员变量处理方法</li>
+</ul>
+<p>当子类成员变量与父类成员变量同名时：<br>子类依然从父类继承同名成员<br>在子类中通过作用域分辨符::进行同名成员区分（在派生类中使用基类的同名成员，显式地使用类名限定符）<br>同名成员存储在内存中的不同位置   </p>
+<p>基类的成员变量的作用域延伸到所有派生类<br>派生类的重名成员屏蔽基类的同名成员      </p>
+<p>派生类屏蔽基类同名成员函数，派生类对象调用自身的成员函数</p>
+<p>同名成员变量和成员函数通过作用域分辨符进行区分    </p>
+<ul>
+<li>派生类中的static关键字   </li>
+</ul>
+<p>基类定义的静态成员，将被所有派生类共享<br>根据静态成员自身的访问特性和派生类的继承方式，在类层次体系中具有不同的访问性质 （遵守派生类的访问控制）<br>派生类中访问静态成员，要显式说明：<code>类名::成员</code>如<code>B::i++</code>或通过对象访问<code>对象名.成员</code>     </p>
+<p>static函数同样也遵守3个访问原则<br>static易犯错误（不但要初始化，更重要的显示的告诉编译器分配内存）<br>构造函数默认为private型        </p>
+<ul>
+<li>多继承   </li>
+</ul>
+<p>多继承语法<code>class  派生类名 : 访问控制  基类名1 ,  访问控制  基类名2 ,  … , 访问控制  基类名n</code>   </p>
+<p>多个基类的派生类构造函数可以用初始式调用基类构造函数初始化数据成员。<br>执行顺序与单继承构造函数情况类似。多个直接基类构造函数执行顺序取决于定义派生类时指定的各个继承基类的顺序。<br>一个派生类对象拥有多个直接或间接基类的成员。不同名成员访问不会出现二义性。如果不同的基类有同名成员，派生类对象访问时应该加以识别。 </p>
+<ul>
+<li>虚继承  </li>
+</ul>
+<p>如果一个派生类从多个基类派生，而这些基类又有一个共同的基类，则在对该基类中声明的名字进行访问时，可能产生二义性。       </p>
+<p>如果在多条继承路径上有一个公共的基类，那么在继承路径的某处汇合点，这个公共基类就会在派生类的对象中产生多个基类子对象。   </p>
+<p>产生二义性的派生类，若要访问从不同基类中继承的共同祖宗类的成员，则必须要用域作用符指明从何处继承而来。如<code>c.B1::a;</code>  <code>c.B2::a;</code>       </p>
+<p>要使这个公共基类在派生类中只产生一个子对象，必须对这个基类声明为虚继承，使这个基类成为虚基类。</p>
+<p>虚继承声明使用关键字<code>virtual</code>。 (可实验验证增加virtual关键字后，构造函数调用的次数。)          </p>
+<h1 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h1><p><strong>赋值兼容性原则遇上函数重写</strong>   </p>
+<hr>
+<p>函数重写：<br>在子类中定义与父类中原型相同的函数<br>函数重写只发生在父类与子类之间    </p>
+<p>如果子类定义了与父类中原型相同的函数会发生什么？   </p>
+<p>父类中被重写的函数依然会继承给子类<br>默认情况下子类中重写的函数将隐藏父类中的函数<br>通过作用域分辨符::可以访问到父类中被隐藏的函数     </p>
+<p>C/C++是静态编译型语言<br>在编译时，编译器自动根据指针的类型判断指向的是一个什么样的对象   </p>
+<p>1）在编译此函数的时，编译器不可能知道指针p究竟指向了什么。<br>2）编译器没有理由报错。<br>3）于是，编译器认为最安全的做法是编译到父类的print函数，因为父类和子类肯定都有相同的print函数。  </p>
+<blockquote>
+<p>在同一个类里面能实现函数重载<br>    继承的情况下，发生重写,    重载不一定;<br>重写的定义 静态联编<br>重载是 动态联编    </p>
+</blockquote>
+<p>面向对象新需求：<br>如果我传一个父类对象，执行父类的print函数<br>如果我传一个子类对象，执行子类的printf函数    </p>
+<hr>
+<p>根据实际的对象类型来判断重写函数的调用:<br>如果父类指针指向的是父类对象则调用父类中定义的函数<br>如果父类指针指向的是子类对象则调用子类中定义的重写函数     </p>
+<p><strong>多态:同样的调用语句有多种不同的表现形态</strong><br>C++中通过virtual关键字对多态进行支持<br>使用virtual声明的函数被重写后即可展现多态特性       </p>
+<p>在父类中写了virttual关键字后，在子类中的重写函数写不写virtual均可，但为了提示使用了多态一般建议写上virtal关键字。</p>
+<hr>
+<p>间接赋值成立的3个条件：     </p>
+<ul>
+<li>定义两个变量···   </li>
+<li>建立关联···   </li>
+<li>*p···</li>
+</ul>
+<hr>
+<p>多态成立的三个条件：          </p>
+<ul>
+<li>要有继承       </li>
+<li>要有函数重写和虚函数     </li>
+<li>要有父类指针（父类引用）指向子类对象<br>多态是设计模式的基础，多态是框架的基础。         </li>
+</ul>
+<hr>
+<p>多态的理论基础<br>静态联编和动态联编：<br>1、联编是指一个程序模块、代码之间互相关联的过程。<br>2、静态联编（static binding），是程序的匹配、连接在编译阶段实现，也称为早期匹配。<br>3、重载函数使用静态联编。<br>4、动态联编是指程序联编推迟到运行时进行，所以又称为晚期联编（迟绑定）。<br>5、switch 语句和 if 语句是动态联编的例子。      </p>
+<p>6、C++与C相同，是静态编译型语言<br>7、在编译时，编译器自动根据指针的类型判断指向的是一个什么样的对象；所以编译器认为父类指针指向的是父类对象。<br>8、由于程序没有运行，所以不可能知道父类指针指向的具体是父类对象还是子类对象<br>从程序安全的角度，编译器假设父类指针只指向父类对象，因此编译的结果为调用父类的成员函数。这种特性就是静态联编。      </p>
+<p><img src="多态面试.jpg" alt="多态面试">    </p>
+<hr>
+<p>函数重载：<br>必须在同一个类中进行<br>子类无法重载父类的函数，父类同名函数将被名称覆盖<br>重载是在编译期间根据参数类型和个数决定函数调用<br>函数重写：<br>必须发生于父类与子类之间<br>并且父类与子类中的函数必须有完全相同的原型<br><strong>使用virtual声明之后能够产生多态(如果不使用virtual，那叫重定义)</strong><br>多态是在运行期间根据具体对象的类型决定函数调用   </p>
+<hr>
+<p>在什么情况下应当声明虚函数<br>构造函数不能是虚函数。建立一个派生类对象时，必须从类层次的根开始，沿着继承路径逐个调用基类的构造函数<br>析构函数可以是虚的。虚析构函数用于指引 delete 运算符正确析构动态对象   </p>
+<hr>
+<p>父类指针和子类指针的步长：<br>1）    铁律1：指针也只一种数据类型，C++类对象的指针p++/–，仍然可用。<br>2）    指针运算是按照指针所指的类型进行的。<br>p++《=》p=p+1 //p = (unsigned int)basep + sizeof(*p) 步长。<br>3）    结论：父类p++与子类p++步长不同；不要混搭，不要用父类指针++方式操作数组。   </p>
+<hr>
+<p>多态原理：</p>
+<ul>
+<li>当类中声明虚函数时，编译器会在类中生成一个虚函数表   </li>
+<li>虚函数表是一个存储类成员函数指针的数据结构   </li>
+<li>虚函数表是由编译器自动生成与维护的   </li>
+<li>virtual成员函数会被编译器放入虚函数表中   </li>
+<li>当存在虚函数时，每个对象中都有一个指向虚函数表的指针（C++编译器给父类对象、子类对象提前布局vptr指针；当进行howToPrint(Parent *base)函数是，C++编译器不需要区分子类对象或者父类对象，只需要再base指针中，找vptr指针即可。）   </li>
+<li>VPTR一般作为类对象的第一个成员    </li>
+</ul>
+<p>C++中多态的实现原理：<br>当类中声明虚函数时，编译器会在类中生成一个虚函数表<br>虚函数表是一个存储类成员函数指针的数据结构<br>虚函数表是由编译器自动生成与维护的<br>virtual成员函数会被编译器放入虚函数表中<br>存在虚函数时，每个对象中都有一个指向虚函数表的指针(vptr指针)  </p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>支持我吧</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.bmp" alt="未晞 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.bmp" alt="未晞 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/基础语法/" rel="tag"># 基础语法</a>
+          
+            <a href="/tags/C/" rel="tag"># C++</a>
+          
+            <a href="/tags/继承/" rel="tag"># 继承</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/11/WPF学习1/" rel="next" title="WPF学习1">
+                <i class="fa fa-chevron-left"></i> WPF学习1
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zOTkyMS8xNjQ0OA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/tuxiang.png"
+                alt="未晞" />
+            
+              <p class="site-author-name" itemprop="name">未晞</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/weixi234" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/3598071457" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zhouyang234@hotmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i></a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#继承"><span class="nav-number">2.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多态"><span class="nav-number">3.</span> <span class="nav-text">多态</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">晞</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">白露未晞，看书学习到天明</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

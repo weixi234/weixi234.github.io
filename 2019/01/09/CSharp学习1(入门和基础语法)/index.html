@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="基础语法,C#," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言趁着过年前这段时间能抽点空出来，我决定开始看C#。（20190109）   C#和.Net框架微软平台的编程发展 编程语言使用Visual Basic c/c++   20世纪90年代末Win32API MFC COM(组件对象模型)     2002发布第一个.NET框架（多平台，行业标准，安全性）     专业术语 BCL(Base Class Library)基类库：BCL包括：(1)通">
+<meta name="keywords" content="基础语法,C#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSharp学习1(入门和基础语法)">
+<meta property="og:url" content="http://yoursite.com/2019/01/09/CSharp学习1(入门和基础语法)/index.html">
+<meta property="og:site_name" content="未 晞">
+<meta property="og:description" content="前言趁着过年前这段时间能抽点空出来，我决定开始看C#。（20190109）   C#和.Net框架微软平台的编程发展 编程语言使用Visual Basic c/c++   20世纪90年代末Win32API MFC COM(组件对象模型)     2002发布第一个.NET框架（多平台，行业标准，安全性）     专业术语 BCL(Base Class Library)基类库：BCL包括：(1)通">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/01/09/CSharp学习1(入门和基础语法)/编译和运行过程.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/09/CSharp学习1(入门和基础语法)/CLR概览.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/09/CSharp学习1(入门和基础语法)/CSharp程序分析.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/09/CSharp学习1(入门和基础语法)/命名规范.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/09/CSharp学习1(入门和基础语法)/块语法.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/09/CSharp学习1(入门和基础语法)/简单类型.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/09/CSharp学习1(入门和基础语法)/简单类型小数.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/09/CSharp学习1(入门和基础语法)/简单类型非数值类型.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/09/CSharp学习1(入门和基础语法)/字面值.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/09/CSharp学习1(入门和基础语法)/转义字符表.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/09/CSharp学习1(入门和基础语法)/数学运算符.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/09/CSharp学习1(入门和基础语法)/数学运算符2.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/09/CSharp学习1(入门和基础语法)/数学运算符3.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/09/CSharp学习1(入门和基础语法)/优先级.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/09/CSharp学习1(入门和基础语法)/布尔运算符1.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/09/CSharp学习1(入门和基础语法)/布尔运算符2.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/09/CSharp学习1(入门和基础语法)/布尔运算符3.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/09/CSharp学习1(入门和基础语法)/布尔运算符4.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/09/CSharp学习1(入门和基础语法)/switch注意1.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/09/CSharp学习1(入门和基础语法)/switch注意2.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/09/CSharp学习1(入门和基础语法)/隐式转换1.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/09/CSharp学习1(入门和基础语法)/隐式转换2.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/09/CSharp学习1(入门和基础语法)/convert转换.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/09/CSharp学习1(入门和基础语法)/枚举注意.png">
+<meta property="og:updated_time" content="2019-01-13T03:45:25.764Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSharp学习1(入门和基础语法)">
+<meta name="twitter:description" content="前言趁着过年前这段时间能抽点空出来，我决定开始看C#。（20190109）   C#和.Net框架微软平台的编程发展 编程语言使用Visual Basic c/c++   20世纪90年代末Win32API MFC COM(组件对象模型)     2002发布第一个.NET框架（多平台，行业标准，安全性）     专业术语 BCL(Base Class Library)基类库：BCL包括：(1)通">
+<meta name="twitter:image" content="http://yoursite.com/2019/01/09/CSharp学习1(入门和基础语法)/编译和运行过程.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/09/CSharp学习1(入门和基础语法)/"/>
+
+
+
+
+
+  <title>CSharp学习1(入门和基础语法) | 未 晞</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?294d40586178dce17bb24335bf3ca589";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">未 晞</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">白露未晞，看书学习到天明~</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-fa fa-address-book"></i> <br />
+            
+            留言板
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/09/CSharp学习1(入门和基础语法)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="未晞">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tuxiang.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="未 晞">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CSharp学习1(入门和基础语法)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-09T13:16:38+08:00">
+                2019-01-09
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-01-13T11:45:25+08:00">
+                2019-01-13
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C#</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>趁着过年前这段时间能抽点空出来，我决定开始看C#。（20190109）  </p>
+<h1 id="C-和-Net框架"><a href="#C-和-Net框架" class="headerlink" title="C#和.Net框架"></a>C#和.Net框架</h1><h2 id="微软平台的编程发展"><a href="#微软平台的编程发展" class="headerlink" title="微软平台的编程发展"></a>微软平台的编程发展</h2><ul>
+<li>编程语言使用Visual Basic c/c++  </li>
+<li>20世纪90年代末Win32API MFC COM(组件对象模型)    </li>
+<li>2002发布第一个.NET框架（多平台，行业标准，安全性）   </li>
+</ul>
+<h2 id="专业术语"><a href="#专业术语" class="headerlink" title="专业术语"></a>专业术语</h2><ul>
+<li>BCL(Base Class Library)基类库：<br>BCL包括：<br>(1)通用基础类——文件操作、字符串操作···<br>（2）集合类——列表、字典···<br>（3）线程和同步类——多线程程序<br>（4）XML类——创建、读取以及操作XML文档<br><strong>我们就是编写类库，在编写类库的过程中使用BCL基础类库中的方法。在IDE中编写的代码经过编译后连同BCL基础类库一起在CLR公共语言运行库中运行。</strong><br>编译和运行过程：<br><img src="编译和运行过程.png" alt="编译和运行过程"><br>源文件-&gt;编译器-&gt;程序集-&gt;在CLR运行环境中用JIT编译器生成本机代码-&gt;本机代码即可和操作系统进行交互<br>CLR概览：<br><img src="CLR概览.png" alt="CLR概览"><br>托管代码是.Net框架编写的代码，需要在CLR的环境下运行。如程序中定义的变量，变量内存的申请和释放及管理是由CLR公共语言运行库进行管理。<br>非托管代码不在CLR控制之下，比如<br>Win32 C/C++ DLL 称为非托管代码。  </li>
+</ul>
+<h1 id="C-版HelloWorld分析"><a href="#C-版HelloWorld分析" class="headerlink" title="C#版HelloWorld分析"></a>C#版HelloWorld分析</h1><h2 id="新建C-控制台程序"><a href="#新建C-控制台程序" class="headerlink" title="新建C#控制台程序"></a>新建C#控制台程序</h2><p>文件-&gt;新建-&gt;项目-&gt;Visual C#-&gt;Windows桌面-&gt;控制台应用（.Net Framework）    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">    》小卡片《</span><br><span class="line">Ctrl+F5 是执行不调试，程序执行完控制台会停下  </span><br><span class="line">F5      是调试（用于断点调试），程序执行完控制台会闪退</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">using System;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using System.Linq;</span><br><span class="line">using System.Text;</span><br><span class="line">using System.Threading.Tasks;</span><br><span class="line"></span><br><span class="line">namespace ConsoleApp1</span><br><span class="line">&#123;</span><br><span class="line">    class Program</span><br><span class="line">    &#123;</span><br><span class="line">        static void Main(string[] args)</span><br><span class="line">        &#123;</span><br><span class="line">            Console.WriteLine(&quot;Hello world&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="C-程序结构分析"><a href="#C-程序结构分析" class="headerlink" title="C#程序结构分析"></a>C#程序结构分析</h2><p>1、引入命名空间。使用到的命名空间是亮色，如using System;未使用的命名空间是暗色的。<br>2、定义命名空间namespace ConsoleApp1；命名空间名ConsoleApp1。<br>3、定义类。<br>4、定义方法，Main方法,只允许一个。<br><img src="CSharp程序分析.png" alt="CSharp程序分析"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">    》小卡片《</span><br><span class="line">Ctrl+X 剪切  </span><br><span class="line">Ctrl+</span><br></pre></td></tr></table></figure></p>
+<h1 id="C-语法"><a href="#C-语法" class="headerlink" title="C#语法"></a>C#语法</h1><h2 id="C-基础语法"><a href="#C-基础语法" class="headerlink" title="C#基础语法"></a>C#基础语法</h2><p>1、标识符：字母 下划线 数字（数字不能放首位）（@字符只能放首位）<br>2、命名规范：变量使用Camel命名，方法和类使用Pascal命名。<br><img src="命名规范.png" alt="命名规范"><br>3、关键字：所有C#关键字全部由小写字母组成。<br>4、Main方法：①每个C#程序的可执行起始点在Main中的第一条指令；②Main方法首字母大写；③Main方法形式static void Main(string[] args){}<br>5、块是一个由大括号包围起来的0条或多条语句序列，它在语法上相当于一条语句。<br>{<br>int var1 = 5;<br>System.Console.WriteLine(“The value of var1 is {0}”,var1);<br>}<br>块的内容：     </p>
+<ul>
+<li>某些特定的程序结构只能使用块  </li>
+<li>语句可以以分号结束，但块后面不跟分号<br><img src="块语法.png" alt="块语法">    </li>
+</ul>
+<p>6、控制台窗口是一个简单的命令提示窗口，允许程序显示文本并从键盘接受输入。<br>BCL提供一个Console类（在System命名空间下）,该类包含了输入和输出到控制台窗口的方法。<br>Write是Console类的成员，它把一个文本字符串发送到程序的控制台窗口。<br>最简单的使用，Write把文本字符串字面量发送到窗口，<strong>字符串必须使用双引号括起来</strong>。实例：    </p>
+<blockquote>
+<p>Console.Write(“This is a trivial text.”);<br><strong>注意输出时Write没有在字符串后面添加换行符</strong>   </p>
+</blockquote>
+<p>注意：若没有指定命名空间，可以写成如下。  </p>
+<blockquote>
+<p>System.Console.Write(“This is a trivial text.”);  </p>
+</blockquote>
+<p>WriteLine是Console的另外一个成员，它和Write实现相同的功能，但会在每个输出字符串的结尾添加一个换行符。  </p>
+<p>7、格式化字符串<br><strong>Console.WriteLine(格式字符串(含替代标记),替换值0，替换值1，替换值2，····)；</strong></p>
+<blockquote>
+<p>Console.WriteLine(“两个数相加{0}+{1}={2}”,3,34,34);</p>
+</blockquote>
+<p><strong>多重标记和值</strong><br>下面的语句使用了3个标记，但只有两个值：   </p>
+<blockquote>
+<p>Console.WriteLine(“Three integers are {1},{0} and {1}”,3,5);<br>Three integers are 5,3 and 5<br><strong>但是记住标记不能引用超出替换值列表长度以外位置的值</strong>  </p>
+</blockquote>
+<p>注意：标记{1}，前后不能有空格，错误示例，{ 1 }、{ 1}、{1 }  </p>
+<p>8、Write(各种类型)write可以输出各种类型，如：  </p>
+<blockquote>
+<p>int age=10;<br>string name=”1233”;<br>Console.WriteLine(age);<br>Console.WriteLine(name);</p>
+</blockquote>
+<p>9、让程序暂停方法：  </p>
+<blockquote>
+<p>Console.ReadKey();  </p>
+</blockquote>
+<p>10、C#中类型<br><img src="简单类型.png" alt="简单类型"><br><img src="简单类型小数.png" alt="简单类型小数"><br><img src="简单类型非数值类型.png" alt="简单类型非数值类型">   </p>
+<p>11、字面值<br><img src="字面值.png" alt="字面值">   </p>
+<p>12、char和string<br>char表示一个字符，字母、数字、@#￥%……&amp;*（）一个汉字。<br>string是一个char的数组。  </p>
+<p>13、转义字符表<br><img src="转义字符表.png" alt="转义字符表"><br>14、字符的Unicode值<br>Unicode是一个16进制的数字，表示这个字符在内存中以哪个数字存储。也可以使用Unicode来代表一个转义字符 (\u加上十六进制值)  </p>
+<blockquote>
+<p>“I\’s siki!”<br>“I\u0027s siki!”</p>
+</blockquote>
+<p>15、使用@不识别转义字符<br>如果我们不想去识别字符串中的转义字符，可以在字符串前面加一个@符号（除了双引号其他转义字符都不在识别）<br>举例：</p>
+<blockquote>
+<p>“I’m a good man. \n You are bad girl!”<br>@”I’m a good man. \n You are bad girl!”<br>@”I’m a good man. \n “”You are bad girl!”<br>使用两个引号表示一个引号<br>@字符的两个作用示例：<br>    1）默认一个字符串的定义是放在一行的，如果想要占用多行<br>    2）用字符串表示路径”c:\xxx\xx\xxx.doc”使用@”c:\xxx\xx\xxx.doc”更能读懂  </p>
+</blockquote>
+<p>16、多变量声明和赋值<br>我们可以使用一条语句声明多个类型一样的变量string name1,name2;<br>在多变量声明中，可以在变量后面跟上=，对其中的一个变量或者部分或者全部变量进行初始化。   </p>
+<p>17、运算符<br><img src="数学运算符.png" alt="数学运算符">    </p>
+<ul>
+<li>最后的两个单独的+和-相当于正负  </li>
+<li>数学运算符只能处理数字除了字符串相加  </li>
+<li>char可以用来做数学运算  </li>
+<li>char变量实际现在内存中存<br>储的是数字  </li>
+</ul>
+<p><img src="数学运算符2.png" alt="数学运算符2"><br><img src="数学运算符3.png" alt="数学运算符3">   </p>
+<p>18、Console.ReadLine()方法，这个方法可以从键盘上读取一行的字符串输入，返回的是一个字符串。   </p>
+<p>19、类型转换<br>把一个整形数字的字符串转成一个整形。  </p>
+<blockquote>
+<p>string str=”234324”;<br>int i = Convert.ToInt32(str);  </p>
+</blockquote>
+<p>把一个浮点类型的字符串转成一个浮点类型。  </p>
+<blockquote>
+<p>float f=Convert.ToFloat(“34.34”);   </p>
+</blockquote>
+<p>20、优先级<br><img src="优先级.png" alt="优先级"></p>
+<p>21、布尔运算符<br><img src="布尔运算符1.png" alt="布尔运算符1"><br><img src="布尔运算符2.png" alt="布尔运算符2"><br><img src="布尔运算符3.png" alt="布尔运算符3"><br><img src="布尔运算符4.png" alt="布尔运算符4">   </p>
+<p>22、goto语句的语法  </p>
+<blockquote>
+<p>goto &lt;\labelName&gt;;<br>标签定义<br>&lt;\labelName&gt;:</p>
+</blockquote>
+<p>23、三元运算符  </p>
+<blockquote>
+<p>语法<br>&lt;\test&gt; ? &lt;\resultIfTrue&gt; : &lt;\resultIfFalse&gt;</p>
+</blockquote>
+<p>24、switch的语法结构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">switch (&lt;testvar&gt;)&#123;  </span><br><span class="line">	case &lt;comparisonVal1&gt;:  </span><br><span class="line">	&lt;code to execute if &lt;testvar&gt; == &lt;comparisionVal1&gt;&gt;  </span><br><span class="line">	break;  </span><br><span class="line">	case &lt;omparisonVal2&gt;:  </span><br><span class="line">	&lt;code to execute if &lt;testvar&gt; == &lt;comparisionVal2&gt;&gt;;  </span><br><span class="line">	break;  </span><br><span class="line">	...  </span><br><span class="line">	case &lt;comparisionN&gt;:  </span><br><span class="line">	&lt;code to execute if &lt;testvar&gt;==&lt;comparisionValN&gt;&gt;;  </span><br><span class="line">	break;  </span><br><span class="line">	default:  </span><br><span class="line">	&lt;code to execute if &lt;testvar&gt;!=&lt;comparisionVals&gt;&gt;  </span><br><span class="line">	break;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>&lt;\testvar&gt; 这里不管直接放一个字面值还是变量，它的类型是数值类型跟char类型</p>
+<p><strong>switch注意点</strong>  </p>
+<ul>
+<li>switch与goto结合：<br><img src="switch注意1.png" alt="switch注意1">    </li>
+<li>switch与case结合：<br><img src="switch注意2.png" alt="switch注意2">  </li>
+</ul>
+<p>25、break和continue<br>break立即跳出循环；<br>continue，只会终止当次循环，继续运行下次循环。  </p>
+<p>26、C#中类型转换  </p>
+<ul>
+<li>隐式转换<br><img src="隐式转换1.png" alt="隐式转换1"><br><img src="隐式转换2.png" alt="隐式转换2">    </li>
+<li>显示转换  <blockquote>
+<p>  short j = (short)i;  </p>
+</blockquote>
+</li>
+<li>使用Convert命令进行显示转换<br>（将一个数字字符串转换成一个数字类型（整形或者浮点型），就要用到Convert里面的方法）<br><img src="convert转换.png" alt="convert转换">  </li>
+</ul>
+<p>27、枚举类型   </p>
+<blockquote>
+<p>enum &lt;\typeName&gt; : &lt;\underlyingType&gt;<br>{<br>    &lt;\value1&gt;,<br>    &lt;\value2&gt;,<br>    &lt;\value3&gt;,<br>    …<br>    &lt;\valueN&gt;<br>}<br>枚举类型的声明 &lt;\typeName&gt; &lt;\varName&gt;;<br>枚举类型的赋值 &lt;\varName&gt;= &lt;\typeName&gt;.&lt;\value&gt;;</p>
+</blockquote>
+<p>默认情况下枚举类型中的值从0开始,我们可以直接在枚举类型定义的时候 使用=运算符给每一个枚举指定一个特定的值。<br><img src="枚举注意.png" alt="枚举注意">   </p>
+<p>28、结构体  </p>
+<blockquote>
+<p>struct &lt;\typeName&gt;{<br>    &lt;\memberDeclarations&gt;<br>}  </p>
+</blockquote>
+<p>29、数组  </p>
+<ul>
+<li>数组的声明  <blockquote>
+<p>&lt;\baseType&gt;[] &lt;\name&gt;;<br>数组是一个变量的索引列表，这个索引是一个整数，第一个条目的索引是0，第二个是1，以此类推…<br>int[] scores; 声明了分数的数组(int类型的数组)  </p>
+</blockquote>
+</li>
+<li>数组初始化  <blockquote>
+<p>int[] scores;<br>第一种方式<br>scores ={34,34,3,43,43,4,34};<br>第二种方式<br>scores = new int[10]; 里面的每一个元素按照类型的默认值赋值<br>第三种方式<br>scores = new int[10]{123,12,34,56,77,89,85,6,45634,34};  </p>
+</blockquote>
+</li>
+<li>数组的访问  <blockquote>
+<p>&lt;\arrayName&gt;[条目索引]</p>
+</blockquote>
+</li>
+<li>数组的遍历  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt;第一种方式for  </span><br><span class="line">for(int i =0;i&lt;array.Length;i++)&#123;    </span><br><span class="line">&#125;  </span><br><span class="line">第二种方式while循环  </span><br><span class="line">int i=0;  </span><br><span class="line">while(i&lt;array.Length)&#123;  </span><br><span class="line">	//use array[i]  </span><br><span class="line">	i++;  </span><br><span class="line">&#125;  </span><br><span class="line">第三种方式foreach  </span><br><span class="line">foreach(int temp in array)&#123;  	   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>30、字符串的处理<br>字符串可以当做字符char类型的数组,可以通过数组遍历字符串的每一个字符。<br>name[index]访问指定字符串指定索引位置处的字符<br>str.Length访问到字符串的长度（有多少个字符）  </p>
+<p>关于字符串处理的一些方法：<br>（1）ToLower() ToUpper()<br>（2）Trim()  TrimStart() TrimEnd()<br>（3）Split()  </p>
+<p>31、函数的定义及使用    </p>
+<ul>
+<li>定义函数  <blockquote>
+<p>static &lt;\returnType&gt; &lt;\FunctionName&gt;  (&lt;\parameType&gt; &lt;\paramName&gt;, …){<br>  …;<br>  return &lt;\returnValue&gt;;<br>}  </p>
+</blockquote>
+</li>
+</ul>
+<p>用例：  </p>
+<blockquote>
+<p>static void Write(){<br>    Console.WriteLine(“Text output from function .”);<br>}  </p>
+</blockquote>
+<blockquote>
+<p>static void Main(){<br>    Write();<br>}  </p>
+</blockquote>
+<p>32、<strong>委托(delegate)</strong>  </p>
+<ul>
+<li>委托<br>委托是一种存储函数引用的类型。<br>委托的定义指定了一个返回类型和一个参数列表。<br>定义了委托之后，就可以声明该委托类型的变量，接着就可以把一个返回类型跟参数列表跟委托一样的函数赋值给这个变量。   </li>
+</ul>
+<p>委托的使用分两步：  </p>
+<blockquote>
+<p>   定义<br>   声明（变量）  </p>
+</blockquote>
+<p>结构体，枚举的使用同上都分为定义和声明<br>整数类型数组类型字符串类型都是直接声明变量的，因为类型的定义已经完成了（CLR中已经完成定义）。</p>
+<ul>
+<li>委托的使用  <pre><code class="C#">delegate double MyDelegate(double param1,double param2);     
+static double Multiply(double param1,double param2){  
+  return param1*param2;  
+}  
+static double Divide(double param1,double param2){  
+  return param1/param2;  
+}  
+double param1 = 34; double param2 =2;  
+MyDelegate de;  
+de = Multiply;  
+de(param1,param2);  
+de = Divide;  
+de(param1,param2);  
+</code></pre>
+</li>
+</ul>
+<h2 id="C-中异常语法"><a href="#C-中异常语法" class="headerlink" title="C#中异常语法"></a>C#中异常语法</h2><p><strong>try … catch … finally</strong><br>异常的定义已经在CLR中定义好了。如果不去处理这个异常，那么当异常发生的时候，程序会终止掉，然后异常后面的代码都无法执行。   </p>
+<blockquote>
+<p>try{<br>        …<br>    }<br>    catch( <exceptiontype> e ){<br>        …<br>    }<br>    finally{<br>    }   </exceptiontype></p>
+</blockquote>
+<p>其中catch块可以有0或者多个，finally可以有0或者1个<br>但是如果没有catch块，必须有finally块，没有finally块，必须有catch块，catch块和finally块可以同时存在。         </p>
+<p>（1）try块包含了可能出现异常的代码(一条或者多条语句)。<br>（2）catch块用来捕捉异常，当代码发生异常，那么异常的类型和catch块中的类型一样的时候，就会执行该catch块，如果catch块的参数不写，表示发生任何异常都执行这个catch块。<br>（3）finally块包含了始终会执行的代码，不管有没有异常产生都会执行。<br>（4）throw new Exception();   </p>
+<h1 id="运用VS调试C-程序"><a href="#运用VS调试C-程序" class="headerlink" title="运用VS调试C#程序"></a>运用VS调试C#程序</h1><ul>
+<li>调试窗口<br>中断模式下的窗口（左下角），不但可以观察变量值的变化，还可以直接去修改。<br>右下角看到调用堆栈和即时窗口。在调用堆栈窗口下我们可以观察到当前代码执行到哪一行了，并且可以看到这个代码的是被什么语句调用的；即时窗口我们可以在这里输入一些命令，查看变量的值，修改变量的值，可以输入表达式查看结果。  </li>
+<li>单步执行<br>逐过程遇到函数，不会进入函数内部，而把函数当成一条语句去执行。  </li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>支持我吧</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.bmp" alt="未晞 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.bmp" alt="未晞 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/基础语法/" rel="tag"># 基础语法</a>
+          
+            <a href="/tags/C/" rel="tag"># C#</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/26/再温C++—2 C++中的输入和输出流/" rel="next" title="再温C++—2 C++中的输入和输出流">
+                <i class="fa fa-chevron-left"></i> 再温C++—2 C++中的输入和输出流
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/10/CSharp学习2(面向对象编程)/" rel="prev" title="CSharp学习2(面向对象编程)">
+                CSharp学习2(面向对象编程) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zOTkyMS8xNjQ0OA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/tuxiang.png"
+                alt="未晞" />
+            
+              <p class="site-author-name" itemprop="name">未晞</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/weixi234" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/3598071457" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zhouyang234@hotmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i></a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C-和-Net框架"><span class="nav-number">2.</span> <span class="nav-text">C#和.Net框架</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#微软平台的编程发展"><span class="nav-number">2.1.</span> <span class="nav-text">微软平台的编程发展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#专业术语"><span class="nav-number">2.2.</span> <span class="nav-text">专业术语</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C-版HelloWorld分析"><span class="nav-number">3.</span> <span class="nav-text">C#版HelloWorld分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#新建C-控制台程序"><span class="nav-number">3.1.</span> <span class="nav-text">新建C#控制台程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-程序结构分析"><span class="nav-number">3.2.</span> <span class="nav-text">C#程序结构分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C-语法"><span class="nav-number">4.</span> <span class="nav-text">C#语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#C-基础语法"><span class="nav-number">4.1.</span> <span class="nav-text">C#基础语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-中异常语法"><span class="nav-number">4.2.</span> <span class="nav-text">C#中异常语法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运用VS调试C-程序"><span class="nav-number">5.</span> <span class="nav-text">运用VS调试C#程序</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">晞</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">白露未晞，看书学习到天明</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

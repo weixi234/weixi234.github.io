@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="基础语法,C#," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言C#学习2，面向对象+继承和泛型。（20190110） C#中的面向对象编程（OOP编程） 类的字段和方法     字段的声明       访问修饰符 类型 字段名称;     方法的声明123访问修饰符 返回值类型 方法名称(参数)&amp;#123;   	//方法体   &amp;#125; 例如：  1234567891011121314151617181920212223242526272829cl">
+<meta name="keywords" content="基础语法,C#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSharp学习2(面向对象编程)">
+<meta property="og:url" content="http://yoursite.com/2019/01/10/CSharp学习2(面向对象编程)/index.html">
+<meta property="og:site_name" content="未 晞">
+<meta property="og:description" content="前言C#学习2，面向对象+继承和泛型。（20190110） C#中的面向对象编程（OOP编程） 类的字段和方法     字段的声明       访问修饰符 类型 字段名称;     方法的声明123访问修饰符 返回值类型 方法名称(参数)&amp;#123;   	//方法体   &amp;#125; 例如：  1234567891011121314151617181920212223242526272829cl">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/01/10/CSharp学习2(面向对象编程)/堆.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/10/CSharp学习2(面向对象编程)/值类型和引用类型.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/10/CSharp学习2(面向对象编程)/GC内存机制.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/10/CSharp学习2(面向对象编程)/修饰符.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/10/CSharp学习2(面向对象编程)/其他修饰符.png">
+<meta property="og:updated_time" content="2019-01-13T03:45:25.805Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSharp学习2(面向对象编程)">
+<meta name="twitter:description" content="前言C#学习2，面向对象+继承和泛型。（20190110） C#中的面向对象编程（OOP编程） 类的字段和方法     字段的声明       访问修饰符 类型 字段名称;     方法的声明123访问修饰符 返回值类型 方法名称(参数)&amp;#123;   	//方法体   &amp;#125; 例如：  1234567891011121314151617181920212223242526272829cl">
+<meta name="twitter:image" content="http://yoursite.com/2019/01/10/CSharp学习2(面向对象编程)/堆.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/10/CSharp学习2(面向对象编程)/"/>
+
+
+
+
+
+  <title>CSharp学习2(面向对象编程) | 未 晞</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?294d40586178dce17bb24335bf3ca589";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">未 晞</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">白露未晞，看书学习到天明~</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-fa fa-address-book"></i> <br />
+            
+            留言板
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/10/CSharp学习2(面向对象编程)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="未晞">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tuxiang.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="未 晞">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CSharp学习2(面向对象编程)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-10T14:49:04+08:00">
+                2019-01-10
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-01-13T11:45:25+08:00">
+                2019-01-13
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C#</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>C#学习2，面向对象+继承和泛型。（20190110）</p>
+<h1 id="C-中的面向对象编程（OOP编程）"><a href="#C-中的面向对象编程（OOP编程）" class="headerlink" title="C#中的面向对象编程（OOP编程）"></a>C#中的面向对象编程（OOP编程）</h1><ul>
+<li>类的字段和方法   </li>
+</ul>
+<p>字段的声明  </p>
+<blockquote>
+<p>   访问修饰符 类型 字段名称;   </p>
+</blockquote>
+<p>方法的声明<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">访问修饰符 返回值类型 方法名称(参数)&#123;   </span><br><span class="line">	//方法体   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>例如： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">class Customer&#123;   </span><br><span class="line">	public string name;  </span><br><span class="line">	public string address;  </span><br><span class="line">	public int age;   </span><br><span class="line">	public string buyTime;   </span><br><span class="line">	public void Show()&#123;   </span><br><span class="line">		Console.WriteLine(&quot;名字:&quot;+name);   </span><br><span class="line">		Console.WriteLine(&quot;年龄:&quot;+age);   </span><br><span class="line">		Console.WriteLine(&quot;地址:&quot;+address);   </span><br><span class="line">		Console.WriteLine(&quot;购买时间:&quot;+buyTime);   </span><br><span class="line">	&#125;    </span><br><span class="line">&#125;    </span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">- 创建对象 </span><br><span class="line">使用自定义的类声明的变量也叫做对象，这个过程也叫做实例化。   </span><br><span class="line">&gt;ClassName myClass = new ClassName();    </span><br><span class="line"></span><br><span class="line">new是一个关键字，使用new 加上类型名（）表示对该对象进行构造。    </span><br><span class="line"></span><br><span class="line">- 声明构造函数  </span><br><span class="line">声明基本的构造函数的语法就是声明一个和所在类同名的方法，但是该方法没有返回类型。   </span><br><span class="line"></span><br><span class="line">```C#</span><br><span class="line">public class MyClass&#123;  </span><br><span class="line">	public MyClass()&#123;   </span><br><span class="line">		这个构造函数的函数体   </span><br><span class="line">	&#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当我们使用new关键字创建类的时候，就会调用构造方法。<br>我们一般会使用构造方法进行初始化数据的一些操作。<br>构造函数可以进行重载，跟普通函数重载是一样的规则。<br>注意：<br>当我们不写，任何构造函数的时候，编译器会提供给我们一个默认的无参的构造函数，但是如果我们定义了一个或者多个构造函数，编译器就不会再提供默认的构造函数。    </p>
+<ul>
+<li>属性的定义<br>属性的定义结构： </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public int MyIntProp&#123;  </span><br><span class="line">	get&#123;  </span><br><span class="line">		// get code  </span><br><span class="line">	&#125;  </span><br><span class="line">	set&#123;  </span><br><span class="line">		//set code    </span><br><span class="line">	&#125;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>（1）定义属性需要名字和类型<br>（2）属性包含两个块 get块和set块<br>（3）访问属性和访问字段一样，当取得属性的值的时候，就会调用属性中的get块，所以get块，类型需要一个返回值就是属性的类型；当我们去给属性设置值的时候，就会调用属性中的set块，我们可以在set块中通过value访问到我们设置的值。   </p>
+<ul>
+<li>通过属性来访问字段<br>习惯上把字段设置为私有的，这样外界不能修改字段的值，然后我们可以通过定义属性来设置和取得字段中的值。 </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">private int age;   </span><br><span class="line">public int Age&#123;//习惯上属性大写 字段小写   </span><br><span class="line">	set&#123;   </span><br><span class="line">		if(value&lt;0)return;   </span><br><span class="line">		age = value;   </span><br><span class="line">	&#125;   </span><br><span class="line">	get&#123;   </span><br><span class="line">		return age;   </span><br><span class="line">	&#125;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>属性可以值只提供一个set块或者get块。    </p>
+<ul>
+<li><p>自动实现的属性  </p>
+<blockquote>
+<p>public int Age{get;set;}<br>编译器会自动创建private int age属性。   </p>
+</blockquote>
+</li>
+<li><p>匿名类型<br>我们创建变量（对象的时候），必须指定类型，其实我们也可以不去指定类型，这个就是匿名类型，我们可以使用var声明一个匿名类型。<br>使用var声明的匿名类型，当初始化的时候，这个变量的类型就被确定下来，并且以后不可以修改。   </p>
+<blockquote>
+<p>var  var1 = 34;</p>
+</blockquote>
+</li>
+<li><p>堆和栈</p>
+<blockquote>
+<p>栈空间比较小，但是读取速度快<br>堆空间比较大，但是读取速度慢</p>
+</blockquote>
+</li>
+</ul>
+<p>栈的特征：<br>    数据只能从栈的顶端插入和删除<br>    把数据放入栈顶称为入栈（push）<br>    从栈顶删除数据称为出栈（pop）  </p>
+<p>堆是一块内存区域，与栈不同，堆里的内存能够以任意顺序存入和移除。<br><img src="堆.png" alt="堆">    </p>
+<ul>
+<li>值类型和引用类型<br>类型被分为两种：值类型(整数，bool struct char 小数)和引用类型（string 数组 自定义的类，内置的类）。<br>值类型只需要一段单独的内存，用于存储实际的数据，（单独定义的时候放在栈中）。<br>引用类型需要两段内存：<br>  第一段存储实际的数据，它总是位于堆中。<br>  第二段是一个引用，指向数据在堆中的存放位置。<br><img src="值类型和引用类型.png" alt="值类型和引用类型">   </li>
+</ul>
+<h1 id="GC-Garbage-Collector垃圾回收器"><a href="#GC-Garbage-Collector垃圾回收器" class="headerlink" title="GC Garbage Collector垃圾回收器"></a>GC Garbage Collector垃圾回收器</h1><p>CLR的GC就是内存管理机制，我们写程序不需要关心内存的使用，因为这些都是CLR帮我们做了。<br><img src="GC内存机制.png" alt="GC内存机制">     </p>
+<h1 id="C-中的继承"><a href="#C-中的继承" class="headerlink" title="C#中的继承"></a>C#中的继承</h1><ul>
+<li>C#中的继承<br>（1）实现继承：<br>表示一个类型派生于一个基类型,它拥有该基类型的所有成员字段和函数。 在实现继承中,派生类型采用基类型的每个函数的实现代码,除非在派生类型的定义中指定重写某个函数的实现代码。 在需要给现有的类型添加功能,或许多相关的类型共享一组重要的公共功能时,这种类型的继承非常有用。<br>（2）接口继承：<br>表示一个类型只继承了函数的签名,没有继承任何实现代码。 在需要指定该类型具有某些可用的特性时,最好使用这种类型的继承。<br>（3）简化健壮代码的编写工作是开发C#的重要设计目标。因此,C#不支持多重实现继承。而C#允许类型派生自多个接口——多重接口继承。这说明,C#类可以派生自另一个类和任意多个接口。更准确地说, System.Object是一个公共的基类,所以每个C#(除了Object类之外)都有一个基类,还可以有任意多个基接口。    </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//如果要声明派生自另一个类的一个类,就可以使用下面的语法:</span><br><span class="line">class MyDerivedClass : MyBaseclass</span><br><span class="line">&#123;</span><br><span class="line">	// functions and data members here</span><br><span class="line">&#125;</span><br><span class="line">//如果类(或 结构)也 派生 自接 口,则用逗号分隔列表中的基类和接 口:</span><br><span class="line">public class MyDerivedClass: MyBaseClass , IInterface1 , IInterface2</span><br><span class="line">&#123;</span><br><span class="line">// etc.</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>虚方法  </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//把一个基类函数声明为virtual,就可以在任何派生类中重写该函数:</span><br><span class="line">	class MyBaseClass&#123;</span><br><span class="line">		public virtual string VirtualMethod()&#123;</span><br><span class="line">			return &quot;Method is called in base class&quot;;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">//在派生类中重写另外一个函数时，要使用override关键字显示声明</span><br><span class="line">	class MyDerivedClass:MyBaseClass&#123;	</span><br><span class="line">		public override string VirtualMethod()&#123;</span><br><span class="line">			return &quot;Method is called in derivedclass.&quot;;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>我们在子类里面重写虚函数之后，不管在哪里调用都是调用重写之后的方法</strong>   </p>
+<ul>
+<li><p>隐藏方法<br>如果签名相同的方法在基类和派生类中都进行了声明，但是该方法没有分别声明为virtual和override，派生类就会隐藏基类方法。（要使用new关键字进行声明）    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//基类  </span><br><span class="line">class MyBaseClass&#123;  </span><br><span class="line">	public int MyMethod()&#123;  </span><br><span class="line">	&#125;  </span><br><span class="line">&#125;  </span><br><span class="line">//派生类(在派生类中把基类同名的方法隐藏掉了)     </span><br><span class="line">class MyDerivedClass :MyBaseClass&#123;</span><br><span class="line">	public new void MyMethod()&#123;</span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>this和base关键字<br>this可以访问当前类中定义的字段,属性和方法，有没有this都可以访问，有this可以让IDE-VS编译器给出提示，另外当方法的参数跟字段重名的时候，使用this可以表明访问的是类中的字段，base可以调用父类中的公有方法和字段,有没有base都可以访问，但是加上base。IED工具会给出提示，把所有可以调用的字段和方法罗列出来方便选择。  </p>
+</li>
+<li><p>抽象类<br>C#允许把类和函数声明为 abstract。抽象类不能实例化,抽象类可以包含普通函数和抽象函数，抽象函数就是只有函数定义没有函数体。 显然,抽象函数本身也是虚拟的Virtual(只有函数定义，没有函数体实现)。<br>类是一个模板，那么抽象类就是一个不完整的模板，我们不能使用不完整的模板去构造对象。<br>abstract class Building{<br>  public abstract decimal CalculateHeatingCost();<br>}  </p>
+</li>
+<li><p>密封类和密封方法<br>C#允许把类和方法声明为sealed。 对于类,这表示不能继承该类；对于方法表示不能重写该方法。<br>sealed FinalClass<br>{<br>// etc<br>}<br>什么时候使用 密封类和密封方法？<br>防止重写某些类导致代码混乱<br>商业原因  </p>
+</li>
+<li><p>派生类的构造函数  </p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//1,在子类中调用父类的默认构造函数（无参）（会先调用父类的，然后是子类的）</span><br><span class="line">	public class MyDerivedClass&#123;</span><br><span class="line">		public MyDerivedClass():base()&#123;</span><br><span class="line">			//do something</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	//在这里 ：base()可以直接不写，因为默认会调用父类中的默认构造函数 </span><br><span class="line"></span><br><span class="line">//2，调用有参数的构造函数</span><br><span class="line">	public class MyDerivedClass&#123;</span><br><span class="line">		public MyDerivedClass(string name):base(name)&#123;</span><br><span class="line">			//do something</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>修饰符<br>修饰符，用来类型或者成员的关键字。修饰符可以指定方法的可见性。<br><img src="修饰符.png" alt="修饰符"><br>（1）private修饰字段和方法的时候，表示该字段或者方法能不能通过对象去访问，只有public的才可以通过对象访问，private（私有的）只能在类模板内部访问。<br>（2）protected保护的，当没有继承的时候，它的作用和private是一样的，当有继承的时候，protected表示可以被子类访问的字段或者方法。    </p>
+</li>
+<li><p>其他修饰符<br><img src="其他修饰符.png" alt="其他修饰符"><br>static可以修饰字段或者方法，修饰字段的时候，表示这个字段是静态的数据，叫做静态字段或者静态属性，修饰方法的时候，叫做静态方法，或者静态函数，使用static修饰的成员，只能通过类名访问。     </p>
+</li>
+<li><p>定义和实现接口  </p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">定义接口(飞翔功能)  </span><br><span class="line">	public interface IFlyHandler&#123;  </span><br><span class="line">		public void Fly();  </span><br><span class="line">	&#125;  </span><br><span class="line">实现接口  </span><br><span class="line">	public class Type1Enemy:IFlyHandler&#123;  </span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>定义一个接口在语法上跟定义一个抽象类完全相同，但不允许提供接口中任何成员的实现方式，一般情况下，接口只能包含方法，属性，索引器和事件的声明。<br>接口不能有构造函数，也不能有字段，接口也不允许运算符重载。<br>接口定义中不允许声明成员的修饰符，接口成员都是公有的</p>
+<ul>
+<li>派生的接口<br>接口可以彼此继承，其方式和类的继承方式相同  <blockquote>
+<p>public interface A{<br>  void Method1();<br>}<br>public interface B:A{<br>  void Method2();<br>}  </p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li>索引器     </li>
+</ul>
+<p>待研究</p>
+<ul>
+<li>运算符重载     </li>
+</ul>
+<p>待研究</p>
+<h1 id="C-中的泛型"><a href="#C-中的泛型" class="headerlink" title="C#中的泛型"></a>C#中的泛型</h1><p>通过参数化类型来实现在同一份代码上操作多种数据类型。利用“参数化类型”将类型抽象化，从而实现灵活的复用。  </p>
+<ul>
+<li>集合类 列表List   </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">-1-,创建列表(列表可以存储任何类型的数据，在创建列表对象的时候首先要指定你要创建的这个列表要存储什么类型的)（泛型）</span><br><span class="line">	List&lt;int&gt; scoreList = new List&lt;int&gt;();</span><br><span class="line">			new List&lt;int&gt;()&#123;1,2,3&#125;</span><br><span class="line">			new List&lt;string&gt;()&#123;&quot;one&quot;,&quot;two&quot;&#125;</span><br><span class="line">	var scoreList = new List&lt;int&gt;();</span><br><span class="line">	</span><br><span class="line">-2-,往列表中插入数据</span><br><span class="line">	scoreList.Add(12);</span><br><span class="line">	scoreList.Add(45);</span><br><span class="line">-3-,如何取得列表中的数据？列表中的数据跟数组有点相似，索引从0开始 ，可以通过索引来访问</span><br><span class="line">	scoreList[0] //访问添加到列表中的第一个数据</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-4-,列表内部数据是使用数组进行的存储，一个空的列表内部会有一个长度为0的数组，当给列表中添加元素的时候，列表的容量会扩大为4，如果添加第5个的时候，列表的大小会重新设置为8，如果添加第9个元素，列表容量会扩大为16，依次增加。当列表的中的容量发生改变的时候，它会创建一个新的数组，使用Array.Copy()方法将旧数组中的元素复制到新数组中。为了节省时间，如果事先知道要存储的数据的个数，就可以利用列表的构造函数指定列表的容量大小，比如下面的</span><br><span class="line">	List&lt;int&gt; intlist = new List&lt;int&gt;(10);</span><br><span class="line">    创建了一个初始容量为10的列表，当容量不够用的时候，每次都会按照原来容量的2倍进行扩容。</span><br><span class="line">	我们可以通过Capacity属性获取和设置容量</span><br><span class="line">	intList.Capacity = 100;</span><br><span class="line">-5-,注意容量和列表中元素个数的区别，容量是列表中用于存储数据的数组的长度通过Capacity获取，列表中的元素是我们添加进去需要管理的数据，通过Count获取。</span><br><span class="line"></span><br><span class="line">-6-列表的遍历</span><br><span class="line">遍历列表有两种方式：</span><br><span class="line">	（1）for循环，遍历所有的索引，通过索引访问列表中的元素</span><br><span class="line">		for(int i=0;i&lt;list.Count;i++)&#123;</span><br><span class="line">			//循环体list[i]</span><br><span class="line">		&#125;</span><br><span class="line">	</span><br><span class="line">	（2）foreach遍历</span><br><span class="line">		foreach(int temp in list)&#123; //依次取得list中的每一个元素赋值给temp，并执行循环体</span><br><span class="line">			//循环体 temp</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">-7-操作列表的属性和方法    </span><br><span class="line">（1）Capacity获取容量大小</span><br><span class="line">（2）Add()方法添加元素</span><br><span class="line">（3）Insert()方法插入元素</span><br><span class="line">（4）[index]访问元素</span><br><span class="line">（5）Count属性访问元素个数</span><br><span class="line">（6）RemoveAt()方法移除指定位置的元素</span><br><span class="line">（7）IndexOf()方法取得一个元素所在列表中的索引位置</span><br><span class="line">（8）LastIndexOf()上面的方法是从前往后搜索，这个是从后往前搜索，搜索到满足条件的就停止</span><br><span class="line">	上面的两个方法，如果没有找到指定元素就返回-1</span><br><span class="line">（9）Sort()对列表中是元素进行从小到大排序</span><br></pre></td></tr></table></figure>
+<ul>
+<li>泛型类定义 </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">定义一个泛型类就是指的是，定义一个类，这个类中某些字段的类型是不确定的，这些类型可以在类构造的时候确定下来,举例:</span><br><span class="line">创建一个类处理int类型和double类型的相加</span><br><span class="line">class ClassA&lt;T&gt;&#123;</span><br><span class="line">	private T a;</span><br><span class="line">	private T b;</span><br><span class="line">	public ClassA(T a,T b)&#123;</span><br><span class="line">		this.a = a ;this.b = b;</span><br><span class="line">	&#125;</span><br><span class="line">	public T GetSum()&#123;</span><br><span class="line">		return a+“”+b;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>泛型方法 </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">定义泛型方法就是定义一个方法，这个方法的参数的类型可以是不确定的，当调用这个方法的时候再去确定方法的参数的类型。</span><br><span class="line">	实现任意类型组拼成字符串的方法</span><br><span class="line">	public static T GetSum&lt;T&gt;(T a,T b)&#123;</span><br><span class="line">		return a+&quot;&quot;+b;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	GetSum&lt;int&gt;(23,12);	GetSum&lt;double&gt;(23.2,12);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>支持我吧</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.bmp" alt="未晞 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.bmp" alt="未晞 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/基础语法/" rel="tag"># 基础语法</a>
+          
+            <a href="/tags/C/" rel="tag"># C#</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/09/CSharp学习1(入门和基础语法)/" rel="next" title="CSharp学习1(入门和基础语法)">
+                <i class="fa fa-chevron-left"></i> CSharp学习1(入门和基础语法)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/11/CSharp学习3(字符串 正则 委托)/" rel="prev" title="CSharp学习3(字符串 正则 委托)">
+                CSharp学习3(字符串 正则 委托) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zOTkyMS8xNjQ0OA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/tuxiang.png"
+                alt="未晞" />
+            
+              <p class="site-author-name" itemprop="name">未晞</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/weixi234" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/3598071457" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zhouyang234@hotmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i></a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C-中的面向对象编程（OOP编程）"><span class="nav-number">2.</span> <span class="nav-text">C#中的面向对象编程（OOP编程）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GC-Garbage-Collector垃圾回收器"><span class="nav-number">3.</span> <span class="nav-text">GC Garbage Collector垃圾回收器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C-中的继承"><span class="nav-number">4.</span> <span class="nav-text">C#中的继承</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C-中的泛型"><span class="nav-number">5.</span> <span class="nav-text">C#中的泛型</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">晞</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">白露未晞，看书学习到天明</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

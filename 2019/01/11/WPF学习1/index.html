@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="基础语法,WPF," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言WPF基础XAML初识 xaml背景渐变    方法一：直接XAML编辑123456789&amp;lt;Grid.Background&amp;gt;    &amp;lt;LinearGradientBrush&amp;gt;        &amp;lt;LinearGradientBrush.GradientStops&amp;gt;            &amp;lt;GradientStop Offset=&quot;0.00&quot; Color=&quot;">
+<meta name="keywords" content="基础语法,WPF">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WPF学习1">
+<meta property="og:url" content="http://yoursite.com/2019/01/11/WPF学习1/index.html">
+<meta property="og:site_name" content="未 晞">
+<meta property="og:description" content="前言WPF基础XAML初识 xaml背景渐变    方法一：直接XAML编辑123456789&amp;lt;Grid.Background&amp;gt;    &amp;lt;LinearGradientBrush&amp;gt;        &amp;lt;LinearGradientBrush.GradientStops&amp;gt;            &amp;lt;GradientStop Offset=&quot;0.00&quot; Color=&quot;">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-13T03:45:25.816Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="WPF学习1">
+<meta name="twitter:description" content="前言WPF基础XAML初识 xaml背景渐变    方法一：直接XAML编辑123456789&amp;lt;Grid.Background&amp;gt;    &amp;lt;LinearGradientBrush&amp;gt;        &amp;lt;LinearGradientBrush.GradientStops&amp;gt;            &amp;lt;GradientStop Offset=&quot;0.00&quot; Color=&quot;">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/11/WPF学习1/"/>
+
+
+
+
+
+  <title>WPF学习1 | 未 晞</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?294d40586178dce17bb24335bf3ca589";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">未 晞</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">白露未晞，看书学习到天明~</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-fa fa-address-book"></i> <br />
+            
+            留言板
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/11/WPF学习1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="未晞">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tuxiang.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="未 晞">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">WPF学习1</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-11T18:44:14+08:00">
+                2019-01-11
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-01-13T11:45:25+08:00">
+                2019-01-13
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WPF/" itemprop="url" rel="index">
+                    <span itemprop="name">WPF</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h1 id="WPF基础"><a href="#WPF基础" class="headerlink" title="WPF基础"></a>WPF基础</h1><h2 id="XAML初识"><a href="#XAML初识" class="headerlink" title="XAML初识"></a>XAML初识</h2><ul>
+<li>xaml背景渐变  </li>
+</ul>
+<p>方法一：直接XAML编辑<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Grid.Background</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">LinearGradientBrush</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">LinearGradientBrush.GradientStops</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">GradientStop</span> <span class="attr">Offset</span>=<span class="string">"0.00"</span> <span class="attr">Color</span>=<span class="string">"Red"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">GradientStop</span> <span class="attr">Offset</span>=<span class="string">"0.50"</span> <span class="attr">Color</span>=<span class="string">"Indigo"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">GradientStop</span> <span class="attr">Offset</span>=<span class="string">"1.00"</span> <span class="attr">Color</span>=<span class="string">"Violet"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">LinearGradientBrush.GradientStops</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">LinearGradientBrush</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Grid.Background</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>方法二：直接编辑属性<br>指定控件-&gt;属性-&gt;画笔-&gt;Background-&gt;渐变画笔-&gt;</p>
+<ul>
+<li>xaml附加属性  </li>
+</ul>
+<p>(1)布局-&gt;RowDefinitions-&gt;    </p>
+<p>(2)显示空格    </p>
+<blockquote>
+<p>xml:space=”preserve”   </p>
+</blockquote>
+<p>(3)显示特定符号   </p>
+<blockquote>
+<p>\&lt;  =&gt;  &lt;<br>\&gt;    =&gt;  &gt;</p>
+</blockquote>
+<ul>
+<li>xaml事件  </li>
+</ul>
+<p>Click=”Button_Click”   </p>
+<h1 id="创建WPF应用程序"><a href="#创建WPF应用程序" class="headerlink" title="创建WPF应用程序"></a>创建WPF应用程序</h1><h2 id="只使用代码创建WPF应用程序"><a href="#只使用代码创建WPF应用程序" class="headerlink" title="只使用代码创建WPF应用程序"></a>只使用代码创建WPF应用程序</h2><p>优点：可以任意创建窗体    </p>
+<p>新建-&gt;项目-&gt;WPF应用程序    </p>
+<p>添加-&gt;新建项-&gt;类Class1   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">using System.Windows;</span><br><span class="line">using System.Windows.Controls;</span><br><span class="line">using System.Windows.Markup;</span><br><span class="line"></span><br><span class="line">namespace WpfApp1</span><br><span class="line">&#123;</span><br><span class="line">    class Class1:Window </span><br><span class="line">    &#123;</span><br><span class="line">        private Button button1;</span><br><span class="line">        public Class1()</span><br><span class="line">        &#123;</span><br><span class="line">            InitializeComponent();</span><br><span class="line">        &#125;</span><br><span class="line">        private void InitializeComponent()</span><br><span class="line">        &#123;</span><br><span class="line">            //设置窗体</span><br><span class="line">            this.Height = 260;</span><br><span class="line">            this.Width = 285;</span><br><span class="line">            this.Left = this.Top = 100;</span><br><span class="line">            this.Title = &quot;wpf&quot;;</span><br><span class="line">            //创建停靠面板对象</span><br><span class="line">            DockPanel panel = new DockPanel();</span><br><span class="line">            //创建按钮对象</span><br><span class="line">            button1 = new Button();</span><br><span class="line">            button1.Content = &quot;click me&quot;;</span><br><span class="line">            button1.Margin = new Thickness(30);</span><br><span class="line"></span><br><span class="line">            button1.Click += button1_click;</span><br><span class="line"></span><br><span class="line">            IAddChild container = panel;</span><br><span class="line">            container.AddChild(button1);</span><br><span class="line">            container = this;</span><br><span class="line">            container.AddChild(panel);</span><br><span class="line">        &#125;</span><br><span class="line">        private  void button1_click(object sender,RoutedEventArgs e)</span><br><span class="line">        &#123;</span><br><span class="line">            button1.Content = &quot;444&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">using System;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using System.Linq;</span><br><span class="line">using System.Text;</span><br><span class="line">using System.Threading.Tasks;</span><br><span class="line">using System.Windows;</span><br><span class="line"></span><br><span class="line">namespace WpfApp1</span><br><span class="line">&#123;</span><br><span class="line">    class Class2APP:Application</span><br><span class="line">    &#123;</span><br><span class="line">        [STAThread()]</span><br><span class="line"></span><br><span class="line">        static void Main()</span><br><span class="line">        &#123;</span><br><span class="line">            Class2APP app = new Class2APP();</span><br><span class="line">            app.MainWindow = new Class1();</span><br><span class="line">            app.MainWindow.ShowDialog();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>项目-&gt;属性-&gt;应用程序-&gt;启动对象-&gt;WpfApp1.Class2App  </p>
+<h2 id="使用代码和未经编译的XAML创建WPF应用程序"><a href="#使用代码和未经编译的XAML创建WPF应用程序" class="headerlink" title="使用代码和未经编译的XAML创建WPF应用程序"></a>使用代码和未经编译的XAML创建WPF应用程序</h2>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>支持我吧</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.bmp" alt="未晞 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.bmp" alt="未晞 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/基础语法/" rel="tag"># 基础语法</a>
+          
+            <a href="/tags/WPF/" rel="tag"># WPF</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/11/CSharp学习3(字符串 正则 委托)/" rel="next" title="CSharp学习3(字符串 正则 委托)">
+                <i class="fa fa-chevron-left"></i> CSharp学习3(字符串 正则 委托)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/12/再温C++—3 继承及多态/" rel="prev" title="再温C++—3 继承及多态">
+                再温C++—3 继承及多态 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zOTkyMS8xNjQ0OA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/tuxiang.png"
+                alt="未晞" />
+            
+              <p class="site-author-name" itemprop="name">未晞</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/weixi234" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/3598071457" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zhouyang234@hotmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i></a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#WPF基础"><span class="nav-number">2.</span> <span class="nav-text">WPF基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#XAML初识"><span class="nav-number">2.1.</span> <span class="nav-text">XAML初识</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建WPF应用程序"><span class="nav-number">3.</span> <span class="nav-text">创建WPF应用程序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#只使用代码创建WPF应用程序"><span class="nav-number">3.1.</span> <span class="nav-text">只使用代码创建WPF应用程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用代码和未经编译的XAML创建WPF应用程序"><span class="nav-number">3.2.</span> <span class="nav-text">使用代码和未经编译的XAML创建WPF应用程序</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">晞</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">白露未晞，看书学习到天明</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
