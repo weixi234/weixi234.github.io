@@ -116,7 +116,7 @@
 
 
 
-  <meta name="keywords" content="Ubuntu,GPU,OpenCV," />
+  <meta name="keywords" content="Ubuntu,OpenCV,GPU," />
 
 
 
@@ -128,7 +128,7 @@
 
 
 <meta name="description" content="前言前言1我之前编译配置过opencv很多遍，无论是win环境还是Linux环境。这次在配置好CUDA的Ubuntu环境下编译配置OpenCV3.4和contribute库，也顺便将之前的经验总结归纳。另说明一点，之前在Ubuntu下我一直是输入命令cmake，发现CMAKE-GUI在Ubuntu下也蛮好用。   前言2现修改并完善之前的博文，成一个系列（20181219）PCL我之前一直都是在w">
-<meta name="keywords" content="Ubuntu,GPU,OpenCV">
+<meta name="keywords" content="Ubuntu,OpenCV,GPU">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu从入门到精通——3 编译第三方库OpenCV和PCL">
 <meta property="og:url" content="http://yoursite.com/2018/12/19/Ubuntu从入门到精通——3 编译第三方库OpenCV/index.html">
@@ -399,6 +399,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/19/Ubuntu从入门到精通——3 编译第三方库OpenCV/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/12/19/Ubuntu从入门到精通——3 编译第三方库OpenCV/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -606,9 +616,9 @@ return 0;
           
             <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
           
-            <a href="/tags/GPU/" rel="tag"># GPU</a>
-          
             <a href="/tags/OpenCV/" rel="tag"># OpenCV</a>
+          
+            <a href="/tags/GPU/" rel="tag"># GPU</a>
           
         </div>
       
@@ -664,7 +674,9 @@ return 0;
 
   
     <div class="comments" id="comments">
-      <div id="lv-container" data-id="city" data-uid="MTAyMC8zOTkyMS8xNjQ0OA=="></div>
+      
+        <div id="gitment-container"></div>
+      
     </div>
 
   
@@ -974,22 +986,53 @@ return 0;
 
 
   
-    <script type="text/javascript">
-      (function(d, s) {
-        var j, e = d.getElementsByTagName(s)[0];
-        if (typeof LivereTower === 'function') { return; }
-        j = d.createElement(s);
-        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-        j.async = true;
-        e.parentNode.insertBefore(j, e);
-      })(document, 'script');
-    </script>
-  
 
 
 
 
 
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+      <style>
+        a.gitment-editor-footer-tip { display: none; }
+        .gitment-container.gitment-footer-container { display: none; }
+      </style>
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: '0o我相信o0# MUST HAVE, Your Github ID',
+            repo: 'gitment-comments# MUST HAVE, The repo you use to store Gitment comments',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '5b7e4a61bad4ae2b6723fbed347724c81c200111# EITHER this or proxy_gateway, Github access secret token for the Gitment',
+            
+                client_id: '00330979e367fd9e4fa0# MUST HAVE, Github client id for the Gitment'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
 
 
 

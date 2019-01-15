@@ -376,6 +376,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/22/我的简历/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/11/22/我的简历/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -411,7 +421,7 @@
 <div id="decryptionError" style="display: none;">Incorrect Password!</div>
 <div id="noContentError" style="display: none;">No content to display!</div>
 <div id="encrypt-blog" style="display:none">
-U2FsdGVkX18+VeIyUoXZZfJtEyos0NOM6SDuY29xlIF7M1hemNO+jiPvWPtwybjeWsG8n8EagevD0GLN6zhxM/Ka86pdZ9W9J5AZD2mw6llfVNqUMFSePX4Rbg7uKstKW5ugVVksIVJ91FKjJusy5OAtMytaDVphYIf46TZTdGY3ASGHMBz3VTWza60zoLiIfO0BIWicsnH/VElRnlUWakLiKKz7uDpB3xAXmp5c1xprg7Sj/4A8IpUNn5RGwT82apg9AiiV9Dlt3Jx1JXgjJat4/3xptQKWL5Z40zbMnzlqAUdUQiqRMUndBPe3NzxBcCqUynYxi841m5r3DG4Rtg4by3sTmdlaCuvhE3gM5QAQgg4jicfdMsI+P6NkB4y8MBSa6zp49EWmfrDR2BiLCw==
+U2FsdGVkX1/STG4IPAk5gQrwKe2DYyA3yB/F6WC9Y5nrxszmxQ/zyY3zS9T+bNuAJZtA29IQ3FhegTrh1qyWtQESpRXQgvdi0nFZwcpikJ/IfUhYCECyeR/e/w+monPDDdDSmF74gw9EUqmEpNPoHWBpKcBM/Iayp4IDCMzHoOnEtvsGEPjeuoDUdt9/aiah+yuXWQNMqIP0ByZ0/5mgxiXyXeY1J2P8QESMSs8bKPNbZwMX8tDFLHkaWMBx/yfxZO0xz3eHj4S2E7jyfb28arS/Xy56aG7KyzHljkoeqaT9VpAAm2v42xsOJQQTYsucTdDt6T+xzotklDX9w8xIkOM01SutijF4Sqbk7eL/9IJTax70uWBUzENu0Q5iIw8cTHMPGVpJHmzGIUXbxHMohQ==
 </div>
 <script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
       
@@ -509,7 +519,9 @@ U2FsdGVkX18+VeIyUoXZZfJtEyos0NOM6SDuY29xlIF7M1hemNO+jiPvWPtwybjeWsG8n8EagevD0GLN
 
   
     <div class="comments" id="comments">
-      <div id="lv-container" data-id="city" data-uid="MTAyMC8zOTkyMS8xNjQ0OA=="></div>
+      
+        <div id="gitment-container"></div>
+      
     </div>
 
   
@@ -794,22 +806,53 @@ U2FsdGVkX18+VeIyUoXZZfJtEyos0NOM6SDuY29xlIF7M1hemNO+jiPvWPtwybjeWsG8n8EagevD0GLN
 
 
   
-    <script type="text/javascript">
-      (function(d, s) {
-        var j, e = d.getElementsByTagName(s)[0];
-        if (typeof LivereTower === 'function') { return; }
-        j = d.createElement(s);
-        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-        j.async = true;
-        e.parentNode.insertBefore(j, e);
-      })(document, 'script');
-    </script>
-  
 
 
 
 
 
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+      <style>
+        a.gitment-editor-footer-tip { display: none; }
+        .gitment-container.gitment-footer-container { display: none; }
+      </style>
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: '0o我相信o0# MUST HAVE, Your Github ID',
+            repo: 'gitment-comments# MUST HAVE, The repo you use to store Gitment comments',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '5b7e4a61bad4ae2b6723fbed347724c81c200111# EITHER this or proxy_gateway, Github access secret token for the Gitment',
+            
+                client_id: '00330979e367fd9e4fa0# MUST HAVE, Github client id for the Gitment'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
 
 
 
