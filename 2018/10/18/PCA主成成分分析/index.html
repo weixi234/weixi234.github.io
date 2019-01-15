@@ -879,16 +879,16 @@
         var gitment = new Gitmint({
             id: window.location.pathname, 
             owner: 'weixi234# MUST HAVE, Your Github ID',
-            repo: 'gitment-comments# MUST HAVE, The repo you use to store Gitment comments',
+            repo: 'gitment-comments.github.io# MUST HAVE, The repo you use to store Gitment comments',
             
             lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
             
             oauth: {
             
             
-                client_secret: '5b7e4a61bad4ae2b6723fbed347724c81c200111# EITHER this or proxy_gateway, Github access secret token for the Gitment',
+                client_secret: '5b7e4a61bad4ae2b6723fbed347724c81c200111',
             
-                client_id: '00330979e367fd9e4fa0# MUST HAVE, Github client id for the Gitment'
+                client_id: '00330979e367fd9e4fa0'
             }});
         gitment.render('gitment-container');
       }
