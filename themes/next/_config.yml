@@ -1,4 +1,4 @@
-# ===============================================================
+﻿# ===============================================================
 # ========================= ATTENTION! ==========================
 # ===============================================================
 # NexT repository is moving here: https://github.com/theme-next
@@ -407,7 +407,7 @@ valine:
 #来必力评论
 # Support for LiveRe comments system.
 # You can get your uid from https://livere.com/insight/myCode (General web site)
-livere_uid: MTAyMC8zOTkyMS8xNjQ0OA==
+#livere_uid: MTAyMC8zOTkyMS8xNjQ0OA==
 
 
 
@@ -415,16 +415,16 @@ livere_uid: MTAyMC8zOTkyMS8xNjQ0OA==
 # Introduction: https://imsun.net/posts/gitment-introduction/
 # You can get your Github ID from https://api.github.com/users/<Github username>
 gitment:
-  enable: false
+  enable: true
   mint: true # RECOMMEND, A mint on Gitment, to support count, language and proxy_gateway
   count: true # Show comments count in post meta area
   lazy: false # Comments lazy loading with a button
-  cleanly: false # Hide 'Powered by ...' on footer, and more
+  cleanly: true # Hide 'Powered by ...' on footer, and more
   language: # Force language, or auto switch by theme
-  github_user: # MUST HAVE, Your Github ID
-  github_repo: # MUST HAVE, The repo you use to store Gitment comments
-  client_id: # MUST HAVE, Github client id for the Gitment
-  client_secret: # EITHER this or proxy_gateway, Github access secret token for the Gitment
+  github_user: 0o我相信o0# MUST HAVE, Your Github ID
+  github_repo: gitment-comments# MUST HAVE, The repo you use to store Gitment comments
+  client_id: 00330979e367fd9e4fa0# MUST HAVE, Github client id for the Gitment
+  client_secret: 5b7e4a61bad4ae2b6723fbed347724c81c200111# EITHER this or proxy_gateway, Github access secret token for the Gitment
   proxy_gateway: # Address of api proxy, See: https://github.com/aimingoo/intersect
   redirect_protocol: # Protocol of redirect_uri with force_redirect_protocol when mint enabled
 
