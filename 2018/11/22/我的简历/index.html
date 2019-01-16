@@ -421,7 +421,7 @@
 <div id="decryptionError" style="display: none;">Incorrect Password!</div>
 <div id="noContentError" style="display: none;">No content to display!</div>
 <div id="encrypt-blog" style="display:none">
-U2FsdGVkX19kxZi7zDUS+vuGgCD/+Sx6D8r+Kgz7fc8EdIm9TXzQO8+CUkQBdDgS1Xf/iuLAliY9/IVnYjzoACFq46JiOFaqeMRYiI/7gruJd3gOl6CooCgu4gc8iaHqp2CLuYFP5FhZsg6IwFHI5c6Fypx9tWNmE8dY+9pGxeLl5nAOxgOs+hvR9YuFTT6dkaXYkaF9Wqxfu91EQf2lo0pcTOurtaVZ7PmZ5WhL15BrmlcEzQFIGaNj8/Cg4N9GwLWkBuD7RdUxjXGXKDoBaVokvDJ8sR85LFQwN0J8E1tRnjWks1jhRpEBI38bK5V+ZP3kVrHeC3EwmTFEHK5Awzyh8WO3JHJiBF0dUuIO+53TC4UYS0O8O1mqJhcehi61CwXh2rk2Xqnubcfy9jaLpQ==
+U2FsdGVkX1+2N7fVvgSriKDmfHTn8o/W21qUaTahgZRYj88C4zsCR9eFuhumtQ38JpNK1pNULzQRsN7g6WjiFdUHw4sXla9v3pSFHLgdC8FFlFRXs3acN5CdmUkr+m/T9RarpuHLi39WEnTUakx6HUlAiFILS5ptbFM0Nij3mEpLdCwj27pR+9j7gcJdflFuw02f170j4rDOk+gDxRLWhn55mCUn2+YH6j8bS7A7+aozvcgvHyt/eZ6NJFeaA7l9+yfVHZvdq7RLpAVI7kS2Q1epccYdio18EFSFbudMZsS4vzoVsjurzh5NVZZJRrfl1fjBgCICXVWFR01/l98xqfAslgg0ed7B7dI0690+IEcCoe034lzTsv2PIWdGG2EKK/4aVj6RDhb+tEY+NTFd8Q==
 </div>
 <script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
       
@@ -833,17 +833,17 @@ U2FsdGVkX19kxZi7zDUS+vuGgCD/+Sx6D8r+Kgz7fc8EdIm9TXzQO8+CUkQBdDgS1Xf/iuLAliY9/IVn
       function renderGitment(){
         var gitment = new Gitmint({
             id: window.location.pathname, 
-            owner: 'weixi234# MUST HAVE, Your Github ID',
-            repo: 'weixi234.github.io# MUST HAVE, The repo you use to store Gitment comments',
+            owner: 'weixi234',
+            repo: 'weixi234.github.io',
             
             lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
             
             oauth: {
             
             
-                client_secret: '8bde11549e9e28c95a421229b406bd28f5ac18ca# EITHER this or proxy_gateway, Github access secret token for the Gitment',
+                client_secret: '8bde11549e9e28c95a421229b406bd28f5ac18ca',
             
-                client_id: '00330979e367fd9e4fa0# MUST HAVE, Github client id for the Gitment'
+                client_id: '00330979e367fd9e4fa0'
             }});
         gitment.render('gitment-container');
       }
