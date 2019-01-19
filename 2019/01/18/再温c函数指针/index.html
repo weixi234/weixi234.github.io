@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="基础语法,C,函数指针," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言函数指针及回调函数这块一直想深入研究研究，这次看完C++的继承及多态看到书上写到c语言的多态，很是惊奇，c语言中还有多态？遂研究了一下。      函数类型基础语法函数基础概念 数组类型基本语法梳理：       数组类型的定义（1）     int a[10];//a代表的是数组首地址，更准确说是a代表数组首元素地址，&amp;amp;a代表的是整个数组的地址，a+1步长4和&amp;amp;a+1步长4*">
+<meta name="keywords" content="基础语法,C,函数指针">
+<meta property="og:type" content="article">
+<meta property="og:title" content="再温c函数指针">
+<meta property="og:url" content="http://yoursite.com/2019/01/18/再温c函数指针/index.html">
+<meta property="og:site_name" content="未 晞">
+<meta property="og:description" content="前言函数指针及回调函数这块一直想深入研究研究，这次看完C++的继承及多态看到书上写到c语言的多态，很是惊奇，c语言中还有多态？遂研究了一下。      函数类型基础语法函数基础概念 数组类型基本语法梳理：       数组类型的定义（1）     int a[10];//a代表的是数组首地址，更准确说是a代表数组首元素地址，&amp;amp;a代表的是整个数组的地址，a+1步长4和&amp;amp;a+1步长4*">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/01/18/再温c函数指针/回调函数核心.jpg">
+<meta property="og:updated_time" content="2019-01-19T06:54:05.056Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="再温c函数指针">
+<meta name="twitter:description" content="前言函数指针及回调函数这块一直想深入研究研究，这次看完C++的继承及多态看到书上写到c语言的多态，很是惊奇，c语言中还有多态？遂研究了一下。      函数类型基础语法函数基础概念 数组类型基本语法梳理：       数组类型的定义（1）     int a[10];//a代表的是数组首地址，更准确说是a代表数组首元素地址，&amp;amp;a代表的是整个数组的地址，a+1步长4和&amp;amp;a+1步长4*">
+<meta name="twitter:image" content="http://yoursite.com/2019/01/18/再温c函数指针/回调函数核心.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/18/再温c函数指针/"/>
+
+
+
+
+
+  <title>再温c函数指针 | 未 晞</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?294d40586178dce17bb24335bf3ca589";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">未 晞</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">白露未晞，看书学习到天明~</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-fa fa-address-book"></i> <br />
+            
+            留言板
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/18/再温c函数指针/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="未晞">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tuxiang.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="未 晞">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">再温c函数指针</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-18T01:45:29+08:00">
+                2019-01-18
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-01-19T14:54:05+08:00">
+                2019-01-19
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/再温CPP/" itemprop="url" rel="index">
+                    <span itemprop="name">再温CPP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/18/再温c函数指针/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/01/18/再温c函数指针/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>函数指针及回调函数这块一直想深入研究研究，这次看完C++的继承及多态看到书上写到c语言的多态，很是惊奇，c语言中还有多态？遂研究了一下。     </p>
+<h1 id="函数类型基础语法"><a href="#函数类型基础语法" class="headerlink" title="函数类型基础语法"></a>函数类型基础语法</h1><h2 id="函数基础概念"><a href="#函数基础概念" class="headerlink" title="函数基础概念"></a>函数基础概念</h2><hr>
+<p>数组类型基本语法梳理：     </p>
+<ul>
+<li>数组类型的定义<br>（1）    <blockquote>
+<p>int a[10];//a代表的是数组首地址，更准确说是a代表数组首元素地址，&amp;a代表的是整个数组的地址，a+1步长4和&amp;a+1步长4*10=40         </p>
+</blockquote>
+</li>
+</ul>
+<p>(2)定义一个数组类型的方法   </p>
+<blockquote>
+<p>typedef int (myTypeArray)[10];//自己定义一个数组类型，同（1）中定义相同<br>myTypedefArray myArray;//用自己定义的数组类型声明个数组<br>myArray[0]=10;//对数组进行操作，操作方法与之前一样。   </p>
+</blockquote>
+<ul>
+<li><p>指针数组类型的定义   </p>
+<blockquote>
+<p>typedef int (<em>PTypeArray)[10];//同 int </em>p效果一样<br>PTypeArray myPArray;//步长sizeof(int)<em>元素个数<br>myPArray=&amp;\a;//步长是取整个数组长度，注意<br>//int b=10;<br>//int </em>p=NULL;<br>//p=&amp;\b;<br>(*myPArray)[0]=20;//这里注意        </p>
+</blockquote>
+</li>
+<li><p>定义一个指向数组类型的指针    </p>
+<blockquote>
+<p>int (<em>PTypeArray)[10];//变量，告诉编译器分配内存<br>myPArray=&amp;\a;//步长是取整个数组长度，注意<br>(</em>myPArray)[0]=20;//这里注意    </p>
+</blockquote>
+</li>
+</ul>
+<p>有些迷😵啊    </p>
+<hr>
+<ul>
+<li><p>函数三要素：名称、参数、返回值    </p>
+</li>
+<li><p>函数名是函数体的入口地址   </p>
+</li>
+<li><p>函数指针基本语法梳理<br>（1）定义一个函数类型<br>C语言中通过typedef为函数类型重命名（即<strong>通过以下方法定义函数类型</strong>）（类似于数组类型的定义）     </p>
+<blockquote>
+<p>typedef type name(parameter list);<br>typedef int f(int , int);<br>typedef void p(int);     </p>
+</blockquote>
+</li>
+</ul>
+<p>（2）定义一个函数指针类型<br><strong>定义一个类型，这个类型是指针类型</strong><br>函数指针用于指向一个函数，有如下几种方法定义函数指针：<br>1、可通过函数类型定义函数指针：<figure class="highlight plain"><figcaption><span>pointer;```   </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">2、可直接定义函数指针：```type(*pointer)(parameter list);```其中，pointer为函数指针变量名，type为指向函数的返回值类型，parameter list为指向函数的参数类型列表      </span><br><span class="line"></span><br><span class="line">（3）定义一个函数指针（指向一个函数的入口地址）   </span><br><span class="line">**直接定义函数指针**    </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">```c++</span><br><span class="line">int add(int a,int b)</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;func add ...\n&quot;);</span><br><span class="line">    return a+b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    add(1,2);//函数的直接调用，//函数名就是函数的入口地址   </span><br><span class="line">    myPointerFunc(3,4);//间接调用函数       </span><br><span class="line">    //通过变量操作类型    </span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line">        //定义一个函数类型</span><br><span class="line">        typedef int (MyFuncType)(int a,int b);//定义了一个类型</span><br><span class="line">        MyFuncType *myPointerFunc=NULL;//定义变量，定义了一个指针，指向某一种（两个整型参数，整型返回值）类型的函数      </span><br><span class="line"></span><br><span class="line">        myPointerFunc=&amp;add;//细节</span><br><span class="line">        //myPointerFunc=add; //细节 取不取地址都能编译通过，c是逐渐完善起来的，兼容历史版本    </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line">        //定义一个函数指针类型  </span><br><span class="line">        typedef int (*MyPointerFuncType)(int a,int b); //相当于int *a=NULL;   </span><br><span class="line">        MyPointerFuncType myPointerFunc;//定义一个指针    </span><br><span class="line">        myPointerFunc=add;   </span><br><span class="line">        myPointerFunc(5,6);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line">        //直接定义函数指针   </span><br><span class="line">        int (*MyPointerFunc)(int a,int b);//定义了一个变量    </span><br><span class="line">        MypointerFunc=add;</span><br><span class="line">        MypointerFunc(7,8);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="函数指针做函数参数思想剖析"><a href="#函数指针做函数参数思想剖析" class="headerlink" title="函数指针做函数参数思想剖析"></a>函数指针做函数参数思想剖析</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//相当于虚函数表  </span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">myadd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span><span class="comment">//子任务的实现者</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"func add() do ..."</span>);</span><br><span class="line">    <span class="keyword">return</span> a+b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">myadd2</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span><span class="comment">//子任务的实现者</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"func add2() do ..."</span>);</span><br><span class="line">    <span class="keyword">return</span> a+b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">myadd3</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span><span class="comment">//子任务的实现者</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"func add3() do ..."</span>);</span><br><span class="line">    <span class="keyword">return</span> a+b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义了一个类型  </span></span><br><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">int</span> <span class="params">(*MyTypeFuncAdd)</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//函数指针做函数参数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MainOp</span><span class="params">(MyTypeFuncAdd myFuncAdd)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> c = myFuncAdd(<span class="number">5</span>,<span class="number">6</span>);</span><br><span class="line">    <span class="keyword">return</span> c;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//下面这种定义也可用</span></span><br><span class="line">int MainOp2(int (*MyTypeFuncAdd)(int a,int b))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> c = MyTypeFuncAdd(<span class="number">5</span>,<span class="number">6</span>);</span><br><span class="line">    <span class="keyword">return</span> c;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    MyTypeFuncAdd myFuncAdd=<span class="literal">NULL</span>;<span class="comment">//用类型 声明 变量并初始化 </span></span><br><span class="line">    myadd(<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">    myFuncAdd=myadd;<span class="comment">//赋值  </span></span><br><span class="line">    myFuncAdd(<span class="number">3</span>,<span class="number">4</span>);    <span class="comment">//简介调用    </span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    MainOp(myadd);  <span class="comment">//通过函数指针做函数参数   </span></span><br><span class="line">    <span class="comment">//任务的调用和任务的实现可以分开    </span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//MainOp框架没有发生任何变化的情况下，可以调用后来人写的代码  </span></span><br><span class="line">    MainOp(myadd2);</span><br><span class="line">    MainOp(myadd3);</span><br><span class="line">    MainOp(myadd4);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    system(<span class="string">"pause"</span>);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="回调函数核心.jpg" alt="回调函数核心">   </p>
+<p>结论：回调函数的本质：提前做了一个协议的约定（把函数的参数、函数返回值提前约定）<br>C++编译器通过多态的机制(提前布局vptr指针和虚函数表,找虚函数入口地址来实现)     </p>
+<h1 id="函数指针在项目中的应用"><a href="#函数指针在项目中的应用" class="headerlink" title="函数指针在项目中的应用"></a>函数指针在项目中的应用</h1><h2 id="函数指针正向调用"><a href="#函数指针正向调用" class="headerlink" title="函数指针正向调用"></a>函数指针正向调用</h2><p>(1)函数指针做函数参数，调用方式<br>被调用函数和主调函数在同一文件中（用来教学，没有任何意义）<br>(2)函数指针做函数参数<br>被调用函数和主调函数不在同一个文件中、模块中。<br>难点：理解被调用函数是什么机制被调用起来的。框架<br>框架提前设置了被调用函数的入口（框架提供了第三方模块入口地址的集成功能）<br>框架具备调用第三方模块入口函数         </p>
+<h2 id="函数指针反向调用"><a href="#函数指针反向调用" class="headerlink" title="函数指针反向调用"></a>函数指针反向调用</h2><p>回调函数   </p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>支持我吧</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.bmp" alt="未晞 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.bmp" alt="未晞 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/基础语法/" rel="tag"># 基础语法</a>
+          
+            <a href="/tags/C/" rel="tag"># C</a>
+          
+            <a href="/tags/函数指针/" rel="tag"># 函数指针</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/12/再温C++—3 继承及多态/" rel="next" title="再温C++—3 继承及多态">
+                <i class="fa fa-chevron-left"></i> 再温C++—3 继承及多态
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/tuxiang.png"
+                alt="未晞" />
+            
+              <p class="site-author-name" itemprop="name">未晞</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/weixi234" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/3598071457" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zhouyang234@hotmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i></a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数类型基础语法"><span class="nav-number">2.</span> <span class="nav-text">函数类型基础语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数基础概念"><span class="nav-number">2.1.</span> <span class="nav-text">函数基础概念</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数指针做函数参数思想剖析"><span class="nav-number">3.</span> <span class="nav-text">函数指针做函数参数思想剖析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数指针在项目中的应用"><span class="nav-number">4.</span> <span class="nav-text">函数指针在项目中的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数指针正向调用"><span class="nav-number">4.1.</span> <span class="nav-text">函数指针正向调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数指针反向调用"><span class="nav-number">4.2.</span> <span class="nav-text">函数指针反向调用</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">晞</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">白露未晞，看书学习到天明</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+      <style>
+        a.gitment-editor-footer-tip { display: none; }
+        .gitment-container.gitment-footer-container { display: none; }
+      </style>
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'weixi234',
+            repo: 'weixi234.github.io',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '8bde11549e9e28c95a421229b406bd28f5ac18ca',
+            
+                client_id: '00330979e367fd9e4fa0'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
